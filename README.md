@@ -1,8 +1,8 @@
 # 🚀 UPDATERS  
 
 <p align="center">
-  <img src="93dac664-c455-4048-b74a-a719da8a0ea5.png" alt="Logo UPDATERS" width="200"/>
-</p>
+  ![Logo UPDATERS](imagens/logo_updaters.png)
+  </p>
 
 ---
 
@@ -61,10 +61,6 @@ O **Jornal do Commercio** vem enfrentando desafios na **retenção e fidelidade 
 
 ## 🛠️ Como nós funcionamos  
 
-<p align="center">
-  <img src="7caeb6f8-29a0-4c84-9ca3-732bbcdf5fdb.png" alt="Processo UPDATERS" width="500"/>
-</p>
-
 Nosso processo criativo segue **4 etapas principais**:  
 
 1. **🔍 Imersão** → Desk Research, Protopersona, Mapa de Empatia, Benchmarking.  
@@ -74,10 +70,20 @@ Nosso processo criativo segue **4 etapas principais**:
 
 ---
 
+## ⌛ Timeline
+
+<p aling="center">
+  ![Timeline](imagens/timeline_updaters.png)
+</p>
+
+Essa Timeline apresenta parte do nosso trabalho de forma sequencial.
+
+---
+
 ## 📊 Benchmarking  
 
 <p align="center">
-  <img src="dca58c6d-f4f2-40f8-b472-09a4310aba14.png" alt="Benchmarking UPDATERS" width="500"/>
+  ![Benchmarking](imagens/benchmarking_updaters.png)
 </p>
 
 Analisamos portais de notícias para identificar oportunidades:  
