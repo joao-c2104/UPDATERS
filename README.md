@@ -1,52 +1,107 @@
-# **UPDATERS**
+# 🚀 UPDATERS  
 
-## 📋 Visão Geral
-
-O **UPDATERS** é um projeto desenvolvido para enfrentar um dos principais desafios do **Jornal do Commercio (JC)**: o declínio contínuo de acesso e engajamento em sua plataforma digital.  
-Esse problema ameaça diretamente a sustentabilidade do negócio, reduzindo assinaturas, enfraquecendo a receita publicitária e diminuindo a relevância da marca no cenário jornalístico regional.  
-
-O sistema busca não apenas frear esse movimento, mas também reposicionar o JC como uma referência em **inovação, retenção de audiência e valorização do jornalismo local**.  
+<p align="center">
+  <img src="93dac664-c455-4048-b74a-a719da8a0ea5.png" alt="Logo UPDATERS" width="200"/>
+</p>
 
 ---
 
-## 🎯 Objetivo do Projeto
-
-O projeto tem como propósito **recuperar e expandir a base digital do JC**, garantindo maior relevância no consumo de notícias e fortalecendo sua posição frente a concorrentes e novas tecnologias.  
-Entre os principais focos estão:  
-- **Engajamento sustentável**: reter usuários por meio de experiências personalizadas.  
-- **Diversificação de formatos**: conteúdos multimídia (vídeos, podcasts, infográficos).  
-- **Inovação tecnológica**: uso de inteligência artificial para recomendações de conteúdo e análise preditiva.  
-- **Fortalecimento institucional**: aumentar a atratividade para anunciantes e parceiros comerciais.  
+## 📌 Sobre nós  
+Somos a **UPDATERS**, um coletivo de designers e desenvolvedores da **CESAR School**.  
+Reimaginamos serviços e criamos **soluções digitais** que combinam **excelência técnica** e **design centrado no ser humano**, impulsionando o sucesso de nossos parceiros.  
 
 ---
 
-## ✨ Funcionalidades Principais
-
-- [ ] **Dashboard de Engajamento**: métricas em tempo real (visitantes únicos, sessões, pageviews).  
-- [ ] **Recomendações Inteligentes**: sistema de sugestão de conteúdos baseado no perfil do usuário.  
-- [ ] **Diversificação de Conteúdo**: suporte para vídeos, podcasts e infográficos interativos.  
-- [ ] **Retenção Personalizada**: planos de assinatura adaptados ao comportamento do leitor.  
-- [ ] **Análises Preditivas**: projeção de tendências de consumo e alertas para riscos de evasão.  
+## 📰 Cliente: Jornal do Commercio (JC)  
+- 🏛 Fundado em **1919**, com sede em Recife/PE.  
+- 📰 Integra o **Sistema Jornal do Commercio de Comunicação (SJCC)**.  
+- ⭐ Um dos veículos mais **tradicionais e influentes** do Brasil.  
+- 💻 Evoluiu de jornal impresso para **plataforma multimídia** (portal online, rádios e TV).  
 
 ---
 
-## 🚀 Instalação e Execução
+## 🎯 O Problema  
+O **Jornal do Commercio** vem enfrentando desafios na **retenção e fidelidade digital**:
 
-### Pré-requisitos
+- 📉 Queda de cliques e acessos no portal.  
+- ⚡ Concorrentes mais adaptados às **novas tendências digitais**.  
+- 💔 Baixa conexão emocional com usuários.  
+- 🔎 **SEO deficiente** e perda de relevância no Google.  
+- 📢 Alocação inadequada de anúncios, prejudicando **experiência e receita**.  
 
-- Node.js (v16 ou superior)  
-- npm ou yarn  
-- Banco de dados relacional (MySQL ou PostgreSQL)  
-- Docker (opcional, para containerização do ambiente)  
+---
 
-### Instalação
+## 📍 Onde e Como ocorre?  
+- O problema acontece principalmente nos **portais digitais** do JC.  
+- Usuários acessam via mecanismos de busca, mas não navegam para outras páginas → visitas **curtas e isoladas** (ausência do “segundo clique”).  
 
-```bash
-# Clone o repositório
-git clone https://github.com/joao-c2104/UPDATERS
+---
 
-# Acesse a pasta do projeto
-cd UPDATERS
+## 👥 Quem é impactado?  
+- **O JC** → perde relevância, engajamento e fidelização.  
+- **Usuários** → não têm uma experiência contínua e deixam de acessar conteúdos relevantes.  
 
-# Instale as dependências
-npm install
+---
+
+## 🔎 Causas e Consequências  
+
+**⚠️ Causas**  
+- Foco em tráfego via Google sem estratégia de retenção.  
+- Conteúdos e interfaces que não incentivam navegação contínua.  
+- Falta de recursos para engajamento.  
+- Algoritmos do Google favorecendo portais mais fiéis.  
+
+**📉 Consequências**  
+- Redução do tempo médio no site.  
+- Menor fidelidade e engajamento.  
+- Queda no ranqueamento.  
+- Impacto no **recall da marca** e nos números de acesso.  
+
+---
+
+## 🛠️ Como nós funcionamos  
+
+<p align="center">
+  <img src="7caeb6f8-29a0-4c84-9ca3-732bbcdf5fdb.png" alt="Processo UPDATERS" width="500"/>
+</p>
+
+Nosso processo criativo segue **4 etapas principais**:  
+
+1. **🔍 Imersão** → Desk Research, Protopersona, Mapa de Empatia, Benchmarking.  
+2. **💡 Ideação** → Insights, Mapa Analítico, Storyboard, Cards de Ideias.  
+3. **🎨 Branding** → Leis de Gestalt, Mood Board, Grid de Proporção.  
+4. **🚀 Saída** → Conteúdos relevantes, títulos chamativos, imagens de qualidade e criação de comunidade.  
+
+---
+
+## 📊 Benchmarking  
+
+<p align="center">
+  <img src="dca58c6d-f4f2-40f8-b472-09a4310aba14.png" alt="Benchmarking UPDATERS" width="500"/>
+</p>
+
+Analisamos portais de notícias para identificar oportunidades:  
+
+- 🟥 **G1**  
+- 📰 **Diário de Pernambuco**  
+- 🟦 **Folha de São Paulo**  
+- 🟨 **Estadão**  
+
+> Essa análise comparativa nos ajudou a compreender **oportunidades de melhoria** em conteúdo, design, usabilidade e engajamento.  
+
+---
+
+## 🚀 Nossa Missão  
+- 📈 Aumentar a **retenção e engajamento** no portal do JC.  
+- 💌 Criar novas formas de **conexão emocional** com leitores.  
+- 🔎 Reforçar a **marca JC** no ambiente digital.  
+- 🛠️ Unir **tecnologia + design + experiência centrada no usuário**.  
+
+---
+
+## 👥 Equipe UPDATERS  
+👨‍💻 Designers e desenvolvedores da **CESAR School**, unidos para transformar experiências digitais.  
+
+<p align="center">
+  <b>✨ Somos os UPDATERS. Transformamos desafios em soluções. ✨</b>
+</p>
