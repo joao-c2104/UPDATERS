@@ -66,4 +66,48 @@ Nosso processo criativo segue **4 etapas principais**:
 1. **🔍 Imersão** → Desk Research, Protopersona, Mapa de Empatia, Benchmarking.
 2. **💡 Ideação** → Insights, Mapa Analítico, Storyboard, Cards de Ideias.
 3. **🎨 Branding** → Leis de Gestalt, Mood Board, Grid de Proporção.
-4. **🚀 Saída** → Conteúdos relevantes, títulos chamativos, imagens
+4. **🚀 Saída** → Conteúdos relevantes, títulos chamativos, imagens de qualidade e criação de comunidade.
+
+---
+
+## ⌛ Timeline
+
+<p align="center">
+  <img src="imagens/timeline_updaters.png" alt="Timeline do projeto">
+</p>
+
+Essa Timeline apresenta parte do nosso trabalho de forma sequencial.
+
+---
+
+## 📊 Benchmarking
+
+<p align="center">
+  <img src="imagens/benchmarking_updaters.png" alt="Benchmarking de portais de notícias">
+</p>
+
+Analisamos portais de notícias para identificar oportunidades:
+
+- 🟥 **G1**
+- 📰 **Diário de Pernambuco**
+- 🟦 **Folha de São Paulo**
+- 🟨 **Estadão**
+
+> Essa análise comparativa nos ajudou a compreender **oportunidades de melhoria** em conteúdo, design, usabilidade e engajamento.
+
+---
+
+## 🚀 Nossa Missão
+- 📈 Aumentar a **retenção e engajamento** no portal do JC.
+- 💌 Criar novas formas de **conexão emocional** com leitores.
+- 🔎 Reforçar a **marca JC** no ambiente digital.
+- 🛠️ Unir **tecnologia + design + experiência centrada no usuário**.
+
+---
+
+## 👥 Equipe UPDATERS
+👨‍💻 Designers e desenvolvedores da **CESAR School**, unidos para transformar experiências digitais.
+
+<p align="center">
+  <b>✨ Somos os UPDATERS. Transformamos desafios em soluções. ✨</b>
+</p>
