@@ -6,9 +6,37 @@
 
 ---
 
-## 📌 Sobre nós
-Somos a **UPDATERS**, um coletivo de designers e desenvolvedores da **CESAR School**.
-Reimaginamos serviços e criamos **soluções digitais** que combinam **excelência técnica** e **design centrado no ser humano**, impulsionando o sucesso de nossos parceiros.
+## 🚀 Sobre nós
+
+Somos a **UPDATERS**, um coletivo de designers e desenvolvedores da **CESAR School**.  
+Reimaginamos serviços e criamos **soluções digitais** que combinam **excelência técnica** e **design centrado no ser humano**, impulsionando o sucesso dos nossos parceiros.
+
+### 🌍 Nossa missão
+- **Missão**: Aproximar pessoas da informação por meio de experiências digitais inovadoras.  
+- **Visão**: Ser referência nacional em design e tecnologia aplicada à mídia.  
+- **Valores**: Empatia, colaboração, inovação e impacto social.
+
+### 👨‍💻 Nossa equipe
+| Membro           | Função               |
+|------------------|----------------------|
+| Antonio Manoel   | UX / UI Designer     |
+| Artur Prazeres   | Design de Interação  |
+| Breno Santiago   | Product Owner        |
+| Filipe Correia   | Dev Frontend         |
+| Gabriel Ribeiro  | Design de Produto    |
+| João Carlos      | Dev Backend          |
+| João Henrique    | Design Gráfico       |
+| João P. Carvalho | Dev Frontend         |
+| João P. Pessôa   | Dev Full Stack       |
+| Mateus Dornellas | Dev Backend          |
+| Thiago Carvalho  | Design de Branding   |
+| Walter Maia      | Scrum Master         |
+
+### 📅 Nossa jornada
+- 🎓 **2025**: Nascemos na CESAR School.  
+- 📰 **2025**: Primeiro grande projeto — modernizar a experiência digital do **Jornal do Commercio**.  
+- 🚀 Estamos só começando a transformar o futuro da mídia no Brasil.
+
 
 ---
 
@@ -32,8 +60,42 @@ O **Jornal do Commercio** vem enfrentando desafios na **retenção e fidelidade 
 ---
 
 ## 📍 Onde e Como ocorre?
-- O problema acontece principalmente nos **portais digitais** do JC.
-- Usuários acessam via mecanismos de busca, mas não navegam para outras páginas → visitas **curtas e isoladas** (ausência do “segundo clique”).
+
+O problema acontece principalmente nos **portais digitais** do JC, onde há grande volume de acessos, mas baixa retenção.  
+Usuários chegam até as páginas por mecanismos de busca, porém não exploram outras seções — resultando em visitas **curtas e isoladas** (ausência do “segundo clique”).
+
+---
+
+### 🔎 Jornada do Usuário
+
+![Fluxo do usuário chegando pelo buscador](https://via.placeholder.com/600x250?text=Imagem+Fluxo+Usuario+Buscador)
+
+*Exemplo: usuário chega via busca → acessa 1 notícia → não navega mais.*
+
+---
+
+### 📊 Dados ilustrativos
+
+![Gráfico de barras sobre taxa de segundo clique](https://via.placeholder.com/500x300?text=Grafico+Taxa+Segundo+Clique)
+
+*Representação visual: A cada ano que passa mais usuários consomem notícias via rede social, principalmente utilizando vídeos curtos.*
+
+---
+
+### 😕 Experiência atual
+
+![Usuário frustrado saindo do site](https://via.placeholder.com/400x250?text=Usuario+Frustrado)
+
+*Usuário acessa o portal, mas não encontra estímulo para continuar navegando.*
+
+---
+
+### ✨ Oportunidade
+
+![Oportunidade de retenção digital](https://via.placeholder.com/600x250?text=Imagem+Retencao+Digital)
+
+*Com novas soluções de design e conteúdo, podemos transformar visitas curtas em **engajamento contínuo**.*
+
 
 ---
 
