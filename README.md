@@ -76,7 +76,7 @@ Usuários chegam até as páginas por mecanismos de busca, porém não exploram 
 
 ### 📊 Dados ilustrativos
 
-![Gráfico de barras sobre taxa de segundo clique](imagens/infográfico.png)
+![Gráfico de barras sobre taxa de segundo clique](imagens/infográfico2.png)
 
 *Representação visual: A cada ano que passa mais usuários consomem notícias via rede social, principalmente utilizando vídeos curtos.*
 
