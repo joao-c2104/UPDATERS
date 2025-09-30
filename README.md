@@ -84,7 +84,7 @@ Usuários chegam até as páginas por mecanismos de busca, porém não exploram 
 
 ### 😕 Experiência atual
 
-![Usuário frustrado saindo do site](https://via.placeholder.com/400x250?text=Usuario+Frustrado)
+![Usuário frustrado saindo do site](imagens/oportunidade_foto.jpg)
 
 *Usuário acessa o portal, mas não encontra estímulo para continuar navegando.*
 
