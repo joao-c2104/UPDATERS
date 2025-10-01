@@ -78,7 +78,7 @@ mas **não exploram outras seções** — resultando em visitas:
 
 ### 🔎 Jornada do Usuário
 
-![Fluxo do usuário chegando pelo buscador](https://via.placeholder.com/600x250?text=Imagem+Fluxo+Usuario+Buscador)
+![Fluxo do usuário chegando pelo buscador](imagens/jornada_do_usuario.png)
 
 <p align="center"
 
@@ -181,6 +181,8 @@ Analisamos portais de notícias para identificar oportunidades:
 - 📰 **Diário de Pernambuco**
 - 🟦 **Folha de São Paulo**
 - 🟨 **Estadão**
+- ⬛ **Die Zeit**
+- 🔲 **The new york times**
 
 > Essa análise comparativa nos ajudou a compreender **oportunidades de melhoria** em conteúdo, design, usabilidade e engajamento.
 
@@ -193,9 +195,6 @@ Analisamos portais de notícias para identificar oportunidades:
 - 🛠️ Unir **tecnologia + design + experiência centrada no usuário**.
 
 ---
-
-## 👥 Equipe UPDATERS
-👨‍💻 Designers e desenvolvedores da **CESAR School**, unidos para transformar experiências digitais.
 
 <p align="center">
   <b>✨ Somos os UPDATERS. Transformamos desafios em soluções. ✨</b>
