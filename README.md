@@ -218,7 +218,7 @@ Analisamos portais de notícias para identificar oportunidades:
 - Ajudar a guiar a construção de um **portal de notícias dinâmico**.  
 - Tornar o consumo de notícias **mais atrativo, engajador e próximo da rotina digital do público jovem**.  
 
-#### Para ter acesso as nossas histórias, [clique aqui](links/UPDATERS_HISTÓRIAS.pdf).
+#### Para ter acesso as nossas histórias, [clique aqui](links/UPDATERS_HISTÓRIAS.pdf).
 ---
 
 <p align="center">
