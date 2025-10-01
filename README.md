@@ -196,6 +196,32 @@ Analisamos portais de notícias para identificar oportunidades:
 
 ---
 
+## Construção das Histórias do Usuário
+
+### ✅ Base das histórias
+- Criadas a partir de pesquisas de **produtos similares** e **levantamento sobre os usuários**.  
+- Fundamentadas na **protopersona Gen Z**, identificada como público principal.  
+
+### 👤 Foco no usuário (Gen Z)
+- Necessidade de conteúdos rápidos, visuais e interativos.  
+- Preferência por formatos que lembram **redes sociais** (ex.: feed dinâmico, stories, vídeos curtos).  
+- Busca por proximidade, engajamento e possibilidade de interação.  
+
+### 📝 Formulação das histórias
+- Estruturadas no formato **“Eu, como usuário, quero ... para ...”**, transmitindo de forma simples a necessidade.  
+- Priorização de histórias que refletem **experiência fluida**, **facilidade de uso** e **consumo de notícias em formato visual**.  
+
+### 📲 Inspiração no Instagram
+- Interface próxima de uma rede social: **scroll contínuo**, **conteúdo multimídia**, **curtidas/comentários/compartilhamentos**.  
+- Ênfase em elementos de **interação** e **personalização**.  
+
+### 🎯 Objetivo das histórias
+- Ajudar a guiar a construção de um **portal de notícias dinâmico**.  
+- Tornar o consumo de notícias **mais atrativo, engajador e próximo da rotina digital do público jovem**.  
+
+-Para ter acesso as nossas histórias, ![clique aqui]()
+---
+
 <p align="center">
   <b>✨ Somos os UPDATERS. Transformamos desafios em soluções. ✨</b>
 </p>
