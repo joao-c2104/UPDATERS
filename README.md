@@ -178,7 +178,6 @@ Essa Timeline apresenta parte do nosso trabalho de forma sequencial.
 Analisamos portais de notícias para identificar oportunidades:
 
 - 🟥 **G1**
-- 📰 **Diário de Pernambuco**
 - 🟦 **Folha de São Paulo**
 - 🟨 **Estadão**
 - ⬛ **Die Zeit**
