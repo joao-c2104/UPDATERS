@@ -61,8 +61,18 @@ O **Jornal do Commercio** vem enfrentando desafios na **retenção e fidelidade 
 
 ## 📍 Onde e Como ocorre?
 
-O problema acontece principalmente nos **portais digitais** do JC, onde há grande volume de acessos, mas baixa retenção.  
-Usuários chegam até as páginas por mecanismos de busca, porém não exploram outras seções — resultando em visitas **curtas e isoladas** (ausência do “segundo clique”).
+📍 O problema acontece principalmente nos **portais digitais** do JC.   
+
+⚠️ Mesmo sem um volume expressivo de acessos, o portal sofre com **baixa retenção**.  
+
+🔎 Usuários chegam até as páginas por mecanismos de busca,  
+mas **não exploram outras seções** — resultando em visitas:  
+
+➡️ **Curtas**  
+➡️ **Isoladas**  
+➡️ Com ausência do **“segundo clique”**
+
+
 
 ---
 
@@ -70,7 +80,11 @@ Usuários chegam até as páginas por mecanismos de busca, porém não exploram 
 
 ![Fluxo do usuário chegando pelo buscador](https://via.placeholder.com/600x250?text=Imagem+Fluxo+Usuario+Buscador)
 
-*Exemplo: usuário chega via busca → acessa 1 notícia → não navega mais.*
+<p align="center"
+
+<strong> Exemplo: 👤 usuário chega via busca → 🔍 acessa 1 notícia → ❌ não navega mais. <strong>
+
+</p>
 
 ---
 
@@ -78,7 +92,11 @@ Usuários chegam até as páginas por mecanismos de busca, porém não exploram 
 
 ![Gráfico de barras sobre taxa de segundo clique](imagens/infografico2.png)
 
-*Representação visual: A cada ano que passa mais usuários consomem notícias via rede social, principalmente utilizando vídeos curtos.*
+<p align="center">
+
+<strong> 📰 Representação visual: A cada ano que passa mais usuários consomem notícias via rede social, principalmente utilizando vídeos curtos. <strong>
+
+</p>
 
 ---
 
@@ -86,15 +104,24 @@ Usuários chegam até as páginas por mecanismos de busca, porém não exploram 
 
 ![Usuário frustrado saindo do site](imagens/oportunidade_foto.jpg)
 
-*Usuário acessa o portal, mas não encontra estímulo para continuar navegando.*
+<p align="center">
+
+<strong> 👋 Usuário acessa o portal, mas não encontra estímulo para continuar navegando. <strong>
+
+</p>
 
 ---
 
 ### ✨ Oportunidade
 
-![Oportunidade de retenção digital](https://via.placeholder.com/600x250?text=Imagem+Retencao+Digital)
+![Oportunidade de retenção digital](imagens/foto_captacao.png)
 
-*Com novas soluções de design e conteúdo, podemos transformar visitas curtas em **engajamento contínuo**.*
+<p align="center">
+
+<strong>✨ Com novas soluções de design e conteúdo, podemos transformar visitas curtas em <u>engajamento contínuo</u>. ✨</strong>
+
+</p>
+
 
 
 ---
