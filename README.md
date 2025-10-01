@@ -118,7 +118,7 @@ mas **não exploram outras seções** — resultando em visitas:
 
 <p align="center">
 
-<strong>✨ Com novas soluções de design e conteúdo, podemos transformar visitas curtas em <u>engajamento contínuo</u>. ✨</strong>
+<strong>✨ Com novas soluções de UX/UI e conteúdo, podemos transformar visitas curtas em <u>engajamento contínuo</u>. ✨</strong>
 
 </p>
 
