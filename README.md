@@ -159,14 +159,6 @@ Nosso processo criativo segue **4 etapas principais**:
 
 ---
 
-## ⌛ Timeline
-
-<p align="center">
-  <img src="imagens/timeline_updaters.png" alt="Timeline do projeto">
-</p>
-
-Essa Timeline apresenta parte do nosso trabalho de forma sequencial.
-
 ---
 
 ## 📊 Benchmarking
