@@ -19,6 +19,8 @@
                 <div class="header_icon"></div>
             </div>
         </div>
+
+        <button id="theme-toggle" class="theme-toggle">🌙</button>
     </header>
 
     <div class="page-container">
@@ -101,5 +103,38 @@
             </div>
         </div>
     </footer>
+
+    <script>       
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleButton = document.getElementById('theme-toggle');
+            const body = document.body;
+
+            if (!toggleButton) {
+                console.error("Erro: Botão de alternância de tema não encontrado (ID 'theme-toggle').");
+                return; 
+            }
+
+            function applyTheme(isDark) {
+                if (isDark) {
+                    body.classList.add('dark-mode');
+                    toggleButton.textContent = '🌞';
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    body.classList.remove('dark-mode');
+                    toggleButton.textContent = '🌙';
+                    localStorage.setItem('theme', 'light');
+                }
+            }
+
+            const savedTheme = localStorage.getItem('theme');
+            applyTheme(savedTheme === 'dark');
+
+            toggleButton.addEventListener('click', () => {
+                const isCurrentlyDark = body.classList.contains('dark-mode');
+                applyTheme(!isCurrentlyDark);
+            });
+        });
+    </script>
+
 </body>
 </html>
