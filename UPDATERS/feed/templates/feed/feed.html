@@ -1,0 +1,29 @@
+{% extends "feed/base.html" %}
+
+{% block content %}
+
+    {% if search_query %}
+        <h2 class="search-results-title">Resultados para: "{{ search_query }}"</h2>
+    {% endif %}
+
+    {% for article in articles %}
+        <section class="card">
+            <img class="card_image" src="{{ article.image.url }}" alt="{{ article.title }}">
+
+            <div class="card_body">
+                <h2 class="card_title">{{ article.title }}</h2>
+                <p class="card_text">{{ article.summary|truncatewords:30 }}</p>
+                <a href="{{ article.get_absolute_url }}" class="card_button">Leia Mais</a>
+            </div>
+        </section>
+
+    {% empty %}
+        {% if search_query %}
+            <p>Nenhuma notícia encontrada para sua busca: "{{ search_query }}".</p>
+        {% else %}
+            <p>Nenhuma notícia encontrada.</p>
+        {% endif %}
+
+    {% endfor %}
+
+{% endblock %}
