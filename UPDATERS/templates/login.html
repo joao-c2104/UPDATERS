@@ -1,0 +1,30 @@
+
+{% block title %}Login{% endblock %}
+{% block content %}
+<div class="card shadow p-4 mx-auto" style="max-width: 400px;">
+    <h2 class="text-center mb-4">Login</h2>
+
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-danger">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+
+    <form method="POST" action="{% url 'submit_login' %}">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="username" class="form-label">Usuário</label>
+            <input type="text" name="username" id="username" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Senha</label>
+            <input type="password" name="password" id="password" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Entrar</button>
+    </form>
+
+    <p class="mt-3 text-center">
+        Não tem conta? <a href="{% url 'register_user' %}">Cadastre-se</a>
+    </p>
+</div>
+{% endblock %}
