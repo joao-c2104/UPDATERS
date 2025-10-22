@@ -1,7 +1,11 @@
+{% extends "auth_base.html" %}
 
 {% block title %}Login{% endblock %}
 {% block content %}
-<div class="card shadow p-4 mx-auto" style="max-width: 400px;">
+<div class="card shadow p-4 mx-auto position-relative" style="max-width: 400px;">
+    
+    <button id="theme-toggle" class="theme-toggle">🌙</button>
+
     <h2 class="text-center mb-4">Login</h2>
 
     {% if messages %}
