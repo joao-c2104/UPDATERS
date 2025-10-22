@@ -169,9 +169,10 @@ body.dark-mode .header {
 }
 
 .card_image {
-    background-color: var(--color-placeholder-light);
-    height: 250px;
-    width: 100%;
+  background-color: var(--color-placeholder-light);
+  height: 250px;
+  width: 100%;
+  object-fit: cover;
 }
 
 .card_body {
