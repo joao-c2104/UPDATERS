@@ -1,7 +1,42 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect,get_object_or_404
 from django.views.generic import ListView, DetailView
 from .models import Article
 from django.db.models import Q
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate,login,logout
+from django.contrib import messages
+
+def login_user(request):
+    return render(request, 'login.html')
+
+def logout_user(request):
+    logout(request)
+    return  redirect('/')
+
+def submit_login(request):
+    if request.POST:
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        usuario = authenticate(username=username,password=password)
+        if usuario is not None:
+            login(request,usuario)
+            return redirect('/')
+        else:
+            messages.error(request, "Usuario ou senha invalido")
+            return redirect('/login')
+    else:
+        redirect('/')
+        
+def register_user(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        if not User.objects.filter(username=username).exists():
+            User.objects.create_user(username=username, password=password)
+            return redirect('/login/')
+
+    return render(request, 'register.html')
 
 class ArticleListView(ListView):
     model = Article

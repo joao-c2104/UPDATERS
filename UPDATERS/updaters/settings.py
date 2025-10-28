@@ -62,7 +62,7 @@ ROOT_URLCONF = 'updaters.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [(os.path.join(BASE_DIR,'templates'))],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -137,6 +137,8 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' 
 # Media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+STATICFILES_DIRS = [BASE_DIR / 'static']
 
 # Default primary key field type
 # ... (sem mudanças aqui) ...
