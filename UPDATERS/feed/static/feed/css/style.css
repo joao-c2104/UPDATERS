@@ -345,3 +345,24 @@ body.dark-mode .footer {
 .theme-toggle:hover {
     transform: scale(1.2);
 }
+
+
+.estrela_favoritar {
+    font-size: 24px;
+    text-decoration: none;
+    margin-left: 206px;
+    margin-right: auto;
+    padding-right: 0px;
+    color: var(--color-text-primary);
+}
+
+.login-button-header{
+    background-color: #4F46E5;
+    color: var(--color-header-footer);
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
