@@ -159,25 +159,6 @@ Nosso processo criativo segue **4 etapas principais**:
 
 ---
 
----
-
-## 📊 Benchmarking
-
-<p align="center">
-  <img src="imagens/benchmarking_updaters.png" alt="Benchmarking de portais de notícias">
-</p>
-
-Analisamos portais de notícias para identificar oportunidades:
-
-- 🟥 **G1**
-- 🟦 **Folha de São Paulo**
-- 🟨 **Estadão**
-- ⬛ **Die Zeit**
-- 🔲 **The new york times**
-
-> Essa análise comparativa nos ajudou a compreender **oportunidades de melhoria** em conteúdo, design, usabilidade e engajamento.
-
----
 
 ## 🚀 Nossa Missão
 - 📈 Aumentar a **retenção e engajamento** no portal do JC.
