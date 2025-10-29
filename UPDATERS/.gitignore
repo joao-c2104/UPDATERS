@@ -168,3 +168,9 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Arquivos de deploy
+staticfiles/
+
+# Arquivos de usuário
+media/
