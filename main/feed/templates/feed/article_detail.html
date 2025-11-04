@@ -1,0 +1,24 @@
+{% extends "feed/base.html" %}
+
+{% block title %}{{ article.title }} - Gen Z News{% endblock %}
+
+{% block content %}
+    <article class="card">
+
+        <img class="card_image" src="{{ article.image.url }}" alt="{{ article.title }}">
+
+        <div class="card_body">
+            <h1 class="card_title">{{ article.title }}</h1>
+
+            <p style="color: #666; font-size: 0.9rem; margin-bottom: 24px;">
+                Por {{ article.author }} <br>
+                Publicado em {{ article.publication_date|date:"d/m/Y \à\s H:i" }}
+            </p>
+            <div class="article-content">
+                {{ article.content|linebreaks }} 
+            </div>
+
+            <a href="{% url 'article-list' %}" class="card_button" style="margin-top: 32px;">Voltar</a>
+        </div>
+    </article>
+{% endblock %}
