@@ -5,159 +5,154 @@
     <meta charset="UTF-8">
     <title>{% block title %}Gen Z News{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'feed/css/style.css' %}">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <!-- ================= HEADER ================= -->
-    <header class="header">
-        <div class="header__container">
 
-            <!-- Search bar -->
+<header class="header">
+    <div class="header__container">
+
+        <div class="header_left">
+            <a href="{% url 'feed:article-list' %}" class="header_home-icon">
+                <img src="{% static 'feed/images/logo_jcpe.png' %}" alt="JC Logo Pequena" class="header_icon_img_small">
+            </a>
+        </div>
+
+        <div class="header_center">
+            <a href="{% url 'feed:article-list' %}" class="header_logo_center">
+                <img src="{% static 'feed/images/logo_updaters.png' %}" alt="Logo UCPE" class="header_logo_img">
+            </a>
+        </div>
+
+        <div class="header_right">
+
             <form class="header_search-bar" method="GET" action="{% url 'feed:article-list' %}">
                 <input type="text" 
-                       name="q" 
-                       class="header_search-input" 
-                       placeholder="Buscar notícias..." 
-                       value="{{ search_query|default:'' }}">
+                        name="q" 
+                        class="header_search-input" 
+                        placeholder="Buscar notícias..."
+                        value="{{ search_query|default:'' }}">
             </form>
 
-            <!-- Header actions -->
-            <div class="header_actions">
+            <a href="{% url 'feed:login_user' %}" class="header_user-icon">
+                <img src="{% static 'feed/images/User_Icon.png' %}" alt="Login" class="user-icon">
+            </a>
 
-                <!-- Icone de usuário (login) -->
-                <a href="{% url 'feed:login_user' %}" class="header_user-icon">
-                    <img src="{% static 'feed/icons/user.svg' %}" class="user-icon">
-                </a>
-
-            </div>
+            <button id="theme-toggle" class="theme-toggle">🌙</button>
         </div>
 
-        <!-- Theme toggle -->
-        <button id="theme-toggle" class="theme-toggle">🌙</button>
-    </header>
-
-    <!-- ================= PAGE CONTENT ================= -->
-    <div class="page-container">
-
-        <!-- Sidebar esquerda -->
-        <aside class="sidebar sidebar--left"></aside>
-
-        <!-- Conteúdo principal -->
-        <main class="main-content">
-            {% block content %}
-            {% endblock %}
-        </main>
-
-        <!-- Sidebar direita -->
-        <aside class="sidebar sidebar--right">
-            <div class="widget">
-                <div class="widget_title"></div>
-                <div class="widget_text-line w-80"></div>
-                <div class="widget_text-line w-100"></div>
-                <div class="widget_text-line w-60"></div>
-                <div class="widget_text-line w-90"></div>
-                <div class="widget_text-line w-70"></div>
-            </div>
-
-            <div class="widget">
-                <div class="widget_title"></div>
-
-                <div class="widget_list-item">
-                    <div class="widget_item-image"></div>
-                    <div class="widget_item-text">
-                       <div class="widget_text-line w-90"></div>
-                       <div class="widget_text-line w-70"></div>
-                    </div>
-                </div>
-
-                <div class="widget_list-item">
-                    <div class="widget_item-image"></div>
-                    <div class="widget_item-text">
-                       <div class="widget_text-line w-90"></div>
-                       <div class="widget_text-line w-70"></div>
-                    </div>
-                </div>
-
-                <div class="widget_list-item">
-                    <div class="widget_item-image"></div>
-                    <div class="widget_item-text">
-                       <div class="widget_text-line w-90"></div>
-                       <div class="widget_text-line w-70"></div>
-                    </div>
-                </div>
-            </div>
-        </aside>
     </div>
+</header>
 
-    <!-- ================= FOOTER ================= -->
-    <footer class="footer">
-        <div class="footer_container">
+<div class="page-container">
 
-            <div class="footer_column">
-                <div class="footer_heading"></div>
-                <div class="footer_link w-90"></div>
-                <div class="footer_link w-100"></div>
-                <div class="footer_link w-90"></div>
-            </div>
+    <aside class="sidebar sidebar--left"></aside>
 
-            <div class="footer_column">
-                <div class="footer_heading"></div>
-                <div class="footer_link w-90"></div>
-                <div class="footer_link w-100"></div>
-                <div class="footer_link w-90"></div>
-            </div>
+    <main class="main-content">
+        {% block content %}
+        {% endblock %}
+    </main>
 
-            <div class="footer_column">
-                <div class="footer_heading"></div>
-                <div class="footer_link w-90"></div>
-                <div class="footer_link w-100"></div>
-                <div class="footer_link w-90"></div>
-            </div>
+    <aside class="sidebar sidebar--right">
+        <div class="widget">
+            <div class="widget_title"></div>
+            <div class="widget_text-line w-80"></div>
+            <div class="widget_text-line w-100"></div>
+            <div class="widget_text-line w-60"></div>
+            <div class="widget_text-line w-90"></div>
+            <div class="widget_text-line w-70"></div>
+        </div>
 
-            <div class="footer_column">
-                <div class="footer_heading"></div>
-                <div class="footer_link w-90"></div>
-                <div class="footer_link w-100"></div>
-                <div class="footer_socials">
-                    <div class="footer_social-icon"></div>
-                    <div class="footer_social-icon"></div>
-                    <div class="footer_social-icon"></div>
-                    <div class="footer_social-icon"></div>
+        <div class="widget">
+            <div class="widget_title"></div>
+
+            <div class="widget_list-item">
+                <div class="widget_item-image"></div>
+                <div class="widget_item-text">
+                    <div class="widget_text-line w-90"></div>
+                    <div class="widget_text-line w-70"></div>
                 </div>
             </div>
 
+            <div class="widget_list-item">
+                <div class="widget_item-image"></div>
+                <div class="widget_item-text">
+                    <div class="widget_text-line w-90"></div>
+                    <div class="widget_text-line w-70"></div>
+                </div>
+            </div>
         </div>
-    </footer>
+    </aside>
 
-    <!-- ================= SCRIPT DO TEMA ================= -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
+</div>
 
-            const toggleButton = document.getElementById('theme-toggle');
-            const body = document.body;
+<footer class="footer">
+    <div class="footer_container">
 
-            function applyTheme(isDark) {
-                if (isDark) {
-                    body.classList.add('dark-mode');
-                    toggleButton.textContent = '🌞';
-                    localStorage.setItem('theme', 'dark');
-                } else {
-                    body.classList.remove('dark-mode');
-                    toggleButton.textContent = '🌙';
-                    localStorage.setItem('theme', 'light');
-                }
+        <div class="footer_column">
+            <div class="footer_heading"></div>
+            <div class="footer_link w-90"></div>
+            <div class="footer_link w-100"></div>
+            <div class="footer_link w-90"></div>
+        </div>
+
+        <div class="footer_column">
+            <div class="footer_heading"></div>
+            <div class="footer_link w-90"></div>
+            <div class="footer_link w-100"></div>
+            <div class="footer_link w-90"></div>
+        </div>
+
+        <div class="footer_column">
+            <div class="footer_heading"></div>
+            <div class="footer_link w-90"></div>
+            <div class="footer_link w-100"></div>
+            <div class="footer_link w-90"></div>
+        </div>
+
+        <div class="footer_column">
+            <div class="footer_heading"></div>
+            <div class="footer_link w-90"></div>
+            <div class="footer_link w-100"></div>
+            <div class="footer_socials">
+                <div class="footer_social-icon"></div>
+                <div class="footer_social-icon"></div>
+                <div class="footer_social-icon"></div>
+                <div class="footer_social-icon"></div>
+            </div>
+        </div>
+
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const btn = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        function toggleTheme(dark) {
+            if (dark) {
+                body.classList.add('dark-mode');
+                btn.textContent = '🌞';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                body.classList.remove('dark-mode');
+                btn.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
             }
+        }
 
-            applyTheme(localStorage.getItem('theme') === 'dark');
+        toggleTheme(localStorage.getItem('theme') === 'dark');
 
-            toggleButton.addEventListener('click', () => {
-                applyTheme(!body.classList.contains('dark-mode'));
-            });
+        btn.addEventListener('click', () => {
+            toggleTheme(!body.classList.contains('dark-mode'));
         });
-    </script>
+    });
+</script>
 
 </body>
 </html>
