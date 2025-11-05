@@ -77,12 +77,10 @@ body.dark-mode .header {
     gap: 24px;
 }
 
-.header_logo {
-    width: 150px;
-    height: 30px;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 8px;
-    flex-shrink: 0;
+.header_logo_img {
+    height: 75px;
+    width: auto;
+    display: block;
 }
 
 .header_search-bar {
