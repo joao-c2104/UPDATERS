@@ -72,58 +72,6 @@ mas **não exploram outras seções** — resultando em visitas:
 ➡️ **Isoladas**  
 ➡️ Com ausência do **“segundo clique”**
 
-
-
----
-
-### 🔎 Jornada do Usuário
-
-![Fluxo do usuário chegando pelo buscador](imagens/jornada_do_usuario.png)
-
-<p align="center"
-
-<strong> Exemplo: 👤 usuário chega via busca → 🔍 acessa 1 notícia → ❌ não navega mais. <strong>
-
-</p>
-
----
-
-### 📊 Dados ilustrativos
-
-![Gráfico de barras sobre taxa de segundo clique](imagens/infografico2.png)
-
-<p align="center">
-
-<strong> 📰 Representação visual: A cada ano que passa mais usuários consomem notícias via rede social, principalmente utilizando vídeos curtos. <strong>
-
-</p>
-
----
-
-### 😕 Experiência atual
-
-![Usuário frustrado saindo do site](imagens/oportunidade_foto.jpg)
-
-<p align="center">
-
-<strong> 👋 Usuário acessa o portal, mas não encontra estímulo para continuar navegando. <strong>
-
-</p>
-
----
-
-### ✨ Oportunidade
-
-![Oportunidade de retenção digital](imagens/foto_captacao.png)
-
-<p align="center">
-
-<strong>✨ Com novas soluções de UX/UI e conteúdo, podemos transformar visitas curtas em <u>engajamento contínuo</u>. ✨</strong>
-
-</p>
-
-
-
 ---
 
 ## 👥 Quem é impactado?
