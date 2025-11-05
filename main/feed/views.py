@@ -25,7 +25,7 @@ def submit_login(request):
             messages.error(request, "Usuario ou senha invalido")
             return redirect('/login')
     else:
-        redirect('/')
+        return redirect('/')
         
 def register_user(request):
     if request.method == 'POST':
@@ -67,3 +67,4 @@ class ArticleDetailView(DetailView):
     context_object_name = 'article'
     slug_field = 'slug'
     slug_url_kwarg = 'slug'
+

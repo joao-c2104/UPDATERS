@@ -1,0 +1,40 @@
+{% extends "auth_base.html" %}
+
+{% block title %}Cadastro{% endblock %}
+{% block content %}
+<div class="card shadow p-4 mx-auto position-relative" style="max-width: 400px;">
+    
+    <button id="theme-toggle" class="theme-toggle">🌙</button>
+
+    <h2 class="text-center mb-4">Cadastro</h2>
+
+    <form method="POST" action=""> {% csrf_token %}
+        
+        <div class="mb-3">
+            <label for="username" class="form-label">Nome de Usuário</label>
+            <input type="text" name="username" id="username" class="form-control" required>
+        </div>
+        
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" name="email" id="email" class="form-control" required>
+        </div>
+        
+        <div class="mb-3">
+            <label for="password" class="form-label">Senha</label>
+            <input type="password" name="password" id="password" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="password2" class="form-label">Confirmar Senha</label>
+            <input type="password" name="password2" id="password2" class="form-control" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Cadastrar</button>
+    </form>
+
+    <p class="mt-3 text-center">
+      Já tem conta? <a href="{% url 'login_user' %}">Faça login</a>
+    </p>
+</div>
+{% endblock %}

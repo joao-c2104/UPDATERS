@@ -1,12 +1,18 @@
 from django.urls import path
-from .views import ArticleListView, ArticleDetailView
-from . import views
+from .views import (
+    ArticleListView, 
+    ArticleDetailView,
+    login_user,
+    submit_login,
+    register_user,
+    logout_user
+)
 
 urlpatterns = [
     path('', ArticleListView.as_view(), name='article-list'),
     path('article/<slug:slug>/', ArticleDetailView.as_view(), name='article-detail'),
-    path('login/', views.login_user, name='login_user'),
-    path('login/submit/', views.submit_login, name='submit_login'),
-    path('logout/', views.logout_user, name='logout_user'),
-    path('register/',views.register_user,name='register_user'),
+    path('login/', login_user, name='login_user'), 
+    path('login/submit/', submit_login, name='submit_login'),
+    path('register/', register_user, name='register_user'),
+    path('logout/', logout_user, name='logout_user'),
 ]

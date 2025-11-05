@@ -1,0 +1,80 @@
+[
+{
+    "model": "feed.article",
+    "pk": 1,
+    "fields": {
+        "title": "Uma iniciativa  está conectando os idosos ao mundo digital!",
+        "author": "Alfredo Torres",
+        "summary": "Projeto de inclusão digital ensina idosos a usar computadores e redes sociais, promovendo conexão com familiares e acesso a serviços essenciais.",
+        "content": "Um projeto de inclusão digital está ensinando aos mais velhos como usar o computador e as redes sociais, possibilitando que eles se comuniquem com seus amigos e familiares, além de terem acesso a serviços importantes.\r\nOs participantes estão aprendendo desde o básico, como ligar e desligar o computador, até tarefas mais avançadas, como enviar e-mails e acessar sites de notícias.",
+        "image": "articles/unnamed.jpg",
+        "publication_date": "2025-11-05T13:54:41Z",
+        "slug": "uma-iniciativa-esta-conectando-os-idosos-ao-mundo-digital"
+    }
+},
+{
+    "model": "feed.article",
+    "pk": 2,
+    "fields": {
+        "title": "Feira de Ciências reúne estudantes e inovações sustentáveis",
+        "author": "Alfredo Torres",
+        "summary": "Feira Municipal de Ciências reúne alunos de mais de 30 escolas com projetos sustentáveis, como energia solar e reciclagem, incentivando a inovação e a consciência ambiental entre os jovens.",
+        "content": "A Feira Municipal de Ciências abriu suas portas nesta sexta-feira no Centro de Convenções, reunindo alunos de mais de 30 escolas públicas e particulares. O evento apresenta projetos voltados à sustentabilidade, com destaque para invenções que utilizam energia solar, reaproveitamento de água e materiais recicláveis.\r\nDurante os três dias de exposição, o público poderá conhecer de perto as criações dos estudantes e participar de oficinas sobre tecnologia verde e educação ambiental. Segundo os organizadores, a feira busca estimular a curiosidade científica e despertar o interesse dos jovens por soluções inovadoras que contribuam para um futuro mais sustentável.",
+        "image": "articles/70ed1761d249dc503c7f77cfc53818e6.jpg",
+        "publication_date": "2025-11-05T14:11:20Z",
+        "slug": "feira-de-ciencias-reune-estudantes-e-inovacoes-sustentaveis"
+    }
+},
+{
+    "model": "feed.article",
+    "pk": 3,
+    "fields": {
+        "title": "Nova linha de ônibus melhora transporte entre bairros afastados",
+        "author": "Alfredo Torres",
+        "summary": "Nova linha de ônibus 503 vai ligar Jardim Aurora à Vila das Palmeiras com mais conforto e menos tempo de viagem.",
+        "content": "A Prefeitura anunciou nesta segunda-feira a criação da linha 503, que vai conectar diretamente os bairros Jardim Aurora e Vila das Palmeiras. A nova rota tem o objetivo de reduzir o tempo de deslocamento dos moradores, que antes precisavam realizar duas conexões para chegar ao centro da cidade.\r\nSegundo a Secretaria de Transportes, os ônibus começarão a circular ainda nesta semana, com intervalos de 20 minutos nos horários de pico. Além disso, todos os veículos da nova linha contam com ar-condicionado, Wi-Fi gratuito e acessibilidade para pessoas com deficiência. A expectativa é de que cerca de 4 mil passageiros utilizem o serviço diariamente, aliviando o fluxo de outras linhas já existentes.",
+        "image": "articles/PSX_20200303_111806.jpg",
+        "publication_date": "2025-11-05T14:12:38Z",
+        "slug": "nova-linha-de-onibus-melhora-transporte-entre-bairros-afastados"
+    }
+},
+{
+    "model": "feed.article",
+    "pk": 4,
+    "fields": {
+        "title": "Biblioteca municipal lança acervo digital com mais de 5 mil livros gratuitos",
+        "author": "Alfredo Torres",
+        "summary": "Biblioteca Central lança acervo digital com mais de 5 mil livros gratuitos para incentivar a leitura.",
+        "content": "A Biblioteca Central da cidade anunciou nesta semana o lançamento de um novo acervo digital que reúne mais de 5 mil livros gratuitos. A plataforma, acessível por meio de um aplicativo para celulares e computadores, oferece títulos de diferentes gêneros, incluindo literatura clássica, obras contemporâneas, quadrinhos e materiais acadêmicos.\r\nDe acordo com a administração municipal, o objetivo da iniciativa é democratizar o acesso à leitura e incentivar o hábito entre os jovens. A expectativa é de que o número de usuários cresça rapidamente nos próximos meses, tornando a biblioteca um ponto de referência também no ambiente virtual. Além dos livros, o aplicativo contará com audiolivros e clubes de leitura online.",
+        "image": "articles/Biblioteca-Rio_de_Janeiro-Brasil.jpg",
+        "publication_date": "2025-11-05T14:14:22Z",
+        "slug": "biblioteca-municipal-lanca-acervo-digital-com-mais-de-5-mil-livros-gratuitos"
+    }
+},
+{
+    "model": "feed.article",
+    "pk": 5,
+    "fields": {
+        "title": "Nova praça é inaugurada no centro da cidade",
+        "author": "Alfredo Torres",
+        "summary": "Prefeitura inaugura Praça das Flores no centro com área verde, parquinho e pista de caminhada, promovendo lazer e mais segurança para os moradores.",
+        "content": "A Prefeitura inaugurou hoje a Praça das Flores, um novo espaço de lazer no centro da cidade. O local conta com áreas verdes, parquinho infantil e pista de caminhada.\r\nMoradores comemoraram a novidade, destacando que o espaço traz mais segurança e convivência para a região. A praça estará aberta todos os dias, das 6h às 22h.",
+        "image": "articles/Praca-da-Liberdade-em-Belo-Horizonte-Foto-Shutterstock-850x667.jpg",
+        "publication_date": "2025-11-05T14:15:33Z",
+        "slug": "nova-praca-e-inaugurada-no-centro-da-cidade"
+    }
+},
+{
+    "model": "feed.article",
+    "pk": 6,
+    "fields": {
+        "title": "Nova iniciativa incentiva jovens a aprender programação nas escolas públicas",
+        "author": "Alfredo Torres",
+        "summary": "“Código para o Futuro” leva cursos de programação e IA a escolas públicas, preparando jovens para o mercado digital.",
+        "content": "Uma nova iniciativa do Ministério da Educação promete transformar o ensino tecnológico nas escolas públicas brasileiras. O projeto “Código para o Futuro” visa oferecer cursos gratuitos de programação, robótica e inteligência artificial para estudantes do ensino médio, buscando prepará-los para o mercado de trabalho digital em constante crescimento.\r\nA proposta já começou a ser implementada em 200 escolas-piloto espalhadas pelo país e deve atingir mais de 50 mil alunos até o fim do próximo ano. Especialistas acreditam que o projeto pode reduzir desigualdades de acesso à tecnologia e abrir novas oportunidades para jovens de regiões com menos infraestrutura digital.",
+        "image": "articles/R_1.jpg",
+        "publication_date": "2025-11-05T14:16:30Z",
+        "slug": "nova-iniciativa-incentiva-jovens-a-aprender-programacao-nas-escolas-publicas"
+    }
+}
+]
