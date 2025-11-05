@@ -10,14 +10,13 @@
 <body>
     <header class="header">
         <div class="header__container">
-            <div class="header_logo"></div>
+            <a href="{% url 'article-list' %}">
+                <img src="{% static 'feed/images/logo.svg' %}" alt="Logo" class="header_logo_img">
+            </a>
             <form class="header_search-bar" method="GET" action="{% url 'article-list' %}">
                 <input type="text" name="q" class="header_search-input" placeholder="Buscar notícias..." value="{{ search_query|default:'' }}">
             </form>
             <div class="header_actions">
-                <div class="imagem-logo-header">
-                    <img src="imagens/logo_updaters.png" alt="Logo UPDATERS" class="logo-header">
-                </div>
 
                 <button class="login-button-header">Login</button>
             </div>
