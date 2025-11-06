@@ -63,7 +63,7 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [(os.path.join(BASE_DIR,'templates'))],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -76,7 +76,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'updaters.wsgi.application'
+WSGI_APPLICATION = 'core.wsgi.application'
 
 
 # Database
@@ -102,7 +102,6 @@ else:
 
 
 # Password validation
-# ... (sem mudanças aqui) ...
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',},
@@ -112,7 +111,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # Internationalization
-# ... (sem mudanças aqui) ...
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I1N = True
@@ -129,8 +127,6 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'  # <--- Modificado para a pasta 'staticfi
 # Configuração de armazenamento do WhiteNoise para servir arquivos em produção
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'  # <--- Adicionado
 
-# Comentamos isso, pois seus arquivos estáticos estão dentro do app 'feed'
-# e 'APP_DIRS': True já cuida de encontrá-los.
 # STATICFILES_DIRS = [
 #     os.path.join(BASE_DIR, 'static'),
 # ]
@@ -139,8 +135,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-STATICFILES_DIRS = [BASE_DIR / 'static']
+STATICFILES_DIRS = []
 
 # Default primary key field type
-# ... (sem mudanças aqui) ...
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
