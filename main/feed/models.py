@@ -5,11 +5,7 @@ from django.utils import timezone
 
 class Article(models.Model):
     title = models.CharField(max_length=200, verbose_name="Título")
-    
-    # === CAMPO ADICIONADO ===
-    # Adicionamos o autor, conforme os textos que você enviou.
     author = models.CharField(max_length=100, verbose_name="Autor")
-    
     summary = models.TextField(verbose_name="Resumo")
     content = models.TextField(verbose_name="Conteúdo Completo")
     image = models.ImageField(upload_to='articles/', verbose_name="Imagem de Destaque")

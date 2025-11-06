@@ -18,11 +18,33 @@
             </form>
             <div class="header_actions">
 
-                <button class="login-button-header">Login</button>
+                {% if user.is_authenticated %}
+                    <div class="profile-menu-container">
+                        
+                        <img src="{% static 'feed/images/pfp.png' %}" id="profile-icon" class="header_profile-icon" alt="Perfil">
+                        
+                        <div id="user-menu" class="user-menu-dropdown">
+                            
+                            <div class="user-menu-header">
+                                Olá, {{ user.username }}
+                            </div>
+                            
+                            <a href="#">Configurações do usuário</a>
+                            <a href="#">Favoritos</a>
+                            
+                            <div class="user-menu-divider"></div>
+
+                            <a href="{% url 'logout_user' %}" class="user-menu-logout">Sair</a>
+                        </div>
+                    </div>
+
+                {% else %}
+                    <a href="{% url 'login_user' %}" class="login-button-header">Login</a>
+                {% endif %}
+
+                <button id="theme-toggle" class="theme-toggle">🌙</button>
             </div>
         </div>
-
-        <button id="theme-toggle" class="theme-toggle">🌙</button>
     </header>
 
     <div class="page-container">
@@ -106,35 +128,50 @@
         </div>
     </footer>
 
-    <script>       
+<script>       
         document.addEventListener('DOMContentLoaded', function() {
+            
             const toggleButton = document.getElementById('theme-toggle');
             const body = document.body;
 
-            if (!toggleButton) {
-                console.error("Erro: Botão de alternância de tema não encontrado (ID 'theme-toggle').");
-                return; 
-            }
-
-            function applyTheme(isDark) {
-                if (isDark) {
-                    body.classList.add('dark-mode');
-                    toggleButton.textContent = '🌞';
-                    localStorage.setItem('theme', 'dark');
-                } else {
-                    body.classList.remove('dark-mode');
-                    toggleButton.textContent = '🌙';
-                    localStorage.setItem('theme', 'light');
+            if (toggleButton) {
+                function applyTheme(isDark) {
+                    if (isDark) {
+                        body.classList.add('dark-mode');
+                        toggleButton.textContent = '🌞';
+                        localStorage.setItem('theme', 'dark');
+                    } else {
+                        body.classList.remove('dark-mode');
+                        toggleButton.textContent = '🌙';
+                        localStorage.setItem('theme', 'light');
+                    }
                 }
+                const savedTheme = localStorage.getItem('theme');
+                applyTheme(savedTheme === 'dark');
+                toggleButton.addEventListener('click', () => {
+                    const isCurrentlyDark = body.classList.contains('dark-mode');
+                    applyTheme(!isCurrentlyDark);
+                });
+            } else {
+                console.error("Erro: Botão de alternância de tema não encontrado (ID 'theme-toggle').");
             }
 
-            const savedTheme = localStorage.getItem('theme');
-            applyTheme(savedTheme === 'dark');
+            const profileIcon = document.getElementById('profile-icon');
+            const userMenu = document.getElementById('user-menu');
 
-            toggleButton.addEventListener('click', () => {
-                const isCurrentlyDark = body.classList.contains('dark-mode');
-                applyTheme(!isCurrentlyDark);
-            });
+            if (profileIcon && userMenu) {
+                
+                profileIcon.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    userMenu.classList.toggle('open');
+                });
+                
+                document.addEventListener('click', (event) => {
+                    if (userMenu.classList.contains('open') && !userMenu.contains(event.target) && event.target !== profileIcon) {
+                        userMenu.classList.remove('open');
+                    }
+                });
+            }
         });
     </script>
 
