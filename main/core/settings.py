@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'whitenoise.runserver_nostatic',  # <--- Adicionado para WhiteNoise
-    'feed',                          # seu app
+    'feed',
+    'login',
 ]
 
 MIDDLEWARE = [
@@ -57,7 +58,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'updaters.urls'
+ROOT_URLCONF = 'core.urls'
 
 TEMPLATES = [
     {
