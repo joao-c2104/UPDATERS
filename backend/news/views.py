@@ -7,6 +7,11 @@ class ArticleViewSet(viewsets.ModelViewSet):
     queryset = Article.objects.all().order_by("-published_at")
     serializer_class = ArticleSerializer
 
+    def get_serializer_context(self):
+        context = super().get_serializer_context()
+        context['request'] = self.request
+        return context
+
 
 class CommentViewSet(viewsets.ModelViewSet):
     queryset = Comment.objects.all().order_by("-created_at")

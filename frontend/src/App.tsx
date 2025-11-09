@@ -6,8 +6,9 @@ type Article = {
   summary: string;
   content: string;
   image: string | null;
-  author: string;
+  author_name: string;
   published_at: string;
+  comments_count: number;
 };
 
 function App() {
@@ -121,64 +122,91 @@ function App() {
               articles.map((article) => (
                 <article
                   key={article.id}
-                  className="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden"
+                  className="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer group"
+                  onClick={() => {
+                    // Navigate to article detail page
+                    console.log(`Opening article ${article.id}`);
+                    // TODO: Implement navigation to article detail
+                  }}
                 >
+                  {/* Image - Full width at top */}
                   {article.image && (
-                    <img
-                      src={article.image}
-                      alt={article.title}
-                      className="w-full h-48 object-cover"
-                    />
+                    <div className="w-full h-64 overflow-hidden">
+                      <img
+                        src={article.image}
+                        alt={article.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
                   )}
+
                   <div className="p-6">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-3 hover:text-blue-600 transition">
+                    {/* Title - Merriweather font, large headline style */}
+                    <h3 className="text-3xl font-bold text-gray-900 mb-4 leading-tight group-hover:text-blue-600 transition" style={{ fontFamily: 'Merriweather, serif' }}>
                       {article.title}
                     </h3>
 
+                    {/* Summary - smaller font */}
                     {article.summary && (
-                      <p className="text-gray-600 mb-4 leading-relaxed">
+                      <p className="text-base text-gray-600 mb-6 leading-relaxed">
                         {article.summary}
                       </p>
                     )}
 
-                    <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
-                      <div className="flex items-center space-x-4">
-                        {article.author && (
-                          <span className="flex items-center">
-                            <svg
-                              className="w-4 h-4 mr-1"
-                              fill="currentColor"
-                              viewBox="0 0 20 20"
-                            >
-                              <path
-                                fillRule="evenodd"
-                                d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                                clipRule="evenodd"
-                              />
-                            </svg>
-                            {article.author}
-                          </span>
-                        )}
-                        <span className="flex items-center">
-                          <svg
-                            className="w-4 h-4 mr-1"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
-                          {formatDate(article.published_at)}
-                        </span>
-                      </div>
-                    </div>
+                    {/* Author name - with spacing from summary */}
+                    {article.author_name && (
+                      <p className="text-sm text-gray-700 font-medium mb-6">
+                        Por {article.author_name}
+                      </p>
+                    )}
 
-                    <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition duration-200 transform hover:scale-105">
-                      Ver mais
-                    </button>
+                    {/* Actions - Comments and Bookmark side by side */}
+                    <div className="flex items-center justify-between pt-4 border-t border-gray-200">
+                      <button
+                        className="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          console.log(`View comments for article ${article.id}`);
+                        }}
+                      >
+                        <svg
+                          className="w-5 h-5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                          />
+                        </svg>
+                        <span className="font-semibold">{article.comments_count}</span>
+                      </button>
+
+                      <button
+                        className="flex items-center space-x-1 text-gray-600 hover:text-blue-600 transition"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          console.log(`Bookmark article ${article.id}`);
+                        }}
+                      >
+                        <svg
+                          className="w-5 h-5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
+                          />
+                        </svg>
+                      </button>
+                    </div>
                   </div>
                 </article>
               ))

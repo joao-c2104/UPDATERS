@@ -4,8 +4,14 @@ from .models import Article, Comment, Video, Poll
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ("title", "author", "published_at")
-    search_fields = ("title", "author")
+    list_display = ("title", "author_name",
+                    "published_at", "get_comments_count")
+    search_fields = ("title", "author_name")
+    fields = ("title", "summary", "content", "image", "author_name")
+
+    def get_comments_count(self, obj):
+        return obj.comments_count
+    get_comments_count.short_description = "Comments"
 
 
 @admin.register(Comment)
