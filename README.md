@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🚀 UPDATERS
 
 <p align="center">
@@ -145,3 +146,7 @@ Nosso processo criativo segue **4 etapas principais**:
 <p align="center">
   <b>✨ Somos os UPDATERS. Transformamos desafios em soluções. ✨</b>
 </p>
+=======
+# Jornal_do_Commercio
+Portal de notícias desenvolvido pela empresa UPDATERS, o portal busca solucionar os problemas enfrentados pela empresa Jornal do Commercio, com grande enfoque na adaptação midiática a Geração Z.
+>>>>>>> old/main
