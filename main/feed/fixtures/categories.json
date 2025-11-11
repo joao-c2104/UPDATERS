@@ -3,7 +3,7 @@
     "model": "feed.category",
     "pk": 1,
     "fields": {
-        "name": "Política"
+        "name": "PolÃ­tica"
     }
 },
 {
@@ -45,7 +45,7 @@
     "model": "feed.category",
     "pk": 7,
     "fields": {
-        "name": "Saúde"
+        "name": "SaÃºde"
     }
 },
 {
@@ -59,7 +59,7 @@
     "model": "feed.category",
     "pk": 9,
     "fields": {
-        "name": "Educação"
+        "name": "EducaÃ§Ã£o"
     }
 },
 {
