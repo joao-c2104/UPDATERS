@@ -59,35 +59,35 @@
             
         <aside class="sidebar sidebar--right">
             <div class="widget">
-                <div class="widget_title"></div>
-                <div class="widget_text-line w-80"></div>
-                <div class="widget_text-line w-100"></div>
-                <div class="widget_text-line w-60"></div>
-                <div class="widget_text-line w-90"></div>
-                <div class="widget_text-line w-70"></div>
+                <h4 class="widget_title_real">Notícias em Alta</h4>
+
+                <div class="widget_body">
+                    {% for article in trending_articles %}
+                        <div class="widget_list_item_numbered">
+                            <span class="widget_list_number">{{ forloop.counter }}.</span>
+                
+                            <a href="{{ article.get_absolute_url }}" class="widget_link">
+                                {{ article.title }}
+                            </a>
+                        </div>
+                    {% empty %}
+                        <p class="widget_empty">Nenhuma notícia recente.</p>
+                    {% endfor %}
+                </div>
             </div>
             <div class="widget">
-                <div class="widget_title"></div>
-                <div class="widget_list-item">
-                    <div class="widget_item-image"></div>
-                    <div class="widget_item-text">
-                       <div class="widget_text-line w-90"></div>
-                       <div class="widget_text-line w-70"></div>
-                    </div>
-                </div>
-                 <div class="widget_list-item">
-                    <div class="widget_item-image"></div>
-                    <div class="widget_item-text">
-                       <div class="widget_text-line w-90"></div>
-                       <div class="widget_text-line w-70"></div>
-                    </div>
-                </div>
-                 <div class="widget_list-item">
-                    <div class="widget_item-image"></div>
-                    <div class="widget__item-text">
-                       <div class="widget_text-line w-90"></div>
-                       <div class="widget_text-line w-70"></div>
-                    </div>
+                <h4 class="widget_title_real">Categorias</h4>
+                <div class="widget_body">
+                    
+                    {% for category in all_categories %}
+                        
+                        <a href="{% url 'article-list' %}?category={{ category.id }}" class="widget_link">
+                            {{ category.name }}
+                        </a>
+
+                    {% empty %}
+                        <p class="widget_empty">Nenhuma categoria encontrada.</p>
+                    {% endfor %}
                 </div>
             </div>
         </aside>
