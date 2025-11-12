@@ -112,13 +112,6 @@ body.dark-mode .header {
     flex-shrink: 0;
 }
 
-.header_icon {
-    width: 32px;
-    height: 32px;
-    background-color: rgba(255, 255, 255, 0.3); 
-    border-radius: 8px;
-}
-
 .search-results-title {
     font-size: 1.8rem;
     font-weight: 600;
@@ -229,42 +222,6 @@ body.dark-mode .header {
     gap: 16px;
 }
 
-.widget_title {
-    background-color: var(--color-placeholder-dark);
-    height: 20px;
-    width: 80px;
-    border-radius: 6px;
-    margin-bottom: 4px;
-}
-
-.widget_text-line {
-    background-color: var(--color-placeholder-light);
-    height: 14px;
-    border-radius: 5px;
-}
-
-.widget_list-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.widget_item-image {
-    width: 60px;
-    height: 40px;
-    background-color: var(--color-placeholder-medium);
-    border-radius: 6px;
-    flex-shrink: 0;
-    object-fit: cover;
-}
-
-.widget_item-text {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    width: 100%;
-}
-
 .widget_title_real {
     font-size: 1.2rem;
     font-weight: 600;
@@ -319,12 +276,6 @@ body.dark-mode .header {
     flex: 1;
     line-height: 1.5;
 }
-
-.w-100 { width: 100%; }
-.w-90 { width: 90%; }
-.w-80 { width: 80%; }
-.w-70 { width: 70%; }
-.w-60 { width: 60%; }
 
 .footer {
     width: 100%;
@@ -487,4 +438,57 @@ body.dark-mode .footer {
 
 .user-menu-logout {
     color: var(--color-primary) !important;
+}
+
+.page-article-detail .sidebar--left,
+.page-article-detail .sidebar--right {
+    display: none;
+}
+
+.page-article-detail .card {
+    margin-right: 0;
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.page-article-detail .card_title {
+    border-radius: 8px;
+    margin-bottom: 16px;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--color-text-primary); 
+    line-height: 1.3; 
+}
+
+.page-article-detail .main-content {
+    flex-basis: 100%;
+    max-width: 100%;
+    position: relative;
+    padding-left: 96px; 
+    padding-right: 96px;
+}
+
+.page-article-detail .article-content p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+}
+
+.page-article-detail .main-content::before,
+.page-article-detail .main-content::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: var(--color-border); 
+}
+
+.page-article-detail .main-content::before {
+    left: 64px;
+}
+
+.page-article-detail .main-content::after {
+    right: 64px;
 }
