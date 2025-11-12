@@ -492,3 +492,36 @@ body.dark-mode .footer {
 .page-article-detail .main-content::after {
     right: 64px;
 }
+
+.article-title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 16px;
+}
+
+.favorite-star-button {
+    text-decoration: none;
+    font-size: 2.5rem;
+    color: var(--color-text-primary);
+    transition: transform 0.2s;
+}
+
+.favorite-star-button:hover {
+    transform: scale(1.2);
+}
+
+.page-full-width .sidebar--left,
+.page-full-width .sidebar--right {
+    display: none;
+}
+
+.page-full-width .main-content {
+    flex-basis: 100%;
+    max-width: 100%;
+}
+
+.page-full-width .card {
+    margin-right: 0;
+}

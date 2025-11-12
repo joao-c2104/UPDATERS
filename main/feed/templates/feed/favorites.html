@@ -1,0 +1,31 @@
+{% extends "feed/base.html" %}
+
+{% block body_class %}page-full-width{% endblock %}
+{% block title %}Meus Favoritos{% endblock %}
+
+{% block content %}
+    
+    <div style="max-width: 800px; margin: 0 auto;">
+
+        <h2 class="search-results-title">Meus Favoritos</h2>
+
+        <div class="card">
+            <div class="card_body">
+                
+                {% for article in articles %}
+                    
+                    <div class="widget_list_item_numbered" style="margin-bottom: 16px; border-bottom: 1px solid var(--color-border); padding-bottom: 16px;">
+                        
+                        <span class="widget_list_number">{{ forloop.counter }}.</span>
+                        
+                        <a href="{{ article.get_absolute_url }}" class="widget_link" style="font-size: 1.1rem;">
+                            {{ article.title }}
+                        </a>
+                    </div>
+                {% empty %}
+                    <p>Você ainda não favoritou nenhuma notícia.</p>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div> {% endblock %}

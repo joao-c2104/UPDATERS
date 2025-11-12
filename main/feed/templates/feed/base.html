@@ -3,7 +3,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Gen Z News{% endblock %}</title>
+    <title>{% block title %}Jornal do Commercio{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'feed/css/style.css' %}">
 </head>
 
@@ -30,7 +30,7 @@
                             </div>
                             
                             <a href="#">Configurações do usuário</a>
-                            <a href="#">Favoritos</a>
+                            <a href="{% url 'favorites_list' %}">Favoritos</a>
                             
                             <div class="user-menu-divider"></div>
 

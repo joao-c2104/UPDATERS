@@ -2,6 +2,7 @@ from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 class Category(models.Model):
     name = models.CharField(max_length=100, verbose_name="Nome da Categoria")
@@ -23,6 +24,13 @@ class Article(models.Model):
     publication_date = models.DateTimeField(default=timezone.now, verbose_name="Data de Publicação")
     view_count = models.PositiveIntegerField(default=0, verbose_name="Contagem de Visualizações")
     slug = models.SlugField(max_length=255, unique=True, blank=True, editable=False)
+
+    favorites = models.ManyToManyField(
+        User, 
+        related_name='favorite_articles',
+        blank=True,
+        verbose_name="Favoritado por"
+    )
 
     class Meta:
         ordering = ['-publication_date']
