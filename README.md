@@ -46,64 +46,17 @@ Reimaginamos serviços e criamos **soluções digitais** que combinam **excelên
 - ⭐ Um dos veículos mais **tradicionais e influentes** do Brasil.
 - 💻 Evoluiu de jornal impresso para **plataforma multimídia** (portal online, rádios e TV).
 
----
 
-## 🎯 O Problema
-O **Jornal do Commercio** vem enfrentando desafios na **retenção e fidelidade digital**:
 
-- 📉 Queda de cliques e acessos no portal.
-- ⚡ Concorrentes mais adaptados às **novas tendências digitais**.
-- 💔 Baixa conexão emocional com usuários.
-- 🔎 **SEO deficiente** e perda de relevância no Google.
-- 📢 Alocação inadequada de anúncios, prejudicando **experiência e receita**.
 
----
-
-## 📍 Onde e Como ocorre?
-
-📍 O problema acontece principalmente nos **portais digitais** do JC.   
-
-⚠️ Mesmo sem um volume expressivo de acessos, o portal sofre com **baixa retenção**.  
-
-🔎 Usuários chegam até as páginas por mecanismos de busca,  
-mas **não exploram outras seções** — resultando em visitas:  
-
-➡️ **Curtas**  
-➡️ **Isoladas**  
-➡️ Com ausência do **“segundo clique”**
-
----
-
-## 👥 Quem é impactado?
-- **O JC** → perde relevância, engajamento e fidelização.
-- **Usuários** → não têm uma experiência contínua e deixam de acessar conteúdos relevantes.
 
 ---
 
 ## 🔎 Causas e Consequências
 
-**⚠️ Causas**
-- Foco em tráfego via Google sem estratégia de retenção.
-- Conteúdos e interfaces que não incentivam navegação contínua.
-- Falta de recursos para engajamento.
-- Algoritmos do Google favorecendo portais mais fiéis.
 
-**📉 Consequências**
-- Redução do tempo médio no site.
-- Menor fidelidade e engajamento.
-- Queda no ranqueamento.
-- Impacto no **recall da marca** e nos números de acesso.
 
----
 
-## 🛠️ Como nós funcionamos
-
-Nosso processo criativo segue **4 etapas principais**:
-
-1. **🔍 Imersão** → Desk Research, Protopersona, Mapa de Empatia, Benchmarking.
-2. **💡 Ideação** → Insights, Mapa Analítico, Storyboard, Cards de Ideias.
-3. **🎨 Branding** → Leis de Gestalt, Mood Board, Grid de Proporção.
-4. **🚀 Saída** → Conteúdos relevantes, títulos chamativos, imagens de qualidade e criação de comunidade.
 
 ---
 
@@ -116,28 +69,7 @@ Nosso processo criativo segue **4 etapas principais**:
 
 ---
 
-## Construção das Histórias do Usuário
-
-### ✅ Base das histórias
-- Criadas a partir de pesquisas de **produtos similares** e **levantamento sobre os usuários**.  
-- Fundamentadas na **protopersona Gen Z**, identificada como público principal.  
-
-### 👤 Foco no usuário (Gen Z)
-- Necessidade de conteúdos rápidos, visuais e interativos.  
-- Preferência por formatos que lembram **redes sociais** (ex.: feed dinâmico, stories, vídeos curtos).  
-- Busca por proximidade, engajamento e possibilidade de interação.  
-
-### 📝 Formulação das histórias
-- Estruturadas no formato **“Eu, como usuário, quero ... para ...”**, transmitindo de forma simples a necessidade.  
-- Priorização de histórias que refletem **experiência fluida**, **facilidade de uso** e **consumo de notícias em formato visual**.  
-
-### 📲 Inspiração no Instagram
-- Interface próxima de uma rede social: **scroll contínuo**, **conteúdo multimídia**, **curtidas/comentários/compartilhamentos**.  
-- Ênfase em elementos de **interação** e **personalização**.  
-
-### 🎯 Objetivo das histórias
-- Ajudar a guiar a construção de um **portal de notícias dinâmico**.  
-- Tornar o consumo de notícias **mais atrativo, engajador e próximo da rotina digital do público jovem**.  
+*.  
 
 #### Para ter acesso as nossas histórias, [clique aqui](links/UPDATERS_HISTÓRIAS.pdf).
 ---
