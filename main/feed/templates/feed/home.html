@@ -1,0 +1,54 @@
+{% extends "feed/base.html" %}
+{% load static %}
+
+{% block title %}Jornal do Commercio{% endblock %}
+
+{% block body_class %}page-full-width{% endblock %}
+
+{% block content %}
+    {% if hero_article %}
+
+        <a href="{{ hero_article.get_absolute_url }}" class="home-hero-link">
+            <div class="home-hero">
+                <div class="hero-image-container">
+                    <img src="{{ hero_article.image.url }}" alt="{{ hero_article.title }}">
+                </div>
+                <div class="hero-text-container">
+                    <h1 class="hero-title">
+                        {{ hero_article.title }}
+                    </h1>
+                    <p class="hero-subheadline">
+                        {{ hero_article.summary }}
+                    </p>
+                </div>
+            </div>
+        </a>
+        {% else %}
+        <div class="card">
+            <div class="card_body" style="text-align: center;">
+                <h2 class="card_title">Bem-vindo!</h2>
+                <p>Ainda não há notícias para exibir na página inicial.</p>
+            </div>
+        </div>
+    {% endif %}
+
+
+    <div class="home-grid">
+        {% for article in grid_articles %}
+            
+            <a href="{{ article.get_absolute_url }}" class="grid-card">
+                
+                <span class="grid-card-category">{{ article.category.name | default:'Sem Categoria' }}</span>
+                
+                <img src="{{ article.image.url }}" alt="{{ article.title }}" class="grid-card-image">
+                
+                <h3 class="grid-card-title">{{ article.title }}</h3>
+            </a>
+
+        {% empty %}
+            <p style="grid-column: 1 / -1;">Nenhuma outra notícia encontrada no momento.</p>
+        {% endfor %}
+
+    </div>
+
+{% endblock %}

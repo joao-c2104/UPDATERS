@@ -8,67 +8,83 @@
 </head>
 
 <body class="{% block body_class %}{% endblock %}">
-    <header class="header">
-        <div class="header__container">
-            <a href="{% url 'article-list' %}">
-                <img src="{% static 'feed/images/logo.svg' %}" alt="Logo" class="header_logo_img">
+
+    <div id="sidebar-drawer" class="sidebar-drawer">
+        <div class="drawer-header">
+            <span class="drawer-title">Menu</span>
+            <button id="drawer-close" class="drawer-close-btn">✕</button>
+        </div>
+        <nav class="drawer-nav">
+            <a href="{% url 'article-list' %}" class="drawer-link">
+                Feed de Notícias
             </a>
+            
+            <a href="{% url 'home' %}" class="drawer-link">
+                Página Inicial
+            </a>
+        </nav>
+    </div>
+
+    <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+
+    <header class="header">
+        <button id="drawer-toggle" class="menu-toggle-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 12H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M3 6H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M3 18H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+        </button>
+
+        <div class="header__container">
+
+
+            <div class="header_left">
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'feed/images/logo.svg' %}" alt="Logo" class="header_logo_img">
+                </a>
+            </div>
+
             <form class="header_search-bar" method="GET" action="{% url 'article-list' %}">
                 <input type="text" name="q" class="header_search-input" placeholder="Buscar notícias..." value="{{ search_query|default:'' }}">
             </form>
-            <div class="header_actions">
 
+            <div class="header_actions">
                 {% if user.is_authenticated %}
                     <div class="profile-menu-container">
-                        
                         <img src="{% static 'feed/images/pfp.png' %}" id="profile-icon" class="header_profile-icon" alt="Perfil">
-                        
                         <div id="user-menu" class="user-menu-dropdown">
-                            
-                            <div class="user-menu-header">
-                                Olá, {{ user.username }}
-                            </div>
-                            
+                            <div class="user-menu-header">Olá, {{ user.username }}</div>
                             <a href="#">Configurações do usuário</a>
                             <a href="{% url 'favorites_list' %}">Favoritos</a>
-                            
                             <div class="user-menu-divider"></div>
-
                             <a href="{% url 'logout_user' %}" class="user-menu-logout">Sair</a>
                         </div>
                     </div>
-
                 {% else %}
                     <a href="{% url 'login_user' %}" class="login-button-header">Login</a>
                 {% endif %}
-
                 <button id="theme-toggle" class="theme-toggle">🌙</button>
             </div>
         </div>
     </header>
 
     <div class="page-container">
-        
-        <aside class="sidebar sidebar--left">
-            </aside>
+        <aside class="sidebar sidebar--left"></aside>
 
         <main class="main-content">
-            {% block content %}
-            {% endblock %}
+            {% block content %}{% endblock %}
         </main>
             
         <aside class="sidebar sidebar--right">
             <div class="widget">
                 <h4 class="widget_title_real">Notícias em Alta</h4>
-
                 <div class="widget_body">
                     {% for article in trending_articles %}
                         <div class="widget_list_item_numbered">
                             <span class="widget_list_number">{{ forloop.counter }}.</span>
-                
-                            <a href="{{ article.get_absolute_url }}" class="widget_link">
-                                {{ article.title }}
-                            </a>
+                            <a href="{{ article.get_absolute_url }}" class="widget_link">{{ article.title }}</a>
                         </div>
                     {% empty %}
                         <p class="widget_empty">Nenhuma notícia recente.</p>
@@ -78,20 +94,14 @@
             <div class="widget">
                 <h4 class="widget_title_real">Categorias</h4>
                 <div class="widget_body">
-                    
                     {% for category in all_categories %}
-                        
-                        <a href="{% url 'article-list' %}?category={{ category.id }}" class="widget_link">
-                            {{ category.name }}
-                        </a>
-
+                        <a href="{% url 'article-list' %}?category={{ category.id }}" class="widget_link">{{ category.name }}</a>
                     {% empty %}
                         <p class="widget_empty">Nenhuma categoria encontrada.</p>
                     {% endfor %}
                 </div>
             </div>
         </aside>
-
     </div>
     
     <footer class="footer">
@@ -129,51 +139,75 @@
     </footer>
 
 <script>       
-        document.addEventListener('DOMContentLoaded', function() {
-            
-            const toggleButton = document.getElementById('theme-toggle');
-            const body = document.body;
+    document.addEventListener('DOMContentLoaded', function() {
+        const drawerToggle = document.getElementById('drawer-toggle');
+        const drawerClose = document.getElementById('drawer-close');
+        const drawer = document.getElementById('sidebar-drawer');
+        const overlay = document.getElementById('sidebar-overlay');
 
-            if (toggleButton) {
-                function applyTheme(isDark) {
-                    if (isDark) {
-                        body.classList.add('dark-mode');
-                        toggleButton.textContent = '🌞';
-                        localStorage.setItem('theme', 'dark');
-                    } else {
-                        body.classList.remove('dark-mode');
-                        toggleButton.textContent = '🌙';
-                        localStorage.setItem('theme', 'light');
-                    }
+        function openDrawer() {
+            drawer.classList.add('open');
+            overlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDrawer() {
+            drawer.classList.remove('open');
+            overlay.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        if (drawerToggle) {
+            drawerToggle.addEventListener('click', openDrawer);
+        }
+
+        if (drawerClose) {
+            drawerClose.addEventListener('click', closeDrawer);
+        }
+
+        if (overlay) {
+            overlay.addEventListener('click', closeDrawer);
+        }
+
+        const toggleButton = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        if (toggleButton) {
+            function applyTheme(isDark) {
+                if (isDark) {
+                    body.classList.add('dark-mode');
+                    toggleButton.textContent = '🌞';
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    body.classList.remove('dark-mode');
+                    toggleButton.textContent = '🌙';
+                    localStorage.setItem('theme', 'light');
                 }
-                const savedTheme = localStorage.getItem('theme');
-                applyTheme(savedTheme === 'dark');
-                toggleButton.addEventListener('click', () => {
-                    const isCurrentlyDark = body.classList.contains('dark-mode');
-                    applyTheme(!isCurrentlyDark);
-                });
-            } else {
-                console.error("Erro: Botão de alternância de tema não encontrado (ID 'theme-toggle').");
             }
+            const savedTheme = localStorage.getItem('theme');
+            applyTheme(savedTheme === 'dark');
+            toggleButton.addEventListener('click', () => {
+                const isCurrentlyDark = body.classList.contains('dark-mode');
+                applyTheme(!isCurrentlyDark);
+            });
+        }
 
-            const profileIcon = document.getElementById('profile-icon');
-            const userMenu = document.getElementById('user-menu');
+        const profileIcon = document.getElementById('profile-icon');
+        const userMenu = document.getElementById('user-menu');
 
-            if (profileIcon && userMenu) {
-                
-                profileIcon.addEventListener('click', (event) => {
-                    event.stopPropagation();
-                    userMenu.classList.toggle('open');
-                });
-                
-                document.addEventListener('click', (event) => {
-                    if (userMenu.classList.contains('open') && !userMenu.contains(event.target) && event.target !== profileIcon) {
-                        userMenu.classList.remove('open');
-                    }
-                });
-            }
-        });
-    </script>
+        if (profileIcon && userMenu) {
+            profileIcon.addEventListener('click', (event) => {
+                event.stopPropagation();
+                userMenu.classList.toggle('open');
+            });
+            document.addEventListener('click', (event) => {
+                if (userMenu.classList.contains('open') && !userMenu.contains(event.target) && event.target !== profileIcon) {
+                    userMenu.classList.remove('open');
+                }
+            });
+        }
+    });
+</script>
 
 </body>
 </html>

@@ -1,4 +1,4 @@
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, TemplateView
 from .models import Article, ArticleViewLog
 from django.db.models import Q, F
 from django.shortcuts import render, redirect, get_object_or_404
@@ -58,6 +58,25 @@ class ArticleDetailView(DetailView):
             is_favorited = article.favorites.filter(id=self.request.user.id).exists()
         
         context['is_favorited'] = is_favorited
+        return context
+    
+class HomeView(TemplateView):
+    template_name = 'feed/home.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        
+        hero_article = Article.objects.order_by('-publication_date').first()
+        grid_articles = Article.objects.order_by('-publication_date').all()
+        
+        if hero_article:
+            grid_articles = grid_articles.exclude(pk=hero_article.pk)[0:4]
+        else:
+            grid_articles = grid_articles[0:4]
+
+        context['hero_article'] = hero_article
+        context['grid_articles'] = grid_articles
+        
         return context
     
 @login_required
