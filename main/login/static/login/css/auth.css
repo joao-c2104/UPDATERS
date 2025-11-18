@@ -1,19 +1,261 @@
-body {
-    background-color: #f3f4f6; 
-    display: flex;
-    align-items: center;
-    min-height: 100vh;
-    padding-top: 40px;
-    padding-bottom: 40px;
-}
+/*
+ * ----------------------------------------------------
+ * ESTILOS BASE PARA PÁGINAS DE AUTENTICAÇÃO (AUTH.CSS)
+ * ----------------------------------------------------
+ */
 
-/* === ESTILOS DO MODO NOTURNO === */
+/* === DEFINIÇÃO DE VARIÁVEIS GLOBAIS DE COR === */
+/* Estas variáveis são necessárias pois auth_base.html não carrega o CSS global */
+
+:root {
+    /* Cores Globais - Light Mode */
+    --color-background: #f3f4f6;
+    --color-surface: #ffffff;
+    --color-border: #e0e0e0;
+    --color-primary: #B00000;
+    --color-text-primary: #111827;
+    --color-text-secondary: #4B5563;
+}
 
 body.dark-mode {
-    background-color: #1e1e1e;
+    /* Cores Globais - Dark Mode */
+    --color-background: #1e1e1e;
+    --color-surface: #2b2b2b;
+    --color-border: #3c3c3c;
+    --color-primary: #B00000;
+    --color-text-primary: #f8f8f8;
+    --color-text-secondary: #aaaaaa;
 }
 
-/* 1. MUDANÇA: Posiciona o botão dentro do card */
+/* Ajusta o fundo da página de login/cadastro para usar a cor de fundo global */
+body {
+    background-color: var(--color-background);
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centraliza horizontalmente */
+    min-height: 100vh;
+    padding: 40px 15px; /* Adiciona padding para telas pequenas */
+}
+
+/* === VARIÁVEIS LOCAIS PARA O CARD DO FORMULÁRIO === */
+
+:root {
+    /* MODO CLARO: Card Branco com Borda Vermelha */
+    --auth-card-bg: var(--color-surface);
+    --auth-card-border-color: var(--color-primary);
+    --auth-text-color: var(--color-text-primary);
+    --auth-input-bg: #f5f5f5;
+    --auth-input-border: #e0e0e0;
+    --auth-link-color: var(--color-text-primary);
+    --auth-title-color: var(--color-text-primary);
+}
+
+body.dark-mode {
+    /* MODO ESCURO: Card Vermelho com Borda Vermelha Escura */
+    --auth-card-bg: var(--color-primary);
+    --auth-card-border-color: #7E0000;
+    --auth-text-color: #ffffff;
+    --auth-input-bg: #ffffff; /* Input Branco Puro */
+    --auth-input-border: #f0f0f0;
+    --auth-link-color: #ffffff; /* BRANCO */
+    --auth-title-color: #ffffff;
+}
+
+/* ----------------------------------------------------
+ * ESTILOS DO CARD E DO FORMULÁRIO
+ * ----------------------------------------------------
+ */
+
+.card.auth-card {
+    max-width: 400px;
+    width: 100%;
+    
+    background-color: var(--auth-card-bg) !important;
+    border: 3px solid var(--auth-card-border-color) !important;
+    border-radius: 20px !important; 
+    padding: 30px !important; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Altera todos os textos dentro do card */
+.auth-card,
+.auth-card label,
+.auth-card p,
+.auth-card h2,
+.auth-card a:not(.btn) {
+    color: var(--auth-text-color) !important;
+}
+
+/* --- NOVO: Contêiner para o Título e o Botão de Tema --- */
+.auth-header-top {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    margin-bottom: 25px; 
+}
+
+/* Título */
+.auth-card h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0; 
+    text-align: left; 
+    flex-grow: 1;
+}
+
+/* Inputs */
+.auth-card .form-control {
+    height: 50px;
+    background-color: var(--auth-input-bg);
+    border: 1px solid var(--auth-input-border);
+    color: var(--color-text-primary); /* CORRIGIDO: Usar variável global */
+    font-size: 1rem;
+    border-radius: 8px;
+    padding: 10px 15px;
+}
+
+/* --- CORREÇÕES DE INPUT NO MODO ESCURO (Fundo Vermelho) --- */
+body.dark-mode .auth-card .form-control {
+    color: var(--color-text-primary); /* Texto digitado deve ser escuro no input branco */
+}
+
+body.dark-mode .auth-card .form-control::placeholder {
+    color: #99a1af; /* Placeholder cinza claro */
+    opacity: 1;
+}
+
+.auth-card .form-control:focus {
+    box-shadow: 0 0 0 0.25rem rgba(176, 0, 0, 0.25);
+    border-color: var(--color-primary);
+    background-color: var(--auth-input-bg);
+    color: var(--color-text-primary); /* CORRIGIDO: Usar variável global */
+}
+
+/* Botões Principais */
+.auth-card .btn-primary {
+    background-color: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+    color: #ffffff !important;
+    font-weight: 600;
+    height: 50px;
+    font-size: 1.1rem;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.auth-card .btn-primary:hover {
+    background-color: #7E0000 !important;
+    border-color: #7E0000 !important;
+}
+
+/* DARK MODE: Botão Principal Invertido (Branco com Texto Escuro) */
+body.dark-mode .auth-card .btn-primary {
+    background-color: #ffffff !important;
+    border-color: #ffffff !important;
+    color: var(--color-text-primary) !important; /* Texto escuro no botão branco */
+}
+
+body.dark-mode .auth-card .btn-primary:hover {
+    background-color: #f0f0f0 !important;
+    border-color: #f0f0f0 !important;
+}
+
+/* Botão de Esqueci a Senha (Texto) */
+.auth-forgot-link {
+    display: block;
+    text-align: right;
+    font-size: 0.9rem;
+    margin-top: -10px; 
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: var(--auth-link-color) !important; 
+    transition: opacity 0.2s;
+}
+
+.auth-forgot-link:hover {
+    opacity: 0.8;
+}
+
+/* --- CORREÇÃO: Força a cor dos links gerais ('Cadastre-se') para BRANCO no Modo Noturno --- */
+body.dark-mode .auth-card p a {
+    color: var(--auth-link-color) !important;
+}
+
+/* Botões de Mídias Sociais */
+.btn-social {
+    color: #ffffff !important;
+    font-weight: 600;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 1.05rem;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+/* --- NOVO: Estilo dos botões Google/Facebook no Modo Noturno (Fundo BRANCO no Figma) --- */
+body.dark-mode .btn-google,
+body.dark-mode .btn-facebook {
+    background-color: #ffffff !important;
+    color: var(--color-text-primary) !important; /* Texto Preto */
+    border: 1px solid #ccc;
+}
+
+body.dark-mode .btn-google:hover,
+body.dark-mode .btn-facebook:hover {
+    background-color: #f0f0f0 !important;
+}
+
+
+/* Correção do dimensionamento da imagem dentro do botão social */
+.btn-social img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.btn-google {
+    background-color: #db4437; 
+    border-color: #db4437;
+}
+
+.btn-facebook {
+    background-color: #4267B2; 
+    border-color: #4267B2;
+}
+
+.btn-google:hover, .btn-facebook:hover {
+    filter: brightness(0.9);
+}
+
+/* Linha Divisória 'OU' */
+.auth-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+    color: var(--auth-text-color);
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.auth-divider::before, .auth-divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--auth-text-color);
+    opacity: 0.2;
+}
+
+.auth-divider:not(:empty)::before {
+    margin-right: 15px;
+}
+
+.auth-divider:not(:empty)::after {
+    margin-left: 15px;
+}
+
+/* Posição do Botão de Tema */
 .theme-toggle {
     background: none;
     border: none;
@@ -21,50 +263,28 @@ body.dark-mode {
     cursor: pointer;
     transition: transform 0.2s;
     
-    /* NOVO POSICIONAMENTO */
-    position: absolute;
-    top: 1.25rem;  /* (p-4 do bootstrap é 1.5rem, 1.25rem fica bom) */
-    right: 1.5rem;
+    position: static; 
+    top: initial;
+    right: initial;
     z-index: 10;
+    
+    color: var(--auth-text-color) !important; 
 }
 
 .theme-toggle:hover {
     transform: scale(1.2);
 }
 
-/* 2. NOVO: Faz o ícone ficar branco no modo escuro */
-body.dark-mode .theme-toggle {
-    color: #FFFFFF;
-}
-
-/* 3. NOVO: Adapta o card do Bootstrap ao modo escuro */
-body.dark-mode .card {
-    background-color: #2b2b2b; /* Cor de superfície escura */
-    border-color: #3c3c3c;
-}
-
-/* 4. NOVO: Adapta todo o texto do card */
-body.dark-mode .card,
-body.dark-mode .card label,
-body.dark-mode .card p {
-    color: #E5E7EB; /* Cor de texto clara */
-}
-
-/* 5. NOVO: Adapta os inputs do formulário */
-body.dark-mode .form-control {
-    background-color: #3f3f3f;
-    color: #FFFFFF;
-    border-color: #555;
-}
-
-body.dark-mode .form-control::placeholder {
-    color: #99a1af;
-}
-
-/* 6. NOVO: Corrige o brilho de foco (outline) no modo escuro */
-body.dark-mode .form-control:focus {
-    background-color: #3f3f3f;
-    color: #FFFFFF;
-    border-color: #0d6efd; /* Cor primária do Bootstrap */
-    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.5);
+/* Ícone de Fechar (X) */
+.auth-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: var(--auth-text-color) !important;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0.7;
 }
