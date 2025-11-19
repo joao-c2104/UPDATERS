@@ -1,5 +1,6 @@
 {% extends "login/auth_base.html" %}
 {% load static %}
+{% load socialaccount %}
 {% block title %}Crie sua conta{% endblock %}
 {% block content %}
 <div class="card auth-card mx-auto position-relative">
@@ -9,18 +10,22 @@
         <button id="theme-toggle" class="theme-toggle">🌙</button>
     </div>
 
-    <button class="btn btn-social btn-google">
+    <!-- SOCIAL SIGNUP FUNCIONAL -->
+    <a href="{% provider_login_url 'google' process='signup' %}" class="btn btn-social btn-google">
         <img src="{% static 'login/images/google_icon.png' %}" alt="Google">
         Cadastrar com Google
-    </button>
-    <button class="btn btn-social btn-facebook">
+    </a>
+
+    <a href="{% provider_login_url 'facebook' process='signup' %}" class="btn btn-social btn-facebook">
         <img src="{% static 'login/images/facebook_icon.png' %}" alt="Facebook">
         Cadastrar com Facebook
-    </button>
+    </a>
 
     <div class="auth-divider">ou</div>
 
-    <form method="POST" action=""> {% csrf_token %}
+    <form method="POST" action="">
+        {% csrf_token %}
+        
         <div class="mb-3">
             <label for="full_name" class="form-label">Nome Completo</label>
             <input type="text" name="full_name" id="full_name" class="form-control" placeholder="Nome Completo" required>
@@ -37,13 +42,13 @@
         </div>
 
         <div class="form-check mb-4">
-            <input class="form-check-input" type="checkbox" value="" id="acceptTerms" required>
+            <input class="form-check-input" type="checkbox" id="acceptTerms" required>
             <label class="form-check-label" for="acceptTerms" style="font-size: 0.8rem; opacity: 0.8;">
                 Eu aceito os <a href="#" style="color: inherit; text-decoration: underline;">Termos de uso</a> e a <a href="#" style="color: inherit; text-decoration: underline;">Política de Privacidade</a>.
             </label>
         </div>
 
-        <button type="submit" class="btn btn-primary w-100">Entrar</button>
+        <button type="submit" class="btn btn-primary w-100">Criar conta</button>
     </form>
 
     <p class="mt-4 text-center">
