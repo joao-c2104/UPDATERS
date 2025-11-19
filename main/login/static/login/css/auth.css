@@ -4,11 +4,8 @@
  * ----------------------------------------------------
  */
 
-/* === DEFINIÇÃO DE VARIÁVEIS GLOBAIS DE COR === */
-/* Estas variáveis são necessárias pois auth_base.html não carrega o CSS global */
-
+/* === DEFINIÇÃO DE VARIÁVEIS GLOBAIS DE COR (Light Mode) === */
 :root {
-    /* Cores Globais - Light Mode */
     --color-background: #f3f4f6;
     --color-surface: #ffffff;
     --color-border: #e0e0e0;
@@ -17,8 +14,8 @@
     --color-text-secondary: #4B5563;
 }
 
+/* === DEFINIÇÃO DE VARIÁVEIS GLOBAIS DE COR (Dark Mode) === */
 body.dark-mode {
-    /* Cores Globais - Dark Mode */
     --color-background: #1e1e1e;
     --color-surface: #2b2b2b;
     --color-border: #3c3c3c;
@@ -32,9 +29,9 @@ body {
     background-color: var(--color-background);
     display: flex;
     align-items: center;
-    justify-content: center; /* Centraliza horizontalmente */
+    justify-content: center; 
     min-height: 100vh;
-    padding: 40px 15px; /* Adiciona padding para telas pequenas */
+    padding: 40px 15px; 
 }
 
 /* === VARIÁVEIS LOCAIS PARA O CARD DO FORMULÁRIO === */
@@ -108,7 +105,7 @@ body.dark-mode {
     height: 50px;
     background-color: var(--auth-input-bg);
     border: 1px solid var(--auth-input-border);
-    color: var(--color-text-primary); /* CORRIGIDO: Usar variável global */
+    color: var(--color-text-primary); 
     font-size: 1rem;
     border-radius: 8px;
     padding: 10px 15px;
@@ -116,11 +113,11 @@ body.dark-mode {
 
 /* --- CORREÇÕES DE INPUT NO MODO ESCURO (Fundo Vermelho) --- */
 body.dark-mode .auth-card .form-control {
-    color: var(--color-text-primary); /* Texto digitado deve ser escuro no input branco */
+    color: var(--color-text-primary); 
 }
 
 body.dark-mode .auth-card .form-control::placeholder {
-    color: #99a1af; /* Placeholder cinza claro */
+    color: #99a1af; 
     opacity: 1;
 }
 
@@ -128,7 +125,7 @@ body.dark-mode .auth-card .form-control::placeholder {
     box-shadow: 0 0 0 0.25rem rgba(176, 0, 0, 0.25);
     border-color: var(--color-primary);
     background-color: var(--auth-input-bg);
-    color: var(--color-text-primary); /* CORRIGIDO: Usar variável global */
+    color: var(--color-text-primary); 
 }
 
 /* Botões Principais */
@@ -151,7 +148,7 @@ body.dark-mode .auth-card .form-control::placeholder {
 body.dark-mode .auth-card .btn-primary {
     background-color: #ffffff !important;
     border-color: #ffffff !important;
-    color: var(--color-text-primary) !important; /* Texto escuro no botão branco */
+    color: #000000 !important; /* Texto escuro no botão branco */
 }
 
 body.dark-mode .auth-card .btn-primary:hover {
@@ -198,7 +195,7 @@ body.dark-mode .auth-card p a {
 body.dark-mode .btn-google,
 body.dark-mode .btn-facebook {
     background-color: #ffffff !important;
-    color: var(--color-text-primary) !important; /* Texto Preto */
+    color: #000000 !important; /* Texto Preto */
     border: 1px solid #ccc;
 }
 
@@ -215,19 +212,21 @@ body.dark-mode .btn-facebook:hover {
     object-fit: contain;
 }
 
+/* --- CORREÇÃO PARA MODO CLARO (FORÇA FACEBOOK PARA VERMELHO) --- */
 .btn-google {
-    background-color: #db4437; 
-    border-color: #db4437;
+    background-color: var(--color-primary); /* Cor Google */
+    border-color: var(--color-primary);
 }
 
 .btn-facebook {
-    background-color: #4267B2; 
-    border-color: #4267B2;
+    background-color: var(--color-primary); /* USA O VERMELHO PRIMÁRIO DA MARCA */
+    border-color: var(--color-primary);
 }
 
 .btn-google:hover, .btn-facebook:hover {
     filter: brightness(0.9);
 }
+/* --- FIM DA CORREÇÃO PARA MODO CLARO --- */
 
 /* Linha Divisória 'OU' */
 .auth-divider {
