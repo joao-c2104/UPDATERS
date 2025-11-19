@@ -38,32 +38,27 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-    # ALLAUTH
-    'django.contrib.sites',
+    # CONFIGURAÇÕES ALLAUTH
+    'django.contrib.sites', 
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-
-    # PROVIDERS
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.facebook',
     
-    # TERCEIROS
     'whitenoise.runserver_nostatic', 
-
-    # APPS DO PROJETO
     'feed',
     'login',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', 
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'allauth.account.middleware.AccountMiddleware',
+    'allauth.account.middleware.AccountMiddleware', # Este Middleware agora faz o trabalho
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -81,13 +76,11 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-
-                # Context processors da sua aplicação
                 'feed.context_processors.trending_articles_processor',
                 'feed.context_processors.all_categories_processor',
-
-                # ❗ IMPORTANTE:
-                # Nada do allauth precisa ser adicionado aqui.
+                
+                # REMOVIDO: Os context processors do AllAuth não são mais necessários
+                # nas versões novas, pois o Middleware acima já resolve.
             ],
         },
     },
@@ -101,7 +94,7 @@ if 'DATABASE_URL' in os.environ:
     DATABASES = {
         'default': dj_database_url.config(
             conn_max_age=600,
-            ssl_require=True
+            ssl_require=True 
         )
     }
 else:
@@ -115,36 +108,35 @@ else:
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
-    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
-    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
-    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
-    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',},
 ]
 
 
 # Internationalization
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
-USE_I18N = True
+USE_I18N = True 
 USE_TZ = True
 
 
-# Static files
+# Static files (CSS, JavaScript, Images)
 
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = BASE_DIR / 'staticfiles' 
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' 
 
 # Media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-# Arquivos estáticos extras da app LOGIN
+# LOCALIZA OS ARQUIVOS ESTÁTICOS DA APP 'LOGIN' NO AMBIENTE DE DESENVOLVIMENTO
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'login', 'static'),
 ]
-
 
 # =========================================================================
 # CONFIGURAÇÕES ADICIONAIS DO DJANGO-ALLAUTH
@@ -157,31 +149,22 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_AUTHENTICATION_METHOD = 'email' 
+ACCOUNT_EMAIL_REQUIRED = True 
 ACCOUNT_USERNAME_REQUIRED = False
-ACCOUNT_LOGIN_METHODS = ['email']
+ACCOUNT_LOGIN_METHODS = {'email'} 
 
-
-# Redirecionamentos
+# Redirecionamentos de Login/Logout
 LOGIN_REDIRECT_URL = '/'
 ACCOUNT_LOGOUT_REDIRECT_URL = '/'
+
+# Pula a tela de confirmação intermediária ("You are about to sign in...")
+SOCIALACCOUNT_LOGIN_ON_GET = True
+ACCOUNT_LOGOUT_ON_GET = True
+
+# Email Backend para Console (Evita erro de conexão recusada ao enviar email)
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# =========================================================================
-# CONFIGURAÇÕES ADICIONAIS DO DJANGO-ALLAUTH
-# =========================================================================
-
-# ... (suas configurações existentes: SITE_ID, etc.) ...
-
-# Pula a tela de confirmação de login e vai direto para o Google/Facebook
-SOCIALACCOUNT_LOGIN_ON_GET = True
-
-# (Opcional) Pula a tela de confirmação de logout também
-ACCOUNT_LOGOUT_ON_GET = True
-
-# Faz com que o Django imprima os e-mails no terminal em vez de tentar enviar via SMTP
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
