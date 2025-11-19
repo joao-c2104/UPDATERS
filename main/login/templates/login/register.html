@@ -23,17 +23,17 @@
     <form method="POST" action=""> {% csrf_token %}
         <div class="mb-3">
             <label for="full_name" class="form-label">Nome Completo</label>
-            <input type="text" name="full_name" id="full_name" class="form-control" required>
+            <input type="text" name="full_name" id="full_name" class="form-control" placeholder="Nome Completo" required>
         </div>
         
         <div class="mb-3">
             <label for="email" class="form-label">E-mail</label>
-            <input type="email" name="email" id="email" class="form-control" required>
+            <input type="email" name="email" id="email" class="form-control" placeholder="seu@email.com" required>
         </div>
         
         <div class="mb-3">
             <label for="password" class="form-label">Crie uma senha</label>
-            <input type="password" name="password" id="password" class="form-control" required>
+            <input type="password" name="password" id="password" class="form-control" placeholder="Sua senha" required>
         </div>
 
         <div class="form-check mb-4">
