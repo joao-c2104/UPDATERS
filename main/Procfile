@@ -1,1 +1,1 @@
-web: gunicorn core.wsgi:application --chdir UPDATERS/UPDATERS/UPDATERS/main
+web: gunicorn core.wsgi:application --chdir main
