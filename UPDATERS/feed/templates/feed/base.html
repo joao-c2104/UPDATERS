@@ -1,0 +1,143 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Gen Z News{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'feed/css/style.css' %}">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__container">
+            <div class="header_logo"></div>
+            <form class="header_search-bar" method="GET" action="{% url 'article-list' %}">
+                <input type="text" name="q" class="header_search-input" placeholder="Buscar notícias..." value="{{ search_query|default:'' }}">
+            </form>
+            <div class="header_actions">
+                <div class="imagem-logo-header">
+                    <img src="imagens/logo_updaters.png" alt="Logo UPDATERS" class="logo-header">
+                </div>
+
+                <button class="login-button-header">Login</button>
+            </div>
+        </div>
+
+        <button id="theme-toggle" class="theme-toggle">🌙</button>
+    </header>
+
+    <div class="page-container">
+        
+        <aside class="sidebar sidebar--left">
+            </aside>
+
+        <main class="main-content">
+            {% block content %}
+            {% endblock %}
+        </main>
+            
+        <aside class="sidebar sidebar--right">
+            <div class="widget">
+                <div class="widget_title"></div>
+                <div class="widget_text-line w-80"></div>
+                <div class="widget_text-line w-100"></div>
+                <div class="widget_text-line w-60"></div>
+                <div class="widget_text-line w-90"></div>
+                <div class="widget_text-line w-70"></div>
+            </div>
+            <div class="widget">
+                <div class="widget_title"></div>
+                <div class="widget_list-item">
+                    <div class="widget_item-image"></div>
+                    <div class="widget_item-text">
+                       <div class="widget_text-line w-90"></div>
+                       <div class="widget_text-line w-70"></div>
+                    </div>
+                </div>
+                 <div class="widget_list-item">
+                    <div class="widget_item-image"></div>
+                    <div class="widget_item-text">
+                       <div class="widget_text-line w-90"></div>
+                       <div class="widget_text-line w-70"></div>
+                    </div>
+                </div>
+                 <div class="widget_list-item">
+                    <div class="widget_item-image"></div>
+                    <div class="widget__item-text">
+                       <div class="widget_text-line w-90"></div>
+                       <div class="widget_text-line w-70"></div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+    </div>
+    
+    <footer class="footer">
+        <div class="footer_container">
+            <div class="footer_column">
+                <div class="footer_heading"></div>
+                <div class="footer_link w-90"></div>
+                <div class="footer_link w-100"></div>
+                <div class="footer_link w-90"></div>
+            </div>
+            <div class="footer_column">
+                <div class="footer_heading"></div>
+                <div class="footer_link w-90"></div>
+                <div class="footer_link w-100"></div>
+                <div class="footer_link w-90"></div>
+            </div>
+            <div class="footer_column">
+                <div class="footer_heading"></div>
+                <div class="footer_link w-90"></div>
+                <div class="footer_link w-100"></div>
+                <div class="footer_link w-90"></div>
+            </div>
+            <div class="footer_column">
+                <div class="footer_heading"></div>
+                <div class="footer_link w-90"></div>
+                <div class="footer_link w-100"></div>
+                <div class="footer_socials">
+                    <div class="footer_social-icon"></div>
+                    <div class="footer_social-icon"></div>
+                    <div class="footer_social-icon"></div>
+                    <div class="footer_social-icon"></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>       
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleButton = document.getElementById('theme-toggle');
+            const body = document.body;
+
+            if (!toggleButton) {
+                console.error("Erro: Botão de alternância de tema não encontrado (ID 'theme-toggle').");
+                return; 
+            }
+
+            function applyTheme(isDark) {
+                if (isDark) {
+                    body.classList.add('dark-mode');
+                    toggleButton.textContent = '🌞';
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    body.classList.remove('dark-mode');
+                    toggleButton.textContent = '🌙';
+                    localStorage.setItem('theme', 'light');
+                }
+            }
+
+            const savedTheme = localStorage.getItem('theme');
+            applyTheme(savedTheme === 'dark');
+
+            toggleButton.addEventListener('click', () => {
+                const isCurrentlyDark = body.classList.contains('dark-mode');
+                applyTheme(!isCurrentlyDark);
+            });
+        });
+    </script>
+
+</body>
+</html>

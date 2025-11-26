@@ -108,14 +108,6 @@ Nosso processo criativo segue **4 etapas principais**:
 ---
 
 
-## 🚀 Nossa Missão
-- 📈 Aumentar a **retenção e engajamento** no portal do JC.
-- 💌 Criar novas formas de **conexão emocional** com leitores.
-- 🔎 Reforçar a **marca JC** no ambiente digital.
-- 🛠️ Unir **tecnologia + design + experiência centrada no usuário**.
-
----
-
 ## Construção das Histórias do Usuário
 
 ### ✅ Base das histórias
