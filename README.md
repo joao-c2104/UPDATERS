@@ -96,17 +96,6 @@ mas **não exploram outras seções** — resultando em visitas:
 
 ---
 
-## 🛠️ Como nós funcionamos
-
-Nosso processo criativo segue **4 etapas principais**:
-
-1. **🔍 Imersão** → Desk Research, Protopersona, Mapa de Empatia, Benchmarking.
-2. **💡 Ideação** → Insights, Mapa Analítico, Storyboard, Cards de Ideias.
-3. **🎨 Branding** → Leis de Gestalt, Mood Board, Grid de Proporção.
-4. **🚀 Saída** → Conteúdos relevantes, títulos chamativos, imagens de qualidade e criação de comunidade.
-
----
-
 
 ## Construção das Histórias do Usuário
 
