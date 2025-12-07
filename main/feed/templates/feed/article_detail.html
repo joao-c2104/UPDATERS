@@ -2,36 +2,28 @@
 
 {% block body_class %}page-article-detail{% endblock %}
 
-{% block title %}{{ article.title }} - Gen Z News{% endblock %}
+{% block title %}{{ article.title }} - Jornal do Commercio{% endblock %}
 
 {% block content %}
     <article class="card">
 
-        <img class="card_image" src="{{ article.image.url }}" alt="{{ article.title }}">
+        {% if article.image %}
+            <img class="card_image" src="{{ article.image.url }}" alt="{{ article.title }}">
+        {% else %}
+            <div class="card_image" style="background-color: var(--color-placeholder-light); display: flex; align-items: center; justify-content: center; color: var(--color-text-secondary); height: 400px;">
+                <span>Sem imagem disponível</span>
+            </div>
+        {% endif %}
 
         <div class="card_body">
             <div class="article-title-container">
                 <h1 class="card_title" style="margin-bottom: 0;">{{ article.title }}</h1>
-
-                {% if user.is_authenticated %}
-                    <form method="POST" action="{% url 'toggle_save_article' article.slug %}?redirect=saved" style="display: inline;">
-                        {% csrf_token %}
-                        <button type="submit" class="article-detail-star-btn {% if is_favorited %}favorited{% endif %}"
-                                title="{% if is_favorited %}Remover dos salvos{% else %}Salvar artigo{% endif %}">
-                            {% if is_favorited %}
-                                <svg class="star-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                                <span class="save-btn-text">Salvo</span>
-                            {% else %}
-                                <svg class="star-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                                <span class="save-btn-text">Salvar</span>
-                            {% endif %}
-                        </button>
-                    </form>
-                {% endif %}
+    
+                <a href="{% url 'toggle_favorite' article.id %}" class="favorite-star-button">
+                {% if is_favorited %}
+                    ⭐ {% else %}
+                    ☆ {% endif %}
+                </a>
             </div>
 
             <p style="color: #666; font-size: 0.9rem; margin-bottom: 24px;">
@@ -42,10 +34,8 @@
                 {{ article.content|linebreaks }}
             </div>
 
-            <!-- Comments Section -->
             <div class="comments-section-modern">
                 <div class="comments-container">
-                    <!-- Comments Header -->
                     <div class="comments-section-header">
                         <div class="comments-title-wrapper">
                             <h2 class="comments-title">
@@ -58,7 +48,6 @@
                         </div>
                     </div>
 
-                    <!-- Comment Form -->
                     {% if user.is_authenticated %}
                     <div class="comment-form-wrapper">
                         <div class="comment-form-header">
@@ -106,7 +95,6 @@
                     </div>
                     {% endif %}
 
-                    <!-- Comments List -->
                     <div id="comments-list" class="comments-list-modern">
                         <div class="comments-loading-modern">
                             <div class="loading-spinner"></div>
@@ -124,7 +112,6 @@
         const articleId = {{ article.id }};
         const isAuthenticated = {{ user.is_authenticated|yesno:"true,false" }};
 
-        // DOM Elements
         const commentsCount = document.getElementById('comments-count');
         const commentsList = document.getElementById('comments-list');
         const commentInput = document.getElementById('comment-input');
@@ -132,14 +119,12 @@
         const submitBtn = document.getElementById('submit-comment');
         const commentError = document.getElementById('comment-error');
 
-        // Character counter with enhanced UX
         if (commentInput) {
             commentInput.addEventListener('input', () => {
                 const length = commentInput.value.length;
                 charCounter.textContent = `${length} / 300`;
                 submitBtn.disabled = length === 0 || length > 300;
 
-                // Visual feedback for character limit
                 if (length > 300) {
                     charCounter.classList.add('char-limit-exceeded');
                     charCounter.classList.remove('char-limit-warning');
@@ -151,14 +136,12 @@
                 }
             });
 
-            // Auto-resize textarea
             commentInput.addEventListener('input', () => {
                 commentInput.style.height = 'auto';
                 commentInput.style.height = Math.min(commentInput.scrollHeight, 150) + 'px';
             });
         }
 
-        // Submit comment
         if (submitBtn) {
             submitBtn.addEventListener('click', async () => {
                 const content = commentInput.value.trim();
@@ -200,12 +183,10 @@
             });
         }
 
-        // Generate avatar initials
         function getInitials(username) {
             return username.slice(0, 2).toUpperCase();
         }
 
-        // Generate avatar color based on username
         function getAvatarColor(username) {
             const colors = [
                 '#B00000', '#0066CC', '#00AA66', '#CC6600', '#9933CC',
@@ -218,7 +199,6 @@
             return colors[Math.abs(hash) % colors.length];
         }
 
-        // Load comments with modern UI
         async function loadComments() {
             commentsList.innerHTML = `
                 <div class="comments-loading-modern">
@@ -276,7 +256,6 @@
             }
         }
 
-        // Update comment count
         async function updateCommentCount() {
             try {
                 const response = await fetch(`/api/articles/${articleId}/comments/count/`);
@@ -287,13 +266,11 @@
             }
         }
 
-        // Show error message
         function showError(message) {
             commentError.textContent = message;
             commentError.style.display = 'block';
         }
 
-        // Format date
         function formatDate(isoString) {
             const date = new Date(isoString);
             const now = new Date();
@@ -314,14 +291,12 @@
             });
         }
 
-        // Escape HTML
         function escapeHtml(text) {
             const div = document.createElement('div');
             div.textContent = text;
             return div.innerHTML;
         }
 
-        // Get CSRF token
         function getCookie(name) {
             let cookieValue = null;
             if (document.cookie && document.cookie !== '') {
@@ -337,7 +312,6 @@
             return cookieValue;
         }
 
-        // Initialize - load comments immediately on page load
         loadComments();
         updateCommentCount();
     </script>

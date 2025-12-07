@@ -16,20 +16,16 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
-
 class Article(models.Model):
     title = models.CharField(max_length=200, verbose_name="Título")
-    author = models.CharField(max_length=100, verbose_name="Autor")
+    
     summary = models.TextField(verbose_name="Resumo")
+    author = models.CharField(max_length=100, verbose_name="Autor")
     content = models.TextField(verbose_name="Conteúdo Completo")
-    image = models.ImageField(upload_to='articles/',
-                              verbose_name="Imagem de Destaque")
-    publication_date = models.DateTimeField(
-        default=timezone.now, verbose_name="Data de Publicação")
-    view_count = models.PositiveIntegerField(
-        default=0, verbose_name="Contagem de Visualizações")
-    slug = models.SlugField(max_length=255, unique=True,
-                            blank=True, editable=False)
+    image = models.ImageField(upload_to='articles/', verbose_name="Imagem de Destaque")
+    publication_date = models.DateTimeField(default=timezone.now, verbose_name="Data de Publicação")
+    view_count = models.PositiveIntegerField(default=0, verbose_name="Contagem de Visualizações")
+    slug = models.SlugField(max_length=255, unique=True, blank=True, editable=False)
 
     favorites = models.ManyToManyField(
         User,
@@ -46,7 +42,13 @@ class Article(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.slug:
-            self.slug = slugify(self.title)
+            base_slug = slugify(self.title)
+            slug = base_slug
+            counter = 1
+            while Article.objects.filter(slug=slug).exists():
+                slug = f"{base_slug}-{counter}"
+                counter += 1
+            self.slug = slug
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):
@@ -60,7 +62,6 @@ class Article(models.Model):
         verbose_name="Categoria"
     )
 
-
 class ArticleViewLog(models.Model):
     article = models.ForeignKey(
         Article, on_delete=models.CASCADE, related_name="view_logs")
@@ -68,7 +69,6 @@ class ArticleViewLog(models.Model):
 
     def __str__(self):
         return f"Visualização em '{self.article.title}' em {self.timestamp.strftime('%d/%m/%Y')}"
-
 
 class Comment(models.Model):
     article = models.ForeignKey(
