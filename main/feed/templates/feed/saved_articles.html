@@ -1,0 +1,71 @@
+{% extends "feed/base.html" %}
+{% load static %}
+
+{% block body_class %}page-full-width{% endblock %}
+{% block title %}Notícias Salvas - Jornal do Commercio{% endblock %}
+
+{% block content %}
+
+    <div class="favorites-page-header">
+        <h1 class="favorites-page-title">
+            <svg class="favorites-title-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor"/>
+            </svg>
+            Notícias Salvas
+        </h1>
+        <p class="favorites-page-subtitle">
+            {% if articles %}
+                {{ articles|length }} artigo{{ articles|length|pluralize }} salvo{{ articles|length|pluralize }}
+            {% else %}
+                Nenhum artigo salvo ainda
+            {% endif %}
+        </p>
+    </div>
+
+    {% if articles %}
+        <div class="favorites-grid">
+            {% for article in articles %}
+                <div class="favorite-card" data-article-slug="{{ article.slug }}">
+                    <a href="{% url 'article-detail' article.slug %}" class="favorite-card-link">
+                        <div class="favorite-card-image-container">
+                            <img src="{{ article.image.url }}" alt="{{ article.title }}" class="favorite-card-image">
+                            <span class="favorite-card-category">{{ article.category.name|default:'Sem Categoria' }}</span>
+                        </div>
+                        <div class="favorite-card-content">
+                            <h3 class="favorite-card-title">{{ article.title }}</h3>
+                            <p class="favorite-card-summary">{{ article.summary|truncatewords:20 }}</p>
+                            <div class="favorite-card-meta">
+                                <span class="favorite-card-author">{{ article.author }}</span>
+                                <span class="favorite-card-separator">•</span>
+                                <span class="favorite-card-date">{{ article.publication_date|date:"d/m/Y" }}</span>
+                            </div>
+                        </div>
+                    </a>
+                    <form method="POST" action="{% url 'toggle_save_article' article.slug %}" class="save-form-inline">
+                        {% csrf_token %}
+                        <button type="submit" class="favorite-card-star-btn favorited" title="Remover dos salvos">
+                            <svg class="star-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="favorites-empty-state">
+            <svg class="favorites-empty-icon" width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h2 class="favorites-empty-title">Você ainda não salvou nenhuma notícia</h2>
+            <p class="favorites-empty-text">
+                Comece a salvar artigos que você gosta clicando na estrela ⭐
+            </p>
+            <a href="{% url 'article-list' %}" class="favorites-empty-button">
+                Explorar Notícias
+            </a>
+        </div>
+    {% endif %}
+
+{% endblock %}
+

@@ -12,12 +12,26 @@
         <div class="card_body">
             <div class="article-title-container">
                 <h1 class="card_title" style="margin-bottom: 0;">{{ article.title }}</h1>
-    
-                <a href="{% url 'toggle_favorite' article.id %}" class="favorite-star-button">
-                {% if is_favorited %}
-                    ⭐ {% else %}
-                    ☆ {% endif %}
-                </a>
+
+                {% if user.is_authenticated %}
+                    <form method="POST" action="{% url 'toggle_save_article' article.slug %}?redirect=saved" style="display: inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="article-detail-star-btn {% if is_favorited %}favorited{% endif %}"
+                                title="{% if is_favorited %}Remover dos salvos{% else %}Salvar artigo{% endif %}">
+                            {% if is_favorited %}
+                                <svg class="star-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span class="save-btn-text">Salvo</span>
+                            {% else %}
+                                <svg class="star-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span class="save-btn-text">Salvar</span>
+                            {% endif %}
+                        </button>
+                    </form>
+                {% endif %}
             </div>
 
             <p style="color: #666; font-size: 0.9rem; margin-bottom: 24px;">

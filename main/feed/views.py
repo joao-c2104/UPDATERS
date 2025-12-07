@@ -90,6 +90,7 @@ class HomeView(TemplateView):
 
 @login_required
 def toggle_favorite_view(request, article_id):
+    """Toggle favorite and redirect back to article detail"""
     article = get_object_or_404(Article, id=article_id)
 
     if article.favorites.filter(id=request.user.id).exists():
@@ -101,6 +102,42 @@ def toggle_favorite_view(request, article_id):
 
 
 @login_required
+@require_http_methods(["POST"])
+def toggle_favorite_redirect_to_saved(request, article_id):
+    """Toggle favorite and redirect to saved page (for article detail page)"""
+    article = get_object_or_404(Article, id=article_id)
+
+    if article.favorites.filter(id=request.user.id).exists():
+        article.favorites.remove(request.user)
+    else:
+        article.favorites.add(request.user)
+
+    return redirect('favorites_list')
+
+
+@login_required
+@require_http_methods(["POST"])
+def toggle_favorite_api(request, article_id):
+    """AJAX API endpoint for toggling favorites"""
+    article = get_object_or_404(Article, id=article_id)
+
+    is_favorited = article.favorites.filter(id=request.user.id).exists()
+
+    if is_favorited:
+        article.favorites.remove(request.user)
+        is_favorited = False
+    else:
+        article.favorites.add(request.user)
+        is_favorited = True
+
+    return JsonResponse({
+        'success': True,
+        'is_favorited': is_favorited,
+        'favorites_count': article.favorites.count()
+    })
+
+
+@login_required
 def favorites_list_view(request):
     favorited_articles = request.user.favorite_articles.all()
 
@@ -108,6 +145,43 @@ def favorites_list_view(request):
         'articles': favorited_articles
     }
     return render(request, 'feed/favorites.html', context)
+
+
+@login_required
+def saved_articles(request):
+    """View to display all saved articles for the current user"""
+    articles = request.user.favorite_articles.all()
+
+    context = {
+        'articles': articles
+    }
+    return render(request, 'feed/saved_articles.html', context)
+
+
+@login_required
+@require_http_methods(["POST"])
+def toggle_save_article(request, slug):
+    """Toggle save/unsave an article by slug"""
+    article = get_object_or_404(Article, slug=slug)
+
+    # Toggle the saved state
+    if request.user in article.favorites.all():
+        article.favorites.remove(request.user)
+    else:
+        article.favorites.add(request.user)
+
+    # Check if we should redirect to saved page
+    redirect_to_saved = request.GET.get('redirect') == 'saved'
+
+    if redirect_to_saved:
+        return redirect('saved_articles')
+    else:
+        # Redirect back to where the user came from
+        referer = request.META.get('HTTP_REFERER')
+        if referer:
+            return redirect(referer)
+        else:
+            return redirect('article-list')
 
 # Comment API Views
 

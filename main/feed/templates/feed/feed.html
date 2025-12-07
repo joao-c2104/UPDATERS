@@ -7,8 +7,18 @@
     {% endif %}
 
     {% for article in articles %}
-        <section class="card">
+        <section class="card feed-card" data-article-id="{{ article.id }}">
             <img class="card_image" src="{{ article.image.url }}" alt="{{ article.title }}">
+
+            {% if user.is_authenticated %}
+                <button class="feed-card-star-btn {% if article.favorites.all|length > 0 and user in article.favorites.all %}favorited{% endif %}"
+                        data-article-id="{{ article.id }}"
+                        title="{% if user in article.favorites.all %}Remover dos salvos{% else %}Salvar artigo{% endif %}">
+                    <svg class="star-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            {% endif %}
 
             <div class="card_body">
                 <h2 class="card_title">{{ article.title }}</h2>
@@ -25,5 +35,67 @@
         {% endif %}
 
     {% endfor %}
+
+    <script>
+        // CSRF token helper
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        // Toggle favorite via AJAX in feed
+        document.addEventListener('DOMContentLoaded', function() {
+            const starButtons = document.querySelectorAll('.feed-card-star-btn');
+
+            starButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    const articleId = this.dataset.articleId;
+                    const isFavorited = this.classList.contains('favorited');
+
+                    // Disable button during request
+                    this.disabled = true;
+
+                    fetch(`/api/favorite/toggle/${articleId}/`, {
+                        method: 'POST',
+                        headers: {
+                            'X-CSRFToken': getCookie('csrftoken'),
+                            'Content-Type': 'application/json',
+                        },
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // Toggle favorited class
+                            if (data.is_favorited) {
+                                this.classList.add('favorited');
+                                this.title = 'Remover dos salvos';
+                            } else {
+                                this.classList.remove('favorited');
+                                this.title = 'Salvar artigo';
+                            }
+                        }
+                        this.disabled = false;
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        this.disabled = false;
+                    });
+                });
+            });
+        });
+    </script>
 
 {% endblock %}

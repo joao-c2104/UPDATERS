@@ -1,31 +1,134 @@
 {% extends "feed/base.html" %}
+{% load static %}
 
 {% block body_class %}page-full-width{% endblock %}
-{% block title %}Meus Favoritos{% endblock %}
+{% block title %}Meus Favoritos - Jornal do Commercio{% endblock %}
 
 {% block content %}
-    
-    <div style="max-width: 800px; margin: 0 auto;">
 
-        <h2 class="search-results-title">Meus Favoritos</h2>
+    <div class="favorites-page-header">
+        <h1 class="favorites-page-title">
+            <svg class="favorites-title-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor"/>
+            </svg>
+            Meus Favoritos
+        </h1>
+        <p class="favorites-page-subtitle">
+            {% if articles %}
+                {{ articles|length }} artigo{{ articles|length|pluralize }} salvo{{ articles|length|pluralize }}
+            {% else %}
+                Nenhum artigo salvo ainda
+            {% endif %}
+        </p>
+    </div>
 
-        <div class="card">
-            <div class="card_body">
-                
-                {% for article in articles %}
-                    
-                    <div class="widget_list_item_numbered" style="margin-bottom: 16px; border-bottom: 1px solid var(--color-border); padding-bottom: 16px;">
-                        
-                        <span class="widget_list_number">{{ forloop.counter }}.</span>
-                        
-                        <a href="{{ article.get_absolute_url }}" class="widget_link" style="font-size: 1.1rem;">
-                            {{ article.title }}
-                        </a>
-                    </div>
-                {% empty %}
-                    <p>Você ainda não favoritou nenhuma notícia.</p>
-                {% endfor %}
-            </div>
+    {% if articles %}
+        <div class="favorites-grid">
+            {% for article in articles %}
+                <div class="favorite-card" data-article-id="{{ article.id }}">
+                    <a href="{{ article.get_absolute_url }}" class="favorite-card-link">
+                        <div class="favorite-card-image-container">
+                            <img src="{{ article.image.url }}" alt="{{ article.title }}" class="favorite-card-image">
+                            <span class="favorite-card-category">{{ article.category.name|default:'Sem Categoria' }}</span>
+                        </div>
+                        <div class="favorite-card-content">
+                            <h3 class="favorite-card-title">{{ article.title }}</h3>
+                            <p class="favorite-card-summary">{{ article.summary|truncatewords:20 }}</p>
+                            <div class="favorite-card-meta">
+                                <span class="favorite-card-author">{{ article.author }}</span>
+                                <span class="favorite-card-separator">•</span>
+                                <span class="favorite-card-date">{{ article.publication_date|date:"d/m/Y" }}</span>
+                            </div>
+                        </div>
+                    </a>
+                    <button class="favorite-card-star-btn favorited" data-article-id="{{ article.id }}" title="Remover dos favoritos">
+                        <svg class="star-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            {% endfor %}
         </div>
+    {% else %}
+        <div class="favorites-empty-state">
+            <svg class="favorites-empty-icon" width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h2 class="favorites-empty-title">Nenhum favorito ainda</h2>
+            <p class="favorites-empty-text">
+                Comece a salvar artigos que você gosta clicando na estrela ⭐
+            </p>
+            <a href="{% url 'article-list' %}" class="favorites-empty-button">
+                Explorar Notícias
+            </a>
+        </div>
+    {% endif %}
 
-    </div> {% endblock %}
+    <script>
+        // CSRF token helper
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        // Toggle favorite via AJAX
+        document.addEventListener('DOMContentLoaded', function() {
+            const starButtons = document.querySelectorAll('.favorite-card-star-btn');
+
+            starButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    const articleId = this.dataset.articleId;
+                    const card = this.closest('.favorite-card');
+
+                    // Disable button during request
+                    this.disabled = true;
+
+                    fetch(`/api/favorite/toggle/${articleId}/`, {
+                        method: 'POST',
+                        headers: {
+                            'X-CSRFToken': getCookie('csrftoken'),
+                            'Content-Type': 'application/json',
+                        },
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // Animate card removal
+                            card.style.opacity = '0';
+                            card.style.transform = 'scale(0.9)';
+
+                            setTimeout(() => {
+                                card.remove();
+
+                                // Check if no more favorites
+                                const remainingCards = document.querySelectorAll('.favorite-card');
+                                if (remainingCards.length === 0) {
+                                    // Reload page to show empty state
+                                    window.location.reload();
+                                }
+                            }, 300);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        this.disabled = false;
+                    });
+                });
+            });
+        });
+    </script>
+
+{% endblock %}
