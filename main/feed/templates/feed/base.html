@@ -106,35 +106,90 @@
     
     <footer class="footer">
         <div class="footer_container">
-            <div class="footer_column">
-                <div class="footer_heading"></div>
-                <div class="footer_link w-90"></div>
-                <div class="footer_link w-100"></div>
-                <div class="footer_link w-90"></div>
-            </div>
-            <div class="footer_column">
-                <div class="footer_heading"></div>
-                <div class="footer_link w-90"></div>
-                <div class="footer_link w-100"></div>
-                <div class="footer_link w-90"></div>
-            </div>
-            <div class="footer_column">
-                <div class="footer_heading"></div>
-                <div class="footer_link w-90"></div>
-                <div class="footer_link w-100"></div>
-                <div class="footer_link w-90"></div>
-            </div>
-            <div class="footer_column">
-                <div class="footer_heading"></div>
-                <div class="footer_link w-90"></div>
-                <div class="footer_link w-100"></div>
+            
+            <div class="footer_column logo-column">
+                <img src="{% static 'feed/images/logo.svg' %}" alt="JC Logo" class="footer_logo_img">
+                
+                <h4 class="footer_heading" style="margin-top: 8px;">Nossas redes</h4>
+                
                 <div class="footer_socials">
-                    <div class="footer_social-icon"></div>
-                    <div class="footer_social-icon"></div>
-                    <div class="footer_social-icon"></div>
-                    <div class="footer_social-icon"></div>
+                    <a href="https://www.facebook.com/jornaldocommercioPE/" target="_blank" title="Facebook">
+                        <img src="{% static 'feed/images/facebook_icon.png' %}" alt="Facebook" class="footer_social-img">
+                    </a>
+
+                    <a href="https://www.instagram.com/jc_pe/#" target="_blank" title="Instagram">
+                        <img src="{% static 'feed/images/instagram_icon.png' %}" alt="Instagram" class="footer_social-img">
+                    </a>
+
+                    <a href="https://x.com/jc_pe" target="_blank" title="X / Twitter">
+                        <img src="{% static 'feed/images/twitter_icon.png' %}" alt="X" class="footer_social-img">
+                    </a>
+
+                    <a href="https://www.linkedin.com/company/sistema-jornal-do-commercio/" target="_blank" title="LinkedIn">
+                        <img src="{% static 'feed/images/linkedin_icon.png' %}" alt="LinkedIn" class="footer_social-img">
+                    </a>
+
+                    <a href="https://www.youtube.com/@JCPlayOficial" target="_blank" title="YouTube">
+                        <img src="{% static 'feed/images/youtube_icon.png' %}" alt="YouTube" class="footer_social-img">
+                    </a>
+
+                    <a href="https://www.tiktok.com/@jc_pe" target="_blank" title="TikTok">
+                        <img src="{% static 'feed/images/tiktok_icon.png' %}" alt="TikTok" class="footer_social-img">
+                    </a>
                 </div>
             </div>
+
+            <div class="footer_column">
+                <div class="footer_heading">Canais</div>
+                <a href="#" class="footer_link">Últimas Notícias</a>
+                <a href="#" class="footer_link">Colunas</a>
+                <a href="#" class="footer_link">Opinião</a>
+            </div>
+
+            <div class="footer_column">
+                <div class="footer_heading">Institucional</div>
+                <a href="#" class="footer_link">Quem Somos</a>
+                <a href="#" class="footer_link">Práticas ASG JCPM</a>
+                <a href="#" class="footer_link">Privacidade</a>
+                <a href="#" class="footer_link">Melhores Práticas</a>
+                <a href="#" class="footer_link">LGPD</a>
+                <a href="#" class="footer_link">Publicações</a>
+                <a href="#" class="footer_link">Expediente</a>
+                <a href="#" class="footer_link">Fale Conosco</a>
+                <a href="#" class="footer_link">Trabalhe Conosco</a>
+            </div>
+
+            <div class="footer_column">
+                <div class="footer_heading">Serviços</div>
+                <a href="#" class="footer_link">Notícias pelo whatsapp</a>
+                <a href="#" class="footer_link">Newsletter JC</a>
+                <a href="#" class="footer_link">Publicidade Legal</a>
+                <a href="#" class="footer_link">Anuncie Conosco</a>
+            </div>
+
+             <div class="footer_column">
+                <div class="footer_heading">Aplicativos</div>
+                <a href="#" class="footer_link">Jornal do Commercio</a>
+                <a href="#" class="footer_link">Rádio Jornal</a>
+            </div>
+        </div>
+
+        <div class="footer_copyright_area">
+
+            <div class="footer_copyright_text">
+                <p style="margin: 0; margin-bottom: 4px;">
+                    Jornal @ 2025 - Uma empresa do grupo JCPM
+                </p>
+                <p style="margin: 0; font-size: 0.8rem;">
+                    PARA SOLICITAÇÃO DE LICENCIAMENTO, CONTACTAR 
+                    <a href="mailto:EDITORES@NE10.COM.BR" class="footer_mail_link">EDITORES@NE10.COM.BR</a>
+                </p>
+            </div>
+
+            <div class="footer_jcpm_logo_wrapper">
+                <img src="{% static 'feed/images/logo_jcpm_footer.svg' %}" alt="Grupo JCPM" class="footer_jcpm_logo">
+            </div>
+
         </div>
     </footer>
 

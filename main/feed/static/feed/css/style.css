@@ -19,7 +19,7 @@ body.dark-mode {
     --color-background: #1e1e1e;
     --color-surface: #2b2b2b;
     --color-border: #3c3c3c;
-    --color-header-footer: #7E0000; 
+    --color-header-footer: #4c4c4c; 
     --color-text-primary: #f8f8f8; 
     --color-text-secondary: #aaaaaa; 
     --color-placeholder-light: #3f3f3f;
@@ -706,11 +706,9 @@ body.dark-mode .header {
 }
 
 .footer {
-    width: 100%;
-    background-color: var(--color-header-footer); 
-    border-top: 1px solid var(--color-header-footer); 
-    padding: 48px 24px;
-    color: #ffffff;
+    padding: 60px 24px;
+    font-size: 0.95rem;
+    background-color: var(--color-header-footer);
 }
 
 body.dark-mode .footer {
@@ -722,48 +720,131 @@ body.dark-mode .footer {
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    gap: 32px;
+    gap: 40px;
     flex-wrap: wrap;
 }
 
 .footer_column {
     flex: 1;
-    min-width: 200px;
+    min-width: 160px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
-.footer_heading,
-.footer_link,
-.footer_social-icon {
-    background-color: rgba(255, 255, 255, 0.4);
+.footer_column.logo-column {
+    flex: 1.2;
+    min-width: 200px;
+    align-items: center; 
+    text-align: center;
 }
 
 .footer_heading {
-    height: 24px;
-    width: 120px;
-    border-radius: 6px;
-    margin-bottom: 24px;
+    height: auto;
+    width: auto;
+    background-color: transparent;
+    border-radius: 0;
+    margin-bottom: 16px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffffff;
+    opacity: 1;
 }
 
 .footer_link {
-    height: 18px;
-    border-radius: 5px;
-    margin-bottom: 16px;
+    height: auto;
+    background-color: transparent;
+    border-radius: 0;
+    margin-bottom: 0;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.9);
+    transition: color 0.2s, padding-left 0.2s;
+    display: inline-block;
 }
 
-.footer_link:last-child {
-    margin-bottom: 0;
+.footer_link:hover {
+    color: #ffffff;
+    text-decoration: underline;
+    padding-left: 5px;
 }
 
 .footer_socials {
     display: flex;
-    gap: 12px;
-    margin-top: 24px;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 8px;
 }
 
-.footer_social-icon {
+.footer_social-img {
     width: 32px;
     height: 32px;
-    border-radius: 6px;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+    filter: brightness(0) invert(1);
+}
+
+.footer_social-img:hover {
+    transform: scale(1.1);
+}
+
+.footer_logo_img {
+    height: 90px;
+    width: auto;
+    margin-bottom: 16px;
+    background: white;
+    padding: 5px;
+    border-radius: 100%;
+}
+
+.footer_copyright_area {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.footer_copyright_text {
+    text-align: right;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.footer_mail_link {
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+.footer_mail_link:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+.footer_jcpm_logo {
+    height: 75px; 
+    width: auto;
+    object-fit: contain;
+    background: white;
+    padding: 12px;
+    border-radius: 20%;
+}
+
+@media (max-width: 600px) {
+    .footer_copyright_area {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+    
+    .footer_copyright_text {
+        text-align: center;
+    }
 }
 
 @media (max-width: 992px) {
@@ -802,10 +883,6 @@ body.dark-mode .footer {
     }
 }
 
-/* ========================================
-   MODERN COMMENTS SECTION STYLES
-   ======================================== */
-
 .comments-section-modern {
     margin-top: 64px;
     padding-top: 48px;
@@ -819,7 +896,6 @@ body.dark-mode .footer {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
-/* Comments Header */
 .comments-section-header {
     margin-bottom: 32px;
 }
@@ -852,7 +928,6 @@ body.dark-mode .footer {
     padding-left: 36px;
 }
 
-/* Comment Form */
 .comment-form-wrapper {
     background-color: var(--color-surface);
     border: 2px solid var(--color-border);
