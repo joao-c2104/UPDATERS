@@ -32,7 +32,6 @@
 
     <div id="sidebar-overlay" class="sidebar-overlay"></div>
 
-
     <header class="header">
         <button id="drawer-toggle" class="menu-toggle-btn">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -43,7 +42,6 @@
         </button>
 
         <div class="header__container">
-
 
             <div class="header_left">
                 <a href="{% url 'home' %}">
@@ -76,7 +74,15 @@
     </header>
 
     <div class="page-container">
-        <aside class="sidebar sidebar--left"></aside>
+        <aside class="sidebar sidebar--left">
+            <div class="ad-box full-height">
+                <span class="ad-label" style="z-index: 10;">Publicidade</span>
+                <div class="ad-placeholder-content" style="flex-direction: column; height: 100%;">
+                    <span style="font-size: 1.5rem; margin-bottom: 10px;">📣</span>
+                    Espaço<br>Publicitário<br>Vertical<br><br>
+                </div>
+            </div>
+        </aside>
 
         <main class="main-content">
             {% block content %}{% endblock %}
