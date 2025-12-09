@@ -5,50 +5,129 @@
 {% block title %}{{ article.title }} - Jornal do Commercio{% endblock %}
 
 {% block content %}
-    <article class="card">
 
-        {% if article.image %}
-            <img class="card_image" src="{{ article.image.url }}" alt="{{ article.title }}">
-        {% else %}
-            <div class="card_image" style="background-color: var(--color-placeholder-light); display: flex; align-items: center; justify-content: center; color: var(--color-text-secondary); height: 400px;">
-                <span>Sem imagem disponível</span>
-            </div>
-        {% endif %}
+<style>
+    .article-title-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+    }
 
-        <div class="card_body">
-            <div class="article-title-container">
-                <h1 class="card_title" style="margin-bottom: 0;">{{ article.title }}</h1>
-    
-                <a href="{% url 'toggle_favorite' article.id %}" class="favorite-star-button">
-                {% if is_favorited %}
-                    ⭐ {% else %}
-                    ☆ {% endif %}
-                </a>
-            </div>
+    .favorite-bookmark-form {
+        margin-left: auto;
+    }
 
-            <p style="color: #666; font-size: 0.9rem; margin-bottom: 24px;">
-                Por {{ article.author }} <br>
-                Publicado em {{ article.publication_date|date:"d/m/Y \à\s H:i" }}
-            </p>
-            <div class="article-content">
-                {{ article.content|linebreaks }}
-            </div>
+    .bookmark-button {
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        padding: 6px 8px;
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s ease, transform 0.1s ease, color 0.2s ease;
+        color: var(--color-text-secondary, #555);
+    }
 
-            <div class="comments-section-modern">
-                <div class="comments-container">
-                    <div class="comments-section-header">
-                        <div class="comments-title-wrapper">
-                            <h2 class="comments-title">
-                                <svg class="comments-title-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M21 15C21 15.5304 20.7893 16.0391 20.4142 16.4142C20.0391 16.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                                Comentários (<span id="comments-count">0</span>)
-                            </h2>
-                            <p class="comments-subtitle">Participe da discussão sobre este artigo</p>
-                        </div>
+    .bookmark-button:hover {
+        background: rgba(0, 0, 0, 0.06);
+        transform: translateY(-1px);
+    }
+
+    .bookmark-button.is-favorited {
+        color: var(--color-primary, #0044cc);
+        background: rgba(0, 68, 204, 0.1);
+    }
+
+    .bookmark-icon {
+        width: 26px;
+        height: 26px;
+    }
+
+    .dark-mode .bookmark-button {
+        color: #ddd;
+    }
+
+    .dark-mode .bookmark-button:hover {
+        background: rgba(255, 255, 255, 0.06);
+    }
+
+    .dark-mode .bookmark-button.is-favorited {
+        color: #4da3ff;
+        background: rgba(77, 163, 255, 0.16);
+    }
+</style>
+
+<article class="card">
+
+    {% if article.image %}
+        <img class="card_image" src="{{ article.image.url }}" alt="{{ article.title }}">
+    {% else %}
+        <div class="card_image" style="background-color: var(--color-placeholder-light); display: flex; align-items: center; justify-content: center; color: var(--color-text-secondary); height: 400px;">
+            <span>Sem imagem disponível</span>
+        </div>
+    {% endif %}
+
+    <div class="card_body">
+        <div class="article-title-container">
+            <h1 class="card_title" style="margin-bottom: 0;">{{ article.title }}</h1>
+
+            <form method="POST"
+                  action="{% url 'toggle_favorite' article.id %}"
+                  class="favorite-bookmark-form">
+                {% csrf_token %}
+                <button type="submit"
+                        class="bookmark-button {% if is_favorited %}is-favorited{% endif %}"
+                        title="{% if is_favorited %}Remover dos salvos{% else %}Salvar notícia{% endif %}"
+                        aria-label="{% if is_favorited %}Remover dos salvos{% else %}Salvar notícia{% endif %}">
+                    {% if is_favorited %}
+                        <!-- Ícone preenchido (salvo) -->
+                        <svg class="bookmark-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 3C6.44772 3 6 3.44772 6 4V20.382C6 20.8739 6.52976 21.173 6.93934 20.9L12 17.5L17.0607 20.9C17.4702 21.173 18 20.8739 18 20.382V4C18 3.44772 17.5523 3 17 3H7Z"/>
+                        </svg>
+                    {% else %}
+                        <!-- Ícone contorno (não salvo) -->
+                        <svg class="bookmark-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 3H17C17.5523 3 18 3.44772 18 4V20.382C18 20.8739 17.4702 21.173 17.0607 20.9L12 17.5L6.93934 20.9C6.52976 21.173 6 20.8739 6 20.382V4C6 3.44772 6.44772 3 7 3Z"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                        </svg>
+                    {% endif %}
+                </button>
+            </form>
+        </div>
+
+        <p style="color: #666; font-size: 0.9rem; margin-bottom: 24px;">
+            Por {{ article.author }} <br>
+            Publicado em {{ article.publication_date|date:"d/m/Y \\à\\s H:i" }}
+        </p>
+
+        <div class="article-content">
+            {{ article.content|linebreaks }}
+        </div>
+
+        <div class="comments-section-modern">
+            <div class="comments-container">
+                <div class="comments-section-header">
+                    <div class="comments-title-wrapper">
+                        <h2 class="comments-title">
+                            <svg class="comments-title-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 15C21 15.5304 20.7893 16.0391 20.4142 16.4142C20.0391 16.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z"
+                                      stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                      stroke-linejoin="round"/>
+                            </svg>
+                            Comentários (<span id="comments-count">0</span>)
+                        </h2>
+                        <p class="comments-subtitle">Participe da discussão sobre este artigo</p>
                     </div>
+                </div>
 
-                    {% if user.is_authenticated %}
+                {% if user.is_authenticated %}
                     <div class="comment-form-wrapper">
                         <div class="comment-form-header">
                             <div class="comment-user-avatar">
@@ -71,9 +150,12 @@
                                     <span id="char-counter" class="char-counter-modern">0 / 300</span>
                                 </div>
                                 <button id="submit-comment" class="submit-comment-btn-modern" disabled>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M22 2L11 13" stroke="currentColor" stroke-width="2"
+                                              stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor"
+                                              stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
                                     Publicar
                                 </button>
@@ -81,11 +163,16 @@
                             <div id="comment-error" class="comment-error-modern" style="display: none;"></div>
                         </div>
                     </div>
-                    {% else %}
+                {% else %}
                     <div class="comment-login-prompt">
-                        <svg class="login-prompt-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <svg class="login-prompt-icon" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21"
+                                  stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                            <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z"
+                                  stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                  stroke-linejoin="round"/>
                         </svg>
                         <h3 class="login-prompt-title">Faça login para comentar</h3>
                         <p class="login-prompt-text">Você precisa estar autenticado para participar da discussão</p>
@@ -93,226 +180,226 @@
                             Fazer Login
                         </a>
                     </div>
-                    {% endif %}
+                {% endif %}
 
-                    <div id="comments-list" class="comments-list-modern">
-                        <div class="comments-loading-modern">
-                            <div class="loading-spinner"></div>
-                            <span>Carregando comentários...</span>
-                        </div>
+                <div id="comments-list" class="comments-list-modern">
+                    <div class="comments-loading-modern">
+                        <div class="loading-spinner"></div>
+                        <span>Carregando comentários...</span>
                     </div>
                 </div>
             </div>
-
-            <a href="{% url 'article-list' %}" class="card_button" style="margin-top: 32px;">Voltar</a>
         </div>
-    </article>
 
-    <script>
-        const articleId = {{ article.id }};
-        const isAuthenticated = {{ user.is_authenticated|yesno:"true,false" }};
+        <a href="{% url 'article-list' %}" class="card_button" style="margin-top: 32px;">Voltar</a>
+    </div>
+</article>
 
-        const commentsCount = document.getElementById('comments-count');
-        const commentsList = document.getElementById('comments-list');
-        const commentInput = document.getElementById('comment-input');
-        const charCounter = document.getElementById('char-counter');
-        const submitBtn = document.getElementById('submit-comment');
-        const commentError = document.getElementById('comment-error');
+<script>
+    const articleId = {{ article.id }};
+    const isAuthenticated = {{ user.is_authenticated|yesno:"true,false" }};
 
-        if (commentInput) {
-            commentInput.addEventListener('input', () => {
-                const length = commentInput.value.length;
-                charCounter.textContent = `${length} / 300`;
-                submitBtn.disabled = length === 0 || length > 300;
+    const commentsCount = document.getElementById('comments-count');
+    const commentsList = document.getElementById('comments-list');
+    const commentInput = document.getElementById('comment-input');
+    const charCounter = document.getElementById('char-counter');
+    const submitBtn = document.getElementById('submit-comment');
+    const commentError = document.getElementById('comment-error');
 
-                if (length > 300) {
-                    charCounter.classList.add('char-limit-exceeded');
-                    charCounter.classList.remove('char-limit-warning');
-                } else if (length > 270) {
-                    charCounter.classList.add('char-limit-warning');
-                    charCounter.classList.remove('char-limit-exceeded');
-                } else {
-                    charCounter.classList.remove('char-limit-warning', 'char-limit-exceeded');
-                }
-            });
+    if (commentInput) {
+        commentInput.addEventListener('input', () => {
+            const length = commentInput.value.length;
+            charCounter.textContent = `${length} / 300`;
+            submitBtn.disabled = length === 0 || length > 300;
 
-            commentInput.addEventListener('input', () => {
-                commentInput.style.height = 'auto';
-                commentInput.style.height = Math.min(commentInput.scrollHeight, 150) + 'px';
-            });
-        }
-
-        if (submitBtn) {
-            submitBtn.addEventListener('click', async () => {
-                const content = commentInput.value.trim();
-
-                if (!content || content.length > 300) {
-                    return;
-                }
-
-                submitBtn.disabled = true;
-                submitBtn.textContent = 'Enviando...';
-                commentError.style.display = 'none';
-
-                try {
-                    const response = await fetch(`/api/articles/${articleId}/comments/`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRFToken': getCookie('csrftoken')
-                        },
-                        body: JSON.stringify({ content })
-                    });
-
-                    const data = await response.json();
-
-                    if (response.ok) {
-                        commentInput.value = '';
-                        charCounter.textContent = '0 / 300';
-                        loadComments();
-                        updateCommentCount();
-                    } else {
-                        showError(data.error || 'Erro ao enviar comentário.');
-                    }
-                } catch (error) {
-                    showError('Erro ao enviar comentário. Tente novamente.');
-                } finally {
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = 'Comentar';
-                }
-            });
-        }
-
-        function getInitials(username) {
-            return username.slice(0, 2).toUpperCase();
-        }
-
-        function getAvatarColor(username) {
-            const colors = [
-                '#B00000', '#0066CC', '#00AA66', '#CC6600', '#9933CC',
-                '#CC0066', '#00AACC', '#AA6600', '#6600CC', '#CC3366'
-            ];
-            let hash = 0;
-            for (let i = 0; i < username.length; i++) {
-                hash = username.charCodeAt(i) + ((hash << 5) - hash);
+            if (length > 300) {
+                charCounter.classList.add('char-limit-exceeded');
+                charCounter.classList.remove('char-limit-warning');
+            } else if (length > 270) {
+                charCounter.classList.add('char-limit-warning');
+                charCounter.classList.remove('char-limit-exceeded');
+            } else {
+                charCounter.classList.remove('char-limit-warning', 'char-limit-exceeded');
             }
-            return colors[Math.abs(hash) % colors.length];
-        }
+        });
 
-        async function loadComments() {
-            commentsList.innerHTML = `
-                <div class="comments-loading-modern">
-                    <div class="loading-spinner"></div>
-                    <span>Carregando comentários...</span>
-                </div>
-            `;
+        commentInput.addEventListener('input', () => {
+            commentInput.style.height = 'auto';
+            commentInput.style.height = Math.min(commentInput.scrollHeight, 150) + 'px';
+        });
+    }
+
+    if (submitBtn) {
+        submitBtn.addEventListener('click', async () => {
+            const content = commentInput.value.trim();
+
+            if (!content || content.length > 300) {
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Enviando...';
+            commentError.style.display = 'none';
 
             try {
-                const response = await fetch(`/api/articles/${articleId}/comments/`);
+                const response = await fetch(`/api/articles/${articleId}/comments/`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': getCookie('csrftoken')
+                    },
+                    body: JSON.stringify({content})
+                });
+
                 const data = await response.json();
 
-                if (data.comments.length === 0) {
-                    commentsList.innerHTML = `
-                        <div class="comments-empty-modern">
-                            <svg class="empty-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M21 15C21 15.5304 20.7893 16.0391 20.4142 16.4142C20.0391 16.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            <h3 class="empty-title">Nenhum comentário ainda</h3>
-                            <p class="empty-text">Seja o primeiro a compartilhar sua opinião sobre este artigo!</p>
-                        </div>
-                    `;
+                if (response.ok) {
+                    commentInput.value = '';
+                    charCounter.textContent = '0 / 300';
+                    loadComments();
+                    updateCommentCount();
                 } else {
-                    commentsList.innerHTML = data.comments.map(comment => {
-                        const initials = getInitials(comment.author);
-                        const avatarColor = getAvatarColor(comment.author);
-                        return `
-                            <div class="comment-card">
-                                <div class="comment-card-avatar" style="background-color: ${avatarColor};">
-                                    <span class="comment-avatar-initials">${initials}</span>
-                                </div>
-                                <div class="comment-card-content">
-                                    <div class="comment-card-header">
-                                        <span class="comment-card-author">${escapeHtml(comment.author)}</span>
-                                        <span class="comment-card-separator">•</span>
-                                        <span class="comment-card-date">${formatDate(comment.created_at)}</span>
-                                    </div>
-                                    <div class="comment-card-text">${escapeHtml(comment.content)}</div>
-                                </div>
-                            </div>
-                        `;
-                    }).join('');
+                    showError(data.error || 'Erro ao enviar comentário.');
                 }
             } catch (error) {
+                showError('Erro ao enviar comentário. Tente novamente.');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Comentar';
+            }
+        });
+    }
+
+    function getInitials(username) {
+        return username.slice(0, 2).toUpperCase();
+    }
+
+    function getAvatarColor(username) {
+        const colors = [
+            '#B00000', '#0066CC', '#00AA66', '#CC6600', '#9933CC',
+            '#CC0066', '#00AACC', '#AA6600', '#6600CC', '#CC3366'
+        ];
+        let hash = 0;
+        for (let i = 0; i < username.length; i++) {
+            hash = username.charCodeAt(i) + ((hash << 5) - hash);
+        }
+        return colors[Math.abs(hash) % colors.length];
+    }
+
+    async function loadComments() {
+        commentsList.innerHTML = `
+            <div class="comments-loading-modern">
+                <div class="loading-spinner"></div>
+                <span>Carregando comentários...</span>
+            </div>
+        `;
+
+        try {
+            const response = await fetch(`/api/articles/${articleId}/comments/`);
+            const data = await response.json();
+
+            if (data.comments.length === 0) {
                 commentsList.innerHTML = `
-                    <div class="comments-error-modern">
-                        <svg class="error-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-                            <path d="M12 8V12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            <path d="M12 16H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <div class="comments-empty-modern">
+                        <svg class="empty-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 15C21 15.5304 20.7893 16.0391 20.4142 16.4142C20.0391 16.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                        <p class="error-text">Erro ao carregar comentários. Tente novamente mais tarde.</p>
+                        <h3 class="empty-title">Nenhum comentário ainda</h3>
+                        <p class="empty-text">Seja o primeiro a compartilhar sua opinião sobre este artigo!</p>
                     </div>
                 `;
+            } else {
+                commentsList.innerHTML = data.comments.map(comment => {
+                    const initials = getInitials(comment.author);
+                    const avatarColor = getAvatarColor(comment.author);
+                    return `
+                        <div class="comment-card">
+                            <div class="comment-card-avatar" style="background-color: ${avatarColor};">
+                                <span class="comment-avatar-initials">${initials}</span>
+                            </div>
+                            <div class="comment-card-content">
+                                <div class="comment-card-header">
+                                    <span class="comment-card-author">${escapeHtml(comment.author)}</span>
+                                    <span class="comment-card-separator">•</span>
+                                    <span class="comment-card-date">${formatDate(comment.created_at)}</span>
+                                </div>
+                                <div class="comment-card-text">${escapeHtml(comment.content)}</div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
             }
+        } catch (error) {
+            commentsList.innerHTML = `
+                <div class="comments-error-modern">
+                    <svg class="error-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 8V12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M12 16H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <p class="error-text">Erro ao carregar comentários. Tente novamente mais tarde.</p>
+                </div>
+            `;
         }
+    }
 
-        async function updateCommentCount() {
-            try {
-                const response = await fetch(`/api/articles/${articleId}/comments/count/`);
-                const data = await response.json();
-                commentsCount.textContent = data.count;
-            } catch (error) {
-                console.error('Error updating comment count:', error);
-            }
+    async function updateCommentCount() {
+        try {
+            const response = await fetch(`/api/articles/${articleId}/comments/count/`);
+            const data = await response.json();
+            commentsCount.textContent = data.count;
+        } catch (error) {
+            console.error('Error updating comment count:', error);
         }
+    }
 
-        function showError(message) {
-            commentError.textContent = message;
-            commentError.style.display = 'block';
-        }
+    function showError(message) {
+        commentError.textContent = message;
+        commentError.style.display = 'block';
+    }
 
-        function formatDate(isoString) {
-            const date = new Date(isoString);
-            const now = new Date();
-            const diffMs = now - date;
-            const diffMins = Math.floor(diffMs / 60000);
-            const diffHours = Math.floor(diffMs / 3600000);
-            const diffDays = Math.floor(diffMs / 86400000);
+    function formatDate(isoString) {
+        const date = new Date(isoString);
+        const now = new Date();
+        const diffMs = now - date;
+        const diffMins = Math.floor(diffMs / 60000);
+        const diffHours = Math.floor(diffMs / 3600000);
+        const diffDays = Math.floor(diffMs / 86400000);
 
-            if (diffMins < 1) return 'agora';
-            if (diffMins < 60) return `${diffMins}min atrás`;
-            if (diffHours < 24) return `${diffHours}h atrás`;
-            if (diffDays < 7) return `${diffDays}d atrás`;
+        if (diffMins < 1) return 'agora';
+        if (diffMins < 60) return `${diffMins}min atrás`;
+        if (diffHours < 24) return `${diffHours}h atrás`;
+        if (diffDays < 7) return `${diffDays}d atrás`;
 
-            return date.toLocaleDateString('pt-BR', {
-                day: '2-digit',
-                month: '2-digit',
-                year: 'numeric'
-            });
-        }
+        return date.toLocaleDateString('pt-BR', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric'
+        });
+    }
 
-        function escapeHtml(text) {
-            const div = document.createElement('div');
-            div.textContent = text;
-            return div.innerHTML;
-        }
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
 
-        function getCookie(name) {
-            let cookieValue = null;
-            if (document.cookie && document.cookie !== '') {
-                const cookies = document.cookie.split(';');
-                for (let i = 0; i < cookies.length; i++) {
-                    const cookie = cookies[i].trim();
-                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                        break;
-                    }
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
                 }
             }
-            return cookieValue;
         }
+        return cookieValue;
+    }
 
-        loadComments();
-        updateCommentCount();
-    </script>
+    loadComments();
+    updateCommentCount();
+</script>
 {% endblock %}

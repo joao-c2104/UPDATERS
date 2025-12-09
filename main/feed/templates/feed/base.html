@@ -22,6 +22,11 @@
             <a href="{% url 'home' %}" class="drawer-link">
                 Página Inicial
             </a>
+
+            <!-- NOVA OPÇÃO DE MENU: NOTÍCIAS SALVAS -->
+            <a href="{% url 'favorites_list' %}" class="drawer-link">
+                Notícias Salvas
+            </a>
         </nav>
     </div>
 
@@ -122,7 +127,7 @@
                     </a>
 
                     <a href="https://x.com/jc_pe" target="_blank" title="X / Twitter">
-                        <img src="{% static 'feed/images/twitter_icon.png' %}" alt="X" class="footer_social-img">
+                        <img src="{% static 'feed/images/twitter_icon.png' %}" alt="Twitter" class="footer_social-img">
                     </a>
 
                     <a href="https://www.linkedin.com/company/sistema-jornal-do-commercio/" target="_blank" title="LinkedIn">
