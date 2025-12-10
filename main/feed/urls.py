@@ -8,6 +8,8 @@ from .views import (
     article_comments_api,
     article_comments_count_api,
     FlashVideoListView,
+    favorites_list_view,
+    toggle_favorite_view,
 )
 
 urlpatterns = [
