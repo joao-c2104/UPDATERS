@@ -2,9 +2,12 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.http import urlsafe_base64_encode
 from django.utils.encoding import force_bytes
+from .forms import UserUpdateForm, ProfileUpdateForm, CustomPasswordChangeForm
+from .models import Profile
 
 def login_user(request):
     if request.user.is_authenticated:
@@ -86,3 +89,67 @@ def submit_forgot_password(request):
         return redirect('login_user') 
     
     return redirect('forgot_password')
+
+
+@login_required
+def user_settings(request):
+    """Página de configurações do usuário"""
+    user = request.user
+    
+    # Garantir que o perfil existe
+    profile, created = Profile.objects.get_or_create(user=user)
+    
+    user_form = UserUpdateForm(instance=user)
+    profile_form = ProfileUpdateForm(instance=profile)
+    password_form = CustomPasswordChangeForm(user=user)
+    
+    if request.method == 'POST':
+        form_type = request.POST.get('form_type')
+        
+        if form_type == 'user_info':
+            user_form = UserUpdateForm(request.POST, instance=user)
+            if user_form.is_valid():
+                user_form.save()
+                messages.success(request, "Informações do usuário atualizadas com sucesso!")
+                return redirect('user_settings')
+            else:
+                messages.error(request, "Por favor, corrija os erros no formulário.")
+        
+        elif form_type == 'profile_info':
+            profile_form = ProfileUpdateForm(request.POST, request.FILES, instance=profile)
+            if profile_form.is_valid():
+                # Handle preferred_categories - convert to list of IDs (as integers)
+                preferred_categories = profile_form.cleaned_data.get('preferred_categories', [])
+                # Convert string IDs from form to integers for JSONField
+                profile.preferred_categories = [int(cat_id) for cat_id in preferred_categories] if preferred_categories else []
+                # Save the profile instance directly to ensure preferred_categories is saved
+                profile.save()
+                # Also save the form to handle other fields like profile_picture and font_size
+                profile_form.save()
+                messages.success(request, "Perfil atualizado com sucesso!")
+                return redirect('user_settings')
+            else:
+                messages.error(request, "Por favor, corrija os erros no formulário.")
+        
+        elif form_type == 'password_change':
+            password_form = CustomPasswordChangeForm(user=user, data=request.POST)
+            if password_form.is_valid():
+                password_form.save()
+                messages.success(request, "Senha alterada com sucesso!")
+                return redirect('user_settings')
+            else:
+                messages.error(request, "Por favor, corrija os erros no formulário.")
+    
+    # Re-initialize forms to get updated data
+    user_form = UserUpdateForm(instance=user)
+    profile_form = ProfileUpdateForm(instance=profile)
+    password_form = CustomPasswordChangeForm(user=user)
+    
+    context = {
+        'user_form': user_form,
+        'profile_form': profile_form,
+        'password_form': password_form,
+        'profile': profile,
+    }
+    
+    return render(request, 'login/settings.html', context)
