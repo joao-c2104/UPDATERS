@@ -1,40 +1,57 @@
 {% extends "login/auth_base.html" %}
-
-{% block title %}Cadastro{% endblock %}
+{% load static %}
+{% load socialaccount %}
+{% block title %}Crie sua conta{% endblock %}
 {% block content %}
-<div class="card shadow p-4 mx-auto position-relative" style="max-width: 400px;">
+<div class="card auth-card mx-auto position-relative">
     
-    <button id="theme-toggle" class="theme-toggle">🌙</button>
+    <div class="auth-header-top">
+        <h2 class="auth-title">Crie sua conta</h2>
+        <button id="theme-toggle" class="theme-toggle">🌙</button>
+    </div>
 
-    <h2 class="text-center mb-4">Cadastro</h2>
+    <a href="{% provider_login_url 'google' process='signup' %}" class="btn btn-social btn-google">
+        <img src="{% static 'login/images/google_icon.png' %}" alt="Google">
+        Cadastrar com Google
+    </a>
 
-    <form method="POST" action=""> {% csrf_token %}
+    <a href="{% provider_login_url 'facebook' process='signup' %}" class="btn btn-social btn-facebook">
+        <img src="{% static 'login/images/facebook_icon.png' %}" alt="Facebook">
+        Cadastrar com Facebook
+    </a>
+
+    <div class="auth-divider">ou</div>
+
+    <form method="POST" action="">
+        {% csrf_token %}
         
         <div class="mb-3">
-            <label for="username" class="form-label">Nome de Usuário</label>
-            <input type="text" name="username" id="username" class="form-control" required>
+            <label for="full_name" class="form-label">Nome Completo</label>
+            <input type="text" name="full_name" id="full_name" class="form-control" placeholder="Nome Completo" required>
         </div>
         
         <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" name="email" id="email" class="form-control" required>
+            <label for="email" class="form-label">E-mail</label>
+            <input type="email" name="email" id="email" class="form-control" placeholder="seu@email.com" required>
         </div>
         
         <div class="mb-3">
-            <label for="password" class="form-label">Senha</label>
-            <input type="password" name="password" id="password" class="form-control" required>
+            <label for="password" class="form-label">Crie uma senha</label>
+            <input type="password" name="password" id="password" class="form-control" placeholder="Sua senha" required>
         </div>
 
-        <div class="mb-3">
-            <label for="password2" class="form-label">Confirmar Senha</label>
-            <input type="password" name="password2" id="password2" class="form-control" required>
+        <div class="form-check mb-4">
+            <input class="form-check-input" type="checkbox" id="acceptTerms" required>
+            <label class="form-check-label" for="acceptTerms" style="font-size: 0.8rem; opacity: 0.8;">
+                Eu aceito os <a href="#" style="color: inherit; text-decoration: underline;">Termos de uso</a> e a <a href="#" style="color: inherit; text-decoration: underline;">Política de Privacidade</a>.
+            </label>
         </div>
 
-        <button type="submit" class="btn btn-primary w-100">Cadastrar</button>
+        <button type="submit" class="btn btn-primary w-100">Criar conta</button>
     </form>
 
-    <p class="mt-3 text-center">
-      Já tem conta? <a href="{% url 'login_user' %}">Faça login</a>
+    <p class="mt-4 text-center">
+      Já tem uma conta? <a href="{% url 'login_user' %}">Faça login</a>
     </p>
 </div>
 {% endblock %}

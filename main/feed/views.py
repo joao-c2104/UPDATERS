@@ -9,7 +9,6 @@ from django.views.decorators.csrf import csrf_exempt
 from django.urls import reverse
 import json
 
-
 class ArticleListView(ListView):
     model = Article
     template_name = 'feed/feed.html'
@@ -37,7 +36,6 @@ class ArticleListView(ListView):
         context = super().get_context_data(**kwargs)
         context['search_query'] = self.request.GET.get('q', '')
         return context
-
 
 class ArticleDetailView(DetailView):
     model = Article
@@ -68,7 +66,6 @@ class ArticleDetailView(DetailView):
         context['is_favorited'] = is_favorited
         return context
 
-
 class HomeView(TemplateView):
     template_name = 'feed/home.html'
 
@@ -90,34 +87,22 @@ class HomeView(TemplateView):
 
         return context
 
-
-def toggle_favorite_view(request, article_id):
-    """
-    - Se o usuário NÃO estiver logado: vai para a página de login,
-      com ?next=URL_da_noticia
-    - Se estiver logado: adiciona/remove dos favoritos e redireciona
-      para a página de notícias salvas.
-    """
+def toggle_save_article_view(request, article_id):
     article = get_object_or_404(Article, id=article_id)
 
-    # Usuário não logado -> manda para login com "next"
     if not request.user.is_authenticated:
         login_url = reverse('login_user')
         next_url = article.get_absolute_url()
         return redirect(f"{login_url}?next={next_url}")
 
-    # Usuário logado -> toggle favorito
     if article.favorites.filter(id=request.user.id).exists():
         article.favorites.remove(request.user)
     else:
         article.favorites.add(request.user)
-
-    # Depois de salvar/remover, manda para a página de salvos
-    return redirect('favorites_list')
-
+    return redirect(request.META.get('HTTP_REFERER', 'article-list'))
 
 @login_required
-def favorites_list_view(request):
+def saved_articles_list_view(request):
     favorited_articles = request.user.favorite_articles.select_related(
         'category'
     ).all()
@@ -126,8 +111,7 @@ def favorites_list_view(request):
         'articles': favorited_articles,
         'total_saved': favorited_articles.count(),
     }
-    return render(request, 'feed/favorites.html', context)
-
+    return render(request, 'feed/saved_articles.html', context)
 
 @require_http_methods(["GET", "POST"])
 def article_comments_api(request, article_id):
@@ -195,7 +179,6 @@ def article_comments_api(request, article_id):
             return JsonResponse({'error': 'Dados inválidos.'}, status=400)
         except Exception:
             return JsonResponse({'error': 'Erro ao criar comentário.'}, status=500)
-
 
 @require_http_methods(["GET"])
 def article_comments_count_api(request, article_id):

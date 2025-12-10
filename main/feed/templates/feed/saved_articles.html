@@ -6,65 +6,80 @@
 
 {% block content %}
 
-    <div class="favorites-page-header">
-        <h1 class="favorites-page-title">
-            <svg class="favorites-title-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor"/>
-            </svg>
+<div class="saved-page">
+    <div class="saved-page-header">
+        <div class="saved-page-badge">
+            <span class="icon">★</span>
             Notícias Salvas
-        </h1>
-        <p class="favorites-page-subtitle">
-            {% if articles %}
-                {{ articles|length }} artigo{{ articles|length|pluralize }} salvo{{ articles|length|pluralize }}
-            {% else %}
-                Nenhum artigo salvo ainda
-            {% endif %}
+        </div>
+        <p class="saved-page-count">
+            Você tem <strong class="saved-page-count-strong">{{ articles|length }}</strong> artigo{{ articles|length|pluralize }} salvo{{ articles|length|pluralize }} na sua lista de leitura.
         </p>
     </div>
 
     {% if articles %}
-        <div class="favorites-grid">
+        <div class="saved-grid">
             {% for article in articles %}
-                <div class="favorite-card" data-article-slug="{{ article.slug }}">
-                    <a href="{% url 'article-detail' article.slug %}" class="favorite-card-link">
-                        <div class="favorite-card-image-container">
-                            <img src="{{ article.image.url }}" alt="{{ article.title }}" class="favorite-card-image">
-                            <span class="favorite-card-category">{{ article.category.name|default:'Sem Categoria' }}</span>
+                <article class="saved-card">
+                    <a href="{% url 'article-detail' article.slug %}" class="saved-card-link">
+                        <div class="saved-card-image-container">
+                            {% if article.image %}
+                                <img src="{{ article.image.url }}" alt="{{ article.title }}" class="saved-card-image">
+                            {% else %}
+                                <div class="saved-card-image" style="background-color: #eee; display:flex; align-items:center; justify-content:center;">
+                                    <span style="color:#999;">Sem imagem</span>
+                                </div>
+                            {% endif %}
+                            
+                            <span class="saved-card-category">
+                                {{ article.category.name|default:'Geral' }}
+                            </span>
                         </div>
-                        <div class="favorite-card-content">
-                            <h3 class="favorite-card-title">{{ article.title }}</h3>
-                            <p class="favorite-card-summary">{{ article.summary|truncatewords:20 }}</p>
-                            <div class="favorite-card-meta">
-                                <span class="favorite-card-author">{{ article.author }}</span>
-                                <span class="favorite-card-separator">•</span>
-                                <span class="favorite-card-date">{{ article.publication_date|date:"d/m/Y" }}</span>
+
+                        <div class="saved-card-content">
+                            <div class="saved-card-status-row">
+                                <span class="saved-badge-saved">
+                                    <span class="saved-badge-saved-circle"></span>
+                                    Salvo
+                                </span>
+                                <span class="saved-card-date">
+                                    {{ article.publication_date|date:"d/m/Y" }}
+                                </span>
+                            </div>
+
+                            <h3 class="saved-card-title">{{ article.title }}</h3>
+                            <p class="saved-card-summary">
+                                {{ article.summary|truncatewords:20 }}
+                            </p>
+
+                            <div class="saved-card-meta">
+                                <span class="saved-card-author">Por {{ article.author }}</span>
+                                
+                                <form method="POST" action="{% url 'toggle_save_article' article.id %}" style="display:inline;">
+                                    {% csrf_token %}
+                                    <button type="submit" style="background:none; border:none; cursor:pointer; color:#B00000; font-weight:bold; font-size:0.8rem; text-transform:uppercase;">
+                                        Remover
+                                    </button>
+                                </form>
                             </div>
                         </div>
                     </a>
-                    <form method="POST" action="{% url 'toggle_save_article' article.slug %}" class="save-form-inline">
-                        {% csrf_token %}
-                        <button type="submit" class="favorite-card-star-btn favorited" title="Remover dos salvos">
-                            <svg class="star-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </button>
-                    </form>
-                </div>
+                </article>
             {% endfor %}
         </div>
     {% else %}
-        <div class="favorites-empty-state">
-            <svg class="favorites-empty-icon" width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <h2 class="favorites-empty-title">Você ainda não salvou nenhuma notícia</h2>
-            <p class="favorites-empty-text">
-                Comece a salvar artigos que você gosta clicando na estrela ⭐
+        <div class="saved-empty">
+            <div class="saved-empty-icon">★</div>
+            <h2 class="saved-empty-title">Sua lista está vazia</h2>
+            <p class="saved-empty-text">
+                Você ainda não salvou nenhuma notícia. Navegue pelo feed e clique na estrela para ler depois.
             </p>
-            <a href="{% url 'article-list' %}" class="favorites-empty-button">
-                Explorar Notícias
-            </a>
+            <div class="saved-empty-actions">
+                <a href="{% url 'article-list' %}" class="saved-empty-btn-primary">
+                    Ir para o Feed
+                </a>
+            </div>
         </div>
     {% endif %}
-
+</div>
 {% endblock %}
