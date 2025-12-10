@@ -74,7 +74,7 @@ Reimaginamos serviços e criamos **soluções digitais** que combinam **excelên
 #### Para ter acesso as nossas histórias, [clique aqui](links/UPDATERS_HISTÓRIAS.pdf).
 ---
 
-# 🚀 Link
+# 🚀 Link do deploy
 - https://updaters.onrender.com
 <p align="center">
 
