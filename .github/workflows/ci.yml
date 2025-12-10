@@ -1,0 +1,16 @@
+name: Testes Cypress
+
+on: [push]
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (Baixar código)
+        uses: actions/checkout@v4
+
+      - name: Rodar Cypress
+        uses: cypress-io/github-action@v6
+        with:
+          # Usa o script que criamos no package.json
+          command: npm run cy:run

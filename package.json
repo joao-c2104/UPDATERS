@@ -4,7 +4,8 @@
   "description": "<p align=\"center\">\r   <img src=\"imagens/logo_updaters.png\" alt=\"Logo UPDATERS\" width=\"400\">\r </p>",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:run": "cypress run"
   },
   "repository": {
     "type": "git",
