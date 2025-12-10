@@ -1,0 +1,244 @@
+{% extends "login/auth_base.html" %}
+{% load static %}
+
+{% block title %}Configurações{% endblock %}
+{% block content %}
+<div class="card auth-card mx-auto position-relative" style="max-width: 600px;">
+    
+    <div class="auth-header-top">
+        <h2 class="auth-title">Configurações</h2>
+        <button id="theme-toggle" class="theme-toggle">🌙</button>
+    </div>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <!-- Profile Picture Section -->
+    <div class="mb-4">
+        <label class="form-label">Foto de Perfil</label>
+        <div class="d-flex align-items-center gap-3 mb-3">
+            {% if profile.profile_picture %}
+                <img src="{{ profile.profile_picture.url }}" alt="Foto de perfil" 
+                     class="rounded-circle" style="width: 80px; height: 80px; object-fit: cover; border: 2px solid var(--auth-card-border-color);">
+            {% else %}
+                <div class="rounded-circle d-flex align-items-center justify-content-center" 
+                     style="width: 80px; height: 80px; background-color: var(--auth-input-bg); border: 2px solid var(--auth-card-border-color);">
+                    <span style="font-size: 2rem;">👤</span>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- User Information Form -->
+    <div class="settings-section mb-4">
+        <h3 class="settings-section-title">Informações Pessoais</h3>
+        <form method="POST" action="{% url 'user_settings' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="hidden" name="form_type" value="user_info">
+            
+            <div class="mb-3">
+                <label for="{{ user_form.username.id_for_label }}" class="form-label">{{ user_form.username.label }}</label>
+                {{ user_form.username }}
+                {% if user_form.username.errors %}
+                    <div class="text-danger small">{{ user_form.username.errors }}</div>
+                {% endif %}
+            </div>
+            
+            <div class="mb-3">
+                <label for="{{ user_form.email.id_for_label }}" class="form-label">{{ user_form.email.label }}</label>
+                {{ user_form.email }}
+                {% if user_form.email.errors %}
+                    <div class="text-danger small">{{ user_form.email.errors }}</div>
+                {% endif %}
+            </div>
+            
+            <div class="mb-3">
+                <label for="{{ user_form.first_name.id_for_label }}" class="form-label">{{ user_form.first_name.label }}</label>
+                {{ user_form.first_name }}
+                {% if user_form.first_name.errors %}
+                    <div class="text-danger small">{{ user_form.first_name.errors }}</div>
+                {% endif %}
+            </div>
+            
+            <div class="mb-3">
+                <label for="{{ user_form.last_name.id_for_label }}" class="form-label">{{ user_form.last_name.label }}</label>
+                {{ user_form.last_name }}
+                {% if user_form.last_name.errors %}
+                    <div class="text-danger small">{{ user_form.last_name.errors }}</div>
+                {% endif %}
+            </div>
+            
+            <button type="submit" class="btn btn-primary w-100">Salvar Informações</button>
+        </form>
+    </div>
+
+    <!-- Profile Settings Form -->
+    <div class="settings-section mb-4">
+        <h3 class="settings-section-title">Preferências do Perfil</h3>
+        <form method="POST" action="{% url 'user_settings' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="hidden" name="form_type" value="profile_info">
+            
+            <div class="mb-3">
+                <label for="{{ profile_form.profile_picture.id_for_label }}" class="form-label">{{ profile_form.profile_picture.label }}</label>
+                {{ profile_form.profile_picture }}
+                {% if profile_form.profile_picture.errors %}
+                    <div class="text-danger small">{{ profile_form.profile_picture.errors }}</div>
+                {% endif %}
+            </div>
+            
+            <div class="mb-3">
+                <label for="{{ profile_form.font_size.id_for_label }}" class="form-label">{{ profile_form.font_size.label }}</label>
+                {{ profile_form.font_size }}
+                {% if profile_form.font_size.errors %}
+                    <div class="text-danger small">{{ profile_form.font_size.errors }}</div>
+                {% endif %}
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">{{ profile_form.preferred_categories.label }}</label>
+                <div class="categories-checkboxes">
+                    {% for checkbox in profile_form.preferred_categories %}
+                        <div class="form-check mb-2">
+                            {{ checkbox.tag }}
+                            <label class="form-check-label" for="{{ checkbox.id_for_label }}">
+                                {{ checkbox.choice_label }}
+                            </label>
+                        </div>
+                    {% endfor %}
+                </div>
+                {% if profile_form.preferred_categories.errors %}
+                    <div class="text-danger small">{{ profile_form.preferred_categories.errors }}</div>
+                {% endif %}
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">Tipo de Conta</label>
+                <div class="account-tier-display">
+                    <span class="badge bg-{% if profile.account_tier == 'free' %}secondary{% elif profile.account_tier == 'premium' %}warning{% else %}danger{% endif %}" 
+                          style="font-size: 1rem; padding: 8px 16px;">
+                        {{ profile.get_account_tier_display }}
+                    </span>
+                </div>
+                <small class="text-muted">O tipo de conta não pode ser alterado aqui.</small>
+            </div>
+            
+            <button type="submit" class="btn btn-primary w-100">Salvar Preferências</button>
+        </form>
+    </div>
+
+    <!-- Password Change Form -->
+    <div class="settings-section mb-4">
+        <h3 class="settings-section-title">Alterar Senha</h3>
+        <form method="POST" action="{% url 'user_settings' %}">
+            {% csrf_token %}
+            <input type="hidden" name="form_type" value="password_change">
+            
+            <div class="mb-3">
+                <label for="{{ password_form.old_password.id_for_label }}" class="form-label">{{ password_form.old_password.label }}</label>
+                {{ password_form.old_password }}
+                {% if password_form.old_password.errors %}
+                    <div class="text-danger small">{{ password_form.old_password.errors }}</div>
+                {% endif %}
+            </div>
+            
+            <div class="mb-3">
+                <label for="{{ password_form.new_password1.id_for_label }}" class="form-label">{{ password_form.new_password1.label }}</label>
+                {{ password_form.new_password1 }}
+                {% if password_form.new_password1.errors %}
+                    <div class="text-danger small">{{ password_form.new_password1.errors }}</div>
+                {% endif %}
+                {% if password_form.new_password1.help_text %}
+                    <div class="form-text">{{ password_form.new_password1.help_text }}</div>
+                {% endif %}
+            </div>
+            
+            <div class="mb-3">
+                <label for="{{ password_form.new_password2.id_for_label }}" class="form-label">{{ password_form.new_password2.label }}</label>
+                {{ password_form.new_password2 }}
+                {% if password_form.new_password2.errors %}
+                    <div class="text-danger small">{{ password_form.new_password2.errors }}</div>
+                {% endif %}
+            </div>
+            
+            <button type="submit" class="btn btn-primary w-100">Alterar Senha</button>
+        </form>
+    </div>
+
+    <p class="mt-4 text-center">
+        <a href="{% url 'home' %}" style="color: var(--auth-text-color); opacity: 0.8;">← Voltar para o início</a>
+    </p>
+</div>
+
+<style>
+.settings-section {
+    border-top: 1px solid var(--auth-divider-line);
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.settings-section:first-of-type {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.settings-section-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--auth-text-color);
+}
+
+.categories-checkboxes {
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: var(--auth-input-bg);
+    border-radius: 8px;
+    border: 1px solid var(--auth-input-border);
+}
+
+.account-tier-display {
+    margin-top: 0.5rem;
+}
+
+.alert {
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.alert-error,
+.alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+body.dark-mode .alert-success {
+    background-color: #1e4620;
+    border-color: #2d5a2f;
+    color: #a5d6a7;
+}
+
+body.dark-mode .alert-error,
+body.dark-mode .alert-danger {
+    background-color: #4a1e1e;
+    border-color: #5a2a2a;
+    color: #f5a5a5;
+}
+</style>
+{% endblock %}
+

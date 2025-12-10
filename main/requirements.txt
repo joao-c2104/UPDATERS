@@ -3,7 +3,7 @@ Django==5.2.7
 
 # Database
 dj-database-url==3.0.1
-psycopg2-binary==2.9.11
+psycopg2-binary==2.9.9
 
 # Environment Configuration
 python-decouple==3.8
