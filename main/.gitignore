@@ -174,3 +174,8 @@ staticfiles/
 
 # Arquivos de usuário
 media/
+
+# Node e Cypress
+node_modules/
+cypress/videos/
+cypress/screenshots/
