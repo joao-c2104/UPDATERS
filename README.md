@@ -74,8 +74,10 @@ Reimaginamos serviços e criamos **soluções digitais** que combinam **excelên
 #### Para ter acesso as nossas histórias, [clique aqui](links/UPDATERS_HISTÓRIAS.pdf).
 ---
 
-## 🚀 Link
+# 🚀 Link
 - https://updaters.onrender.com
 <p align="center">
+---
+  
   <b>✨ Somos os UPDATERS. Transformamos desafios em soluções. ✨</b>
 </p>
