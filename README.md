@@ -46,18 +46,6 @@ Reimaginamos serviços e criamos **soluções digitais** que combinam **excelên
 - ⭐ Um dos veículos mais **tradicionais e influentes** do Brasil.
 - 💻 Evoluiu de jornal impresso para **plataforma multimídia** (portal online, rádios e TV).
 
-
-
-
-
----
-
-## 🔎 Causas e Consequências
-
-
-
-
-
 ---
 
 
@@ -73,6 +61,10 @@ Reimaginamos serviços e criamos **soluções digitais** que combinam **excelên
 
 #### Para ter acesso as nossas histórias, [clique aqui](links/UPDATERS_HISTÓRIAS.pdf).
 ---
+
+## 👥 Relatório da Programação em Par
+
+- #### Link do relatório: https://docs.google.com/document/d/1QL3QRKqtUXxBwsad-W7LTl9irMdeMIhj2E9tqXod0rc/edit?usp=sharing
 
 # 🚀 Link do deploy
 - https://updaters.onrender.com
