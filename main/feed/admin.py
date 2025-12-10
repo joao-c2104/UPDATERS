@@ -20,7 +20,7 @@ class ArticleAdmin(admin.ModelAdmin):
                     "view_count", "category")
     list_filter = ("category", "publication_date")
     search_fields = ("title", "summary", "content", "author")
-    prepopulated_fields = {"slug": ("title",)}
+    readonly_fields = ('slug', 'view_count')
     date_hierarchy = "publication_date"
 
 
