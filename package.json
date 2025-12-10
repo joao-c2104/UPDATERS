@@ -1,0 +1,24 @@
+{
+  "name": "updaters",
+  "version": "1.0.0",
+  "description": "<p align=\"center\">\r   <img src=\"imagens/logo_updaters.png\" alt=\"Logo UPDATERS\" width=\"400\">\r </p>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joao-c2104/UPDATERS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/joao-c2104/UPDATERS/issues"
+  },
+  "homepage": "https://github.com/joao-c2104/UPDATERS#readme",
+  "devDependencies": {
+    "cypress": "^15.7.1"
+  }
+}
