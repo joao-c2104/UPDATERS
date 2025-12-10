@@ -2,7 +2,7 @@
     --color-background: #f3f4f6;
     --color-surface: #ffffff;
     --color-border: #e0e0e0;
-    --color-primary: #B00000;
+    --color-primary: #b00000;
     --jc-red: #B00000;
     --jc-red-light: #D32F2F;
     --color-header-footer: var(--color-primary);
@@ -128,8 +128,8 @@ body.dark-mode .header {
 }
 
 .login-button-header {
-    background-color: #4F46E5;
-    color: var(--color-header-footer);
+    background-color: var(--color-surface);
+    color: var(--color-text-primary) !important;
     border: none;
     border-radius: 8px;
     padding: 8px 16px;
@@ -343,31 +343,54 @@ body.dark-mode .drawer-nav-icon {
 }
 
 .sidebar--left {
-    flex-basis: 180px;
-    flex-shrink: 0;
-    display: flex;
-    flex-direction: column;
     position: sticky;
     top: var(--header-height);
-    margin-top: calc(var(--content-gap) * -1);
-    padding-top: 0;
     height: calc(100vh - var(--header-height));
     overflow-y: auto;
-    scrollbar-width: none;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+}
+
+.sidebar--left > * {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .sidebar--left::-webkit-scrollbar {
     display: none;
 }
 
+.ad-vertical-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    min-height: 0;
+    border-right: 1px solid var(--color-border);
+}
+
+.ad-vertical-content {
+    flex: 1;
+    background-color: var(--color-placeholder-light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+
 .ad-box.full-height {
+    flex: 1; 
     height: 100%;
     min-height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: stretch;
     background-color: var(--color-surface);
     border: none;
     border-right: 1px solid var(--color-border);
@@ -381,20 +404,35 @@ body.dark-mode .drawer-nav-icon {
     top: 8px;
     right: 8px;
     font-size: 0.65rem;
-    text-transform: uppercase;
+    font-weight: 600;
     color: var(--color-text-secondary);
-    letter-spacing: 0.5px;
-    opacity: 0.7;
-    background-color: var(--color-surface);
-    padding: 2px 4px;
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 2px 6px;
     border-radius: 4px;
+    z-index: 5;
+    text-transform: uppercase;
+}
+
+.ad-emoji {
+    font-size: 2rem;
+    margin-bottom: 8px;
+    opacity: 0.5;
+}
+
+.ad-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    line-height: 1.4;
+    opacity: 0.8;
+    margin: 0;
 }
 
 .ad-placeholder-content {
     background-color: var(--color-placeholder-light);
+    flex-grow: 1; 
     width: 100%;
     height: 100%;
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -725,7 +763,7 @@ body.page-feed .page-container {
     padding: 0 20px;
     border-radius: 8px;
     text-decoration: none;
-    background-color: #4F46E5;
+    background-color: var(--color-primary);
     color: white;
     font-weight: 500;
     transition: background-color 0.2s;
@@ -733,7 +771,7 @@ body.page-feed .page-container {
 }
 
 .pagination-btn:hover {
-    background-color: #4338CA;
+    background-color: #8c0000;
 }
 
 .home-hero-link {
