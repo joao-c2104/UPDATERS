@@ -66,6 +66,8 @@ Reimaginamos serviços e criamos **soluções digitais** que combinam **excelên
 
 - #### Link do relatório: https://docs.google.com/document/d/1QL3QRKqtUXxBwsad-W7LTl9irMdeMIhj2E9tqXod0rc/edit?usp=sharing
 
+---
+
 # 🚀 Link do deploy
 - https://updaters.onrender.com
 <p align="center">
