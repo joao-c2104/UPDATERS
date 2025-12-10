@@ -7,7 +7,6 @@ from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 import json
 
-
 class ArticleListView(ListView):
     model = Article
     template_name = 'feed/feed.html'
@@ -36,7 +35,6 @@ class ArticleListView(ListView):
         context['search_query'] = self.request.GET.get('q', '')
         return context
 
-
 class ArticleDetailView(DetailView):
     model = Article
     template_name = 'feed/article_detail.html'
@@ -63,7 +61,6 @@ class ArticleDetailView(DetailView):
             is_favorited = article.favorites.filter(id=self.request.user.id).exists()
         context['is_favorited'] = is_favorited
         return context
-
 
 class HomeView(TemplateView):
     template_name = 'feed/home.html'
@@ -100,6 +97,14 @@ class FlashVideoListView(ListView):
 def toggle_favorite_view(request, article_id):
     article = get_object_or_404(Article, id=article_id)
 
+def toggle_save_article_view(request, article_id):
+    article = get_object_or_404(Article, id=article_id)
+
+    if not request.user.is_authenticated:
+        login_url = reverse('login_user')
+        next_url = article.get_absolute_url()
+        return redirect(f"{login_url}?next={next_url}")
+
     if article.favorites.filter(id=request.user.id).exists():
         article.favorites.remove(request.user)
     else:
@@ -111,12 +116,18 @@ def toggle_favorite_view(request, article_id):
 @login_required
 def favorites_list_view(request):
     favorited_articles = request.user.favorite_articles.all()
+    return redirect(request.META.get('HTTP_REFERER', 'article-list'))
+
+@login_required
+def saved_articles_list_view(request):
+    favorited_articles = request.user.favorite_articles.select_related(
+        'category'
+    ).all()
 
     context = {
         'articles': favorited_articles
     }
-    return render(request, 'feed/favorites.html', context)
-
+    return render(request, 'feed/saved_articles.html', context)
 
 @require_http_methods(["GET", "POST"])
 def article_comments_api(request, article_id):
@@ -173,7 +184,6 @@ def article_comments_api(request, article_id):
             return JsonResponse({'error': 'Dados inválidos.'}, status=400)
         except Exception:
             return JsonResponse({'error': 'Erro ao criar comentário.'}, status=500)
-
 
 @require_http_methods(["GET"])
 def article_comments_count_api(request, article_id):

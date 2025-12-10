@@ -78,7 +78,7 @@
                         <div id="user-menu" class="user-menu-dropdown">
                             <div class="user-menu-header">Olá, {{ user.username }}</div>
                             <a href="#">Configurações do usuário</a>
-                            <a href="{% url 'favorites_list' %}">Favoritos</a>
+                            <a href="{% url 'saved_articles_list' %}">Notícias Salvas</a> 
                             <div class="user-menu-divider"></div>
                             <a href="{% url 'logout_user' %}" class="user-menu-logout">Sair</a>
                         </div>

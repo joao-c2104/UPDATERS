@@ -75,7 +75,7 @@
             <h1 class="card_title" style="margin-bottom: 0;">{{ article.title }}</h1>
 
             <form method="POST"
-                  action="{% url 'toggle_favorite' article.id %}"
+                  action="{% url 'toggle_save_article' article.id %}"
                   class="favorite-bookmark-form">
                 {% csrf_token %}
                 <button type="submit"
@@ -83,12 +83,10 @@
                         title="{% if is_favorited %}Remover dos salvos{% else %}Salvar notícia{% endif %}"
                         aria-label="{% if is_favorited %}Remover dos salvos{% else %}Salvar notícia{% endif %}">
                     {% if is_favorited %}
-                        <!-- Ícone preenchido (salvo) -->
                         <svg class="bookmark-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path d="M7 3C6.44772 3 6 3.44772 6 4V20.382C6 20.8739 6.52976 21.173 6.93934 20.9L12 17.5L17.0607 20.9C17.4702 21.173 18 20.8739 18 20.382V4C18 3.44772 17.5523 3 17 3H7Z"/>
                         </svg>
                     {% else %}
-                        <!-- Ícone contorno (não salvo) -->
                         <svg class="bookmark-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M7 3H17C17.5523 3 18 3.44772 18 4V20.382C18 20.8739 17.4702 21.173 17.0607 20.9L12 17.5L6.93934 20.9C6.52976 21.173 6 20.8739 6 20.382V4C6 3.44772 6.44772 3 7 3Z"
                                   stroke="currentColor"

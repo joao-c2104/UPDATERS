@@ -1,0 +1,608 @@
+[
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 2,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 3,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 4,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 4,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 4,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 4,
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 5,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 5,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 5,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 5,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 6,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 6,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 6,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 6,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add article",
+    "content_type": 7,
+    "codename": "add_article"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change article",
+    "content_type": 7,
+    "codename": "change_article"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete article",
+    "content_type": 7,
+    "codename": "delete_article"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view article",
+    "content_type": 7,
+    "codename": "view_article"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add article view log",
+    "content_type": 8,
+    "codename": "add_articleviewlog"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change article view log",
+    "content_type": 8,
+    "codename": "change_articleviewlog"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete article view log",
+    "content_type": 8,
+    "codename": "delete_articleviewlog"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view article view log",
+    "content_type": 8,
+    "codename": "view_articleviewlog"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add Categoria",
+    "content_type": 9,
+    "codename": "add_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change Categoria",
+    "content_type": 9,
+    "codename": "change_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete Categoria",
+    "content_type": 9,
+    "codename": "delete_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view Categoria",
+    "content_type": 9,
+    "codename": "view_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add Coment�rio",
+    "content_type": 10,
+    "codename": "add_comment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change Coment�rio",
+    "content_type": 10,
+    "codename": "change_comment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete Coment�rio",
+    "content_type": 10,
+    "codename": "delete_comment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view Coment�rio",
+    "content_type": 10,
+    "codename": "view_comment"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "auth",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "feed",
+    "model": "article"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "feed",
+    "model": "articleviewlog"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "feed",
+    "model": "category"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "feed",
+    "model": "comment"
+  }
+},
+{
+  "model": "feed.category",
+  "pk": 1,
+  "fields": {
+    "name": "Pol�tica"
+  }
+},
+{
+  "model": "feed.category",
+  "pk": 2,
+  "fields": {
+    "name": "Economia"
+  }
+},
+{
+  "model": "feed.category",
+  "pk": 3,
+  "fields": {
+    "name": "Internacional"
+  }
+},
+{
+  "model": "feed.category",
+  "pk": 4,
+  "fields": {
+    "name": "Esportes"
+  }
+},
+{
+  "model": "feed.category",
+  "pk": 5,
+  "fields": {
+    "name": "Cultura"
+  }
+},
+{
+  "model": "feed.category",
+  "pk": 6,
+  "fields": {
+    "name": "Tecnologia"
+  }
+},
+{
+  "model": "feed.category",
+  "pk": 7,
+  "fields": {
+    "name": "Sa�de"
+  }
+},
+{
+  "model": "feed.category",
+  "pk": 8,
+  "fields": {
+    "name": "Brasil"
+  }
+},
+{
+  "model": "feed.category",
+  "pk": 9,
+  "fields": {
+    "name": "Educa��o"
+  }
+},
+{
+  "model": "feed.category",
+  "pk": 11,
+  "fields": {
+    "name": "Meio Ambiente"
+  }
+},
+{
+  "model": "feed.article",
+  "pk": 1,
+  "fields": {
+    "title": "Uma iniciativa  est� conectando os idosos ao mundo digital!",
+    "summary": "Projeto de inclus�o digital ensina idosos a usar computadores e redes sociais, promovendo conex�o com familiares e acesso a servi�os�essenciais.",
+    "author": "Alfredo Torres",
+    "content": "Um projeto de inclus�o digital est� ensinando aos mais velhos como usar o computador e as redes sociais, possibilitando que eles se comuniquem com seus amigos e familiares, al�m de terem acesso a servi�os importantes.\r\nOs participantes est�o aprendendo desde o b�sico, como ligar e desligar o computador, at� tarefas mais avan�adas, como enviar e-mails e acessar sites�de�not�cias.",
+    "image": "articles/unnamed.jpg",
+    "publication_date": "2025-11-05T13:54:41Z",
+    "view_count": 0,
+    "slug": "uma-iniciativa-esta-conectando-os-idosos-ao-mundo-digital",
+    "category": null,
+    "favorites": []
+  }
+},
+{
+  "model": "feed.article",
+  "pk": 2,
+  "fields": {
+    "title": "Feira de Ci�ncias re�ne estudantes e inova��es sustent�veis",
+    "summary": "Feira Municipal de Ci�ncias re�ne alunos de mais de 30 escolas com projetos sustent�veis, como energia solar e reciclagem, incentivando a inova��o e a consci�ncia ambiental entre�os�jovens.",
+    "author": "Alfredo Torres",
+    "content": "A Feira Municipal de Ci�ncias abriu suas portas nesta sexta-feira no Centro de Conven��es, reunindo alunos de mais de 30 escolas p�blicas e particulares. O evento apresenta projetos voltados � sustentabilidade, com destaque para inven��es que utilizam energia solar, reaproveitamento de �gua e materiais recicl�veis.\r\nDurante os tr�s dias de exposi��o, o p�blico poder� conhecer de perto as cria��es dos estudantes e participar de oficinas sobre tecnologia verde e educa��o ambiental. Segundo os organizadores, a feira busca estimular a curiosidade cient�fica e despertar o interesse dos jovens por solu��es inovadoras que contribuam para um futuro mais sustent�vel.",
+    "image": "articles/70ed1761d249dc503c7f77cfc53818e6.jpg",
+    "publication_date": "2025-11-05T14:11:20Z",
+    "view_count": 0,
+    "slug": "feira-de-ciencias-reune-estudantes-e-inovacoes-sustentaveis",
+    "category": null,
+    "favorites": []
+  }
+},
+{
+  "model": "feed.article",
+  "pk": 3,
+  "fields": {
+    "title": "Nova linha de �nibus melhora transporte entre bairros afastados",
+    "summary": "Nova linha de �nibus 503 vai ligar Jardim Aurora � Vila das Palmeiras com mais conforto e menos tempo�de�viagem.",
+    "author": "Alfredo Torres",
+    "content": "A Prefeitura anunciou nesta segunda-feira a cria��o da linha 503, que vai conectar diretamente os bairros Jardim Aurora e Vila das Palmeiras. A nova rota tem o objetivo de reduzir o tempo de deslocamento dos moradores, que antes precisavam realizar duas conex�es para chegar ao centro da cidade.\r\nSegundo a Secretaria de Transportes, os �nibus come�ar�o a circular ainda nesta semana, com intervalos de 20 minutos nos hor�rios de pico. Al�m disso, todos os ve�culos da nova linha contam com ar-condicionado, Wi-Fi gratuito e acessibilidade para pessoas com defici�ncia. A expectativa � de que cerca de 4 mil passageiros utilizem o servi�o diariamente, aliviando o fluxo de outras linhas j� existentes.",
+    "image": "articles/PSX_20200303_111806.jpg",
+    "publication_date": "2025-11-05T14:12:38Z",
+    "view_count": 0,
+    "slug": "nova-linha-de-onibus-melhora-transporte-entre-bairros-afastados",
+    "category": null,
+    "favorites": []
+  }
+},
+{
+  "model": "feed.article",
+  "pk": 4,
+  "fields": {
+    "title": "Biblioteca municipal lan�a acervo digital com mais de 5 mil livros gratuitos",
+    "summary": "Biblioteca Central lan�a acervo digital com mais de 5 mil livros gratuitos para incentivar�a�leitura.",
+    "author": "Alfredo Torres",
+    "content": "A Biblioteca Central da cidade anunciou nesta semana o lan�amento de um novo acervo digital que re�ne mais de 5 mil livros gratuitos. A plataforma, acess�vel por meio de um aplicativo para celulares e computadores, oferece t�tulos de diferentes g�neros, incluindo literatura cl�ssica, obras contempor�neas, quadrinhos e materiais acad�micos.\r\nDe acordo com a administra��o municipal, o objetivo da iniciativa � democratizar o acesso � leitura e incentivar o h�bito entre os jovens. A expectativa � de que o n�mero de usu�rios cres�a rapidamente nos pr�ximos meses, tornando a biblioteca um ponto de refer�ncia tamb�m no ambiente virtual. Al�m dos livros, o aplicativo contar� com audiolivros e clubes de leitura online.",
+    "image": "articles/Biblioteca-Rio_de_Janeiro-Brasil.jpg",
+    "publication_date": "2025-11-05T14:14:22Z",
+    "view_count": 0,
+    "slug": "biblioteca-municipal-lanca-acervo-digital-com-mais-de-5-mil-livros-gratuitos",
+    "category": null,
+    "favorites": []
+  }
+},
+{
+  "model": "feed.article",
+  "pk": 5,
+  "fields": {
+    "title": "Nova pra�a � inaugurada no centro da cidade",
+    "summary": "Prefeitura inaugura Pra�a das Flores no centro com �rea verde, parquinho e pista de caminhada, promovendo lazer e mais seguran�a para�os�moradores.",
+    "author": "Alfredo Torres",
+    "content": "A Prefeitura inaugurou hoje a Pra�a das Flores, um novo espa�o de lazer no centro da cidade. O local conta com �reas verdes, parquinho infantil e pista de caminhada.\r\nMoradores comemoraram a novidade, destacando que o espa�o traz mais seguran�a e conviv�ncia para a regi�o. A pra�a estar� aberta todos os dias, das 6h �s 22h.",
+    "image": "articles/Praca-da-Liberdade-em-Belo-Horizonte-Foto-Shutterstock-850x667.jpg",
+    "publication_date": "2025-11-05T14:15:33Z",
+    "view_count": 0,
+    "slug": "nova-praca-e-inaugurada-no-centro-da-cidade",
+    "category": null,
+    "favorites": []
+  }
+},
+{
+  "model": "feed.article",
+  "pk": 6,
+  "fields": {
+    "title": "Nova iniciativa incentiva jovens a aprender programa��o nas escolas p�blicas",
+    "summary": "�C�digo para o Futuro� leva cursos de programa��o e IA a escolas p�blicas, preparando jovens para o mercado�digital.",
+    "author": "Alfredo Torres",
+    "content": "Uma nova iniciativa do Minist�rio da Educa��o promete transformar o ensino tecnol�gico nas escolas p�blicas brasileiras. O projeto �C�digo para o Futuro� visa oferecer cursos gratuitos de programa��o, rob�tica e intelig�ncia artificial para estudantes do ensino m�dio, buscando prepar�-los para o mercado de trabalho digital em constante crescimento.\r\nA proposta j� come�ou a ser implementada em 200 escolas-piloto espalhadas pelo pa�s e deve atingir mais de 50 mil alunos at� o fim do pr�ximo ano. Especialistas acreditam que o projeto pode reduzir desigualdades de acesso � tecnologia e abrir novas oportunidades para jovens de regi�es com menos infraestrutura digital.",
+    "image": "articles/R_1.jpg",
+    "publication_date": "2025-11-05T14:16:30Z",
+    "view_count": 0,
+    "slug": "nova-iniciativa-incentiva-jovens-a-aprender-programacao-nas-escolas-publicas",
+    "category": null,
+    "favorites": []
+  }
+}
+]

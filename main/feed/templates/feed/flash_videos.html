@@ -5,7 +5,6 @@
 
 {% block content %}
 <div class="flash-videos-page">
-    <!-- Hero Header -->
     <section class="flash-videos-hero">
         <div class="flash-hero-pill">
             <span class="flash-hero-icon">
@@ -20,9 +19,7 @@
         </p>
     </section>
 
-    <!-- Two-column layout: Videos (left) + Trending (right) -->
     <div class="flash-videos-layout">
-        <!-- LEFT: Flash videos feed -->
         <section class="flash-videos-column">
             {% if flash_videos %}
                 {% for video in flash_videos %}
@@ -108,7 +105,6 @@
             {% endif %}
         </section>
 
-        <!-- RIGHT: Notícias em Alta widget -->
         <aside class="trending-panel">
             {% include "feed/partials/top_news.html" %}
 

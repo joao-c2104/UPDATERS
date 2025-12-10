@@ -154,7 +154,6 @@ body.dark-mode .header {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Mobile Side Menu - JC Red Theme */
 .sidebar-drawer {
     position: fixed;
     top: 0;
@@ -180,7 +179,6 @@ body.dark-mode .sidebar-drawer {
     transform: translateX(0);
 }
 
-/* Menu Header - White on Red */
 .drawer-header {
     padding: 24px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
@@ -195,7 +193,6 @@ body.dark-mode .drawer-header {
     background: transparent;
 }
 
-/* Menu Title - White Text */
 .drawer-title {
     font-size: 26px;
     font-weight: 800;
@@ -208,7 +205,6 @@ body.dark-mode .drawer-title {
     color: #FFFFFF;
 }
 
-/* Menu Subtitle - White Text */
 .drawer-subtitle {
     font-size: 14px;
     color: #FFFFFF;
@@ -222,7 +218,7 @@ body.dark-mode .drawer-subtitle {
     opacity: 0.9;
 }
 
-/* Close Button - White */
+
 .drawer-close-btn {
     background: none;
     border: none;
@@ -243,7 +239,6 @@ body.dark-mode .drawer-close-btn:hover {
     opacity: 1;
 }
 
-/* Navigation Container - Red Background */
 .drawer-nav {
     padding: 26px 24px;
     overflow-y: auto;
@@ -255,7 +250,6 @@ body.dark-mode .drawer-nav {
     background: transparent;
 }
 
-/* Menu Items - Light on Red Design */
 .drawer-nav-item {
     display: flex;
     align-items: center;
@@ -278,7 +272,6 @@ body.dark-mode .drawer-nav-item {
     color: #FFE5E5;
 }
 
-/* Hover Effect - White Tint */
 .drawer-nav-item:hover {
     background-color: rgba(255, 255, 255, 0.08);
 }
@@ -291,7 +284,6 @@ body.dark-mode .drawer-nav-item:hover {
     background-color: rgba(255, 255, 255, 0.08);
 }
 
-/* Active State - Lighter Red Pill */
 .drawer-nav-item.active {
     background-color: var(--jc-red-light);
     color: #FFFFFF;
@@ -310,13 +302,11 @@ body.dark-mode .drawer-nav-item.active .drawer-nav-icon {
     color: #FFFFFF;
 }
 
-/* Focus Accessibility - White Ring */
 .drawer-nav-item:focus-visible {
     outline: 2px solid #FFFFFF;
     outline-offset: 2px;
 }
 
-/* Icons - Light Color on Red */
 .drawer-nav-icon {
     width: 20px;
     height: 20px;
@@ -1178,6 +1168,291 @@ body.dark-mode .footer {
     }
 }
 
+.saved-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 0 56px;
+}
+
+.saved-page-header {
+    margin-bottom: 32px;
+}
+
+.saved-page-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 32px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #d00000, #aa0000);
+    color: #ffffff;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 1rem;
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.25);
+}
+
+.saved-page-badge span.icon {
+    display: inline-flex;
+    margin-right: 10px;
+}
+
+.saved-page-badge svg {
+    display: block;
+}
+
+.saved-page-count {
+    margin-top: 18px;
+    font-size: 0.98rem;
+    color: var(--color-text-secondary);
+}
+
+.saved-page-count-strong {
+    font-weight: 600;
+    color: #003f91;
+}
+
+.saved-grid {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+.saved-card {
+    background: var(--color-surface);
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.14);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border 0.18s ease;
+    border: 1px solid var(--color-border);
+}
+
+.saved-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 55px rgba(0, 0, 0, 0.20);
+    border-color: rgba(208, 0, 0, 0.35);
+}
+
+.saved-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.saved-card-image-container {
+    position: relative;
+    width: 100%;
+    padding-top: 58%;
+    overflow: hidden;
+}
+
+.saved-card-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.02);
+    transition: transform 0.25s ease;
+}
+
+.saved-card:hover .saved-card-image {
+    transform: scale(1.07);
+}
+
+.saved-card-category {
+    position: absolute;
+    left: 16px;
+    bottom: 14px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.82);
+    color: #ffffff;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.saved-card-content {
+    padding: 18px 20px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+.saved-card-status-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.78rem;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    font-weight: 600;
+}
+
+.saved-badge-saved {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(208, 0, 0, 0.10);
+    color: #b00000;
+}
+
+.saved-badge-saved-circle {
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: #b00000;
+}
+
+.saved-card-date {
+    color: var(--color-text-secondary);
+}
+
+.saved-card-title {
+    font-size: 1.08rem;
+    font-weight: 800;
+    color: var(--color-text-primary);
+    line-height: 1.28;
+}
+
+.saved-card-summary {
+    font-size: 0.92rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+}
+
+.saved-card-meta {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    border-top: 1px solid var(--color-border);
+    font-size: 0.86rem;
+    color: var(--color-text-secondary);
+}
+
+.saved-card-author {
+    font-weight: 600;
+}
+
+.saved-card-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 600;
+    color: #0057d8;
+}
+
+.saved-card-more svg {
+    transition: transform 0.18s ease;
+}
+
+.saved-card:hover .saved-card-more svg {
+    transform: translateX(3px);
+}
+
+.saved-empty {
+    margin-top: 40px;
+    padding: 60px 32px;
+    border-radius: 28px;
+    background: radial-gradient(circle at top left, rgba(208, 0, 0, 0.10), transparent 55%),
+                radial-gradient(circle at bottom right, rgba(0, 91, 187, 0.10), transparent 55%),
+                var(--color-surface);
+    text-align: left;
+    box-shadow: 0 16px 45px rgba(0, 0, 0, 0.12);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    max-width: 780px;
+    border: 1px solid var(--color-border);
+}
+
+.saved-empty-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 20px;
+    background: #b00000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.saved-empty-title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--color-text-primary);
+    margin: 0;
+}
+
+.saved-empty-text {
+    margin: 0;
+    font-size: 0.98rem;
+    color: var(--color-text-secondary);
+    max-width: 520px;
+}
+
+.saved-empty-actions {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.saved-empty-btn-primary {
+    background: #b00000;
+    color: #ffffff;
+    border-radius: 999px;
+    padding: 10px 22px;
+    font-size: 0.94rem;
+    font-weight: 600;
+    border: none;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 10px 25px rgba(176, 0, 0, 0.3);
+}
+
+.saved-empty-btn-primary:hover {
+    filter: brightness(1.05);
+    transform: translateY(-1px);
+}
+
+.saved-empty-btn-secondary {
+    background: transparent;
+    border-radius: 999px;
+    padding: 9px 18px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid var(--color-border);
+    text-decoration: none;
+    color: var(--color-text-primary);
+}
+
+@media (max-width: 768px) {
+    .saved-page {
+        padding-top: 20px;
+    }
+    .saved-empty {
+        padding: 32px 20px;
+    }
+}
+
 .comments-section-modern {
     margin-top: 64px;
     padding-top: 48px;
@@ -1881,7 +2156,6 @@ body.dark-mode .comment-login-prompt {
     color: #374151;
 }
 
-/* Responsivo */
 
 @media (max-width: 900px) {
     .flash-video-card {
@@ -1894,13 +2168,11 @@ body.dark-mode .comment-login-prompt {
     }
 }
 
-/* ========== VÍDEOS FLASH ========== */
 
 .page-flash-videos .main-content {
     max-width: 1200px;
 }
 
-/* Cabeçalho da página */
 .flash-page-header {
     margin-bottom: 32px;
 }
@@ -1929,14 +2201,12 @@ body.dark-mode .comment-login-prompt {
     font-size: 0.95rem;
 }
 
-/* Grid principal: anúncio + feed */
 .flash-page-grid {
     display: grid;
     grid-template-columns: 260px minmax(0, 1fr);
     gap: 24px;
 }
 
-/* Anúncio vertical */
 .flash-ad-vertical {
     position: sticky;
     top: 96px;
@@ -1975,14 +2245,12 @@ body.dark-mode .comment-login-prompt {
     color: #4B5563;
 }
 
-/* Feed de vídeos */
 .flash-feed {
     display: flex;
     flex-direction: column;
     gap: 24px;
 }
 
-/* Card de vídeo */
 .flash-card {
     background: #FFFFFF;
     border-radius: 24px;
@@ -1995,7 +2263,6 @@ body.dark-mode .flash-card {
     box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
 }
 
-/* Player do vídeo */
 .flash-video-wrapper {
     border-radius: 18px;
     overflow: hidden;
@@ -2011,7 +2278,6 @@ body.dark-mode .flash-card {
     object-fit: cover;
 }
 
-/* Conteúdo do card */
 .flash-card-title {
     font-size: 1.3rem;
     margin: 4px 0 4px;
@@ -2056,7 +2322,6 @@ body.dark-mode .flash-card-description {
     font-weight: 500;
 }
 
-/* Empty state */
 .flash-empty-state {
     padding: 40px 24px;
     border-radius: 24px;
@@ -2077,7 +2342,6 @@ body.dark-mode .flash-card-description {
     font-size: 0.95rem;
 }
 
-/* Responsivo */
 @media (max-width: 1024px) {
     .flash-page-grid {
         grid-template-columns: 1fr;
@@ -2089,29 +2353,21 @@ body.dark-mode .flash-card-description {
     }
 }
 
-/* ===========================
-   FLASH VIDEOS PAGE LAYOUT
-   =========================== */
-
-/* Hide both left and right sidebars from base.html on Flash Videos page */
 body.page-flash-videos .sidebar--left,
 body.page-flash-videos .sidebar--right {
     display: none;
 }
 
-/* Adjust page-container to use full width when sidebars are hidden */
 body.page-flash-videos .page-container {
     grid-template-columns: 1fr;
 }
 
-/* Main page wrapper */
 .page-flash-videos .flash-videos-page {
     max-width: 1280px;
     margin: 0 auto;
     padding: 32px 24px 64px;
 }
 
-/* Hero Header - Centered and prominent */
 .page-flash-videos .flash-videos-hero {
     text-align: center;
     margin-bottom: 40px;
@@ -2165,20 +2421,17 @@ body.page-flash-videos .page-container {
     margin-right: auto;
 }
 
-/* Two-column flex layout: Videos (left, 2/3) + Trending (right, 1/3) */
 .page-flash-videos .flash-videos-layout {
     display: flex;
     align-items: flex-start;
     gap: 40px;
 }
 
-/* Left column (videos) - takes 2x the space of sidebar */
 .page-flash-videos .flash-videos-column {
     flex: 2;
     min-width: 0;
 }
 
-/* Right column (Notícias em Alta) - sticky sidebar */
 .page-flash-videos .trending-panel {
     flex: 1;
     min-width: 320px;
@@ -2190,7 +2443,6 @@ body.page-flash-videos .page-container {
     gap: 24px;
 }
 
-/* Flash video card - horizontal layout (video left, text right) */
 .page-flash-videos .flash-video-card {
     display: grid;
     grid-template-columns: minmax(260px, 0.8fr) minmax(340px, 1.2fr);
@@ -2209,7 +2461,6 @@ body.page-flash-videos .page-container {
     box-shadow: 0 24px 60px rgba(15, 23, 42, 0.14);
 }
 
-/* Video media container - vertical aspect ratio */
 .page-flash-videos .flash-video-media {
     border-radius: 20px;
     overflow: hidden;
@@ -2217,7 +2468,6 @@ body.page-flash-videos .page-container {
     position: relative;
 }
 
-/* Ensure video/iframe/img fill the media box and keep aspect ratio */
 .page-flash-videos .flash-video-media video,
 .page-flash-videos .flash-video-media iframe,
 .page-flash-videos .flash-video-media img {
@@ -2228,7 +2478,6 @@ body.page-flash-videos .page-container {
     aspect-ratio: 9 / 16;
 }
 
-/* Empty video placeholder */
 .page-flash-videos .flash-video-placeholder {
     width: 100%;
     aspect-ratio: 9 / 16;
@@ -2241,7 +2490,6 @@ body.page-flash-videos .page-container {
     font-weight: 500;
 }
 
-/* Content column */
 .page-flash-videos .flash-video-content {
     display: flex;
     flex-direction: column;
@@ -2311,7 +2559,6 @@ body.page-flash-videos .page-container {
     background: #f3f4f6;
 }
 
-/* Pagination - centered under the cards */
 .page-flash-videos .flash-videos-pagination {
     display: flex;
     justify-content: center;
@@ -2361,7 +2608,6 @@ body.page-flash-videos .page-container {
     font-weight: 700;
 }
 
-/* Empty state - elegant and informative */
 .page-flash-videos .flash-videos-empty {
     padding: 80px 40px;
     border-radius: 20px;
@@ -2391,10 +2637,6 @@ body.page-flash-videos .page-container {
     margin: 0;
     line-height: 1.6;
 }
-
-/* ===========================
-   TOP NEWS WIDGET - PREMIUM REDESIGN
-   =========================== */
 
 .top-news-widget {
     background: #ffffff;
@@ -2461,7 +2703,6 @@ body.page-flash-videos .page-container {
     color: #d60000;
 }
 
-/* Featured item (first item) */
 .top-news-item--featured {
     background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
     border: 1px solid rgba(214, 0, 0, 0.1);
@@ -2523,7 +2764,6 @@ body.page-flash-videos .page-container {
     margin: 0;
 }
 
-/* Responsive: Stack layout on smaller screens */
 @media (max-width: 1024px) {
     .page-flash-videos .flash-videos-layout {
         flex-direction: column;
@@ -2543,7 +2783,6 @@ body.page-flash-videos .page-container {
     }
 }
 
-/* Mobile layout: stack video over text */
 @media (max-width: 768px) {
     .page-flash-videos .flash-videos-page {
         padding: 24px 16px 48px;
@@ -2636,10 +2875,6 @@ body.page-flash-videos .page-container {
     }
 }
 
-/* ===========================
-   HIGHLIGHTS CARD - PREMIUM DESIGN
-   (Notícias em Alta for Feed Page)
-   =========================== */
 
 .highlights-card {
     background: #fff;
@@ -2730,7 +2965,6 @@ body.page-flash-videos .page-container {
     margin: 0;
 }
 
-/* Responsive adjustments for highlights card */
 @media (max-width: 768px) {
     .highlights-card {
         padding: 20px;
