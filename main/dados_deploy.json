@@ -327,7 +327,7 @@
   "model": "auth.permission",
   "pk": 37,
   "fields": {
-    "name": "Can add Comentï¿½rio",
+    "name": "Can add Comentário",
     "content_type": 10,
     "codename": "add_comment"
   }
@@ -336,7 +336,7 @@
   "model": "auth.permission",
   "pk": 38,
   "fields": {
-    "name": "Can change Comentï¿½rio",
+    "name": "Can change Comentário",
     "content_type": 10,
     "codename": "change_comment"
   }
@@ -345,7 +345,7 @@
   "model": "auth.permission",
   "pk": 39,
   "fields": {
-    "name": "Can delete Comentï¿½rio",
+    "name": "Can delete Comentário",
     "content_type": 10,
     "codename": "delete_comment"
   }
@@ -354,9 +354,261 @@
   "model": "auth.permission",
   "pk": 40,
   "fields": {
-    "name": "Can view Comentï¿½rio",
+    "name": "Can view Comentário",
     "content_type": 10,
     "codename": "view_comment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can add site",
+    "content_type": 11,
+    "codename": "add_site"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can change site",
+    "content_type": 11,
+    "codename": "change_site"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Can delete site",
+    "content_type": 11,
+    "codename": "delete_site"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can view site",
+    "content_type": 11,
+    "codename": "view_site"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "name": "Can add email address",
+    "content_type": 12,
+    "codename": "add_emailaddress"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "name": "Can change email address",
+    "content_type": 12,
+    "codename": "change_emailaddress"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "name": "Can delete email address",
+    "content_type": 12,
+    "codename": "delete_emailaddress"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "name": "Can view email address",
+    "content_type": 12,
+    "codename": "view_emailaddress"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 49,
+  "fields": {
+    "name": "Can add email confirmation",
+    "content_type": 13,
+    "codename": "add_emailconfirmation"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 50,
+  "fields": {
+    "name": "Can change email confirmation",
+    "content_type": 13,
+    "codename": "change_emailconfirmation"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 51,
+  "fields": {
+    "name": "Can delete email confirmation",
+    "content_type": 13,
+    "codename": "delete_emailconfirmation"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 52,
+  "fields": {
+    "name": "Can view email confirmation",
+    "content_type": 13,
+    "codename": "view_emailconfirmation"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 53,
+  "fields": {
+    "name": "Can add social account",
+    "content_type": 14,
+    "codename": "add_socialaccount"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 54,
+  "fields": {
+    "name": "Can change social account",
+    "content_type": 14,
+    "codename": "change_socialaccount"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 55,
+  "fields": {
+    "name": "Can delete social account",
+    "content_type": 14,
+    "codename": "delete_socialaccount"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 56,
+  "fields": {
+    "name": "Can view social account",
+    "content_type": 14,
+    "codename": "view_socialaccount"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 57,
+  "fields": {
+    "name": "Can add social application",
+    "content_type": 15,
+    "codename": "add_socialapp"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 58,
+  "fields": {
+    "name": "Can change social application",
+    "content_type": 15,
+    "codename": "change_socialapp"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 59,
+  "fields": {
+    "name": "Can delete social application",
+    "content_type": 15,
+    "codename": "delete_socialapp"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 60,
+  "fields": {
+    "name": "Can view social application",
+    "content_type": 15,
+    "codename": "view_socialapp"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 61,
+  "fields": {
+    "name": "Can add social application token",
+    "content_type": 16,
+    "codename": "add_socialtoken"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 62,
+  "fields": {
+    "name": "Can change social application token",
+    "content_type": 16,
+    "codename": "change_socialtoken"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 63,
+  "fields": {
+    "name": "Can delete social application token",
+    "content_type": 16,
+    "codename": "delete_socialtoken"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 64,
+  "fields": {
+    "name": "Can view social application token",
+    "content_type": 16,
+    "codename": "view_socialtoken"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 65,
+  "fields": {
+    "name": "Can add Vídeo Flash",
+    "content_type": 17,
+    "codename": "add_flashvideo"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 66,
+  "fields": {
+    "name": "Can change Vídeo Flash",
+    "content_type": 17,
+    "codename": "change_flashvideo"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 67,
+  "fields": {
+    "name": "Can delete Vídeo Flash",
+    "content_type": 17,
+    "codename": "delete_flashvideo"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 68,
+  "fields": {
+    "name": "Can view Vídeo Flash",
+    "content_type": 17,
+    "codename": "view_flashvideo"
   }
 },
 {
@@ -440,10 +692,74 @@
   }
 },
 {
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "app_label": "sites",
+    "model": "site"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 12,
+  "fields": {
+    "app_label": "account",
+    "model": "emailaddress"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 13,
+  "fields": {
+    "app_label": "account",
+    "model": "emailconfirmation"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 14,
+  "fields": {
+    "app_label": "socialaccount",
+    "model": "socialaccount"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 15,
+  "fields": {
+    "app_label": "socialaccount",
+    "model": "socialapp"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 16,
+  "fields": {
+    "app_label": "socialaccount",
+    "model": "socialtoken"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 17,
+  "fields": {
+    "app_label": "feed",
+    "model": "flashvideo"
+  }
+},
+{
+  "model": "sites.site",
+  "pk": 1,
+  "fields": {
+    "domain": "example.com",
+    "name": "example.com"
+  }
+},
+{
   "model": "feed.category",
   "pk": 1,
   "fields": {
-    "name": "Polï¿½tica"
+    "name": "Política"
   }
 },
 {
@@ -485,7 +801,7 @@
   "model": "feed.category",
   "pk": 7,
   "fields": {
-    "name": "Saï¿½de"
+    "name": "Saúde"
   }
 },
 {
@@ -499,7 +815,7 @@
   "model": "feed.category",
   "pk": 9,
   "fields": {
-    "name": "Educaï¿½ï¿½o"
+    "name": "Educação"
   }
 },
 {
@@ -513,10 +829,10 @@
   "model": "feed.article",
   "pk": 1,
   "fields": {
-    "title": "Uma iniciativa  estï¿½ conectando os idosos ao mundo digital!",
-    "summary": "Projeto de inclusï¿½o digital ensina idosos a usar computadores e redes sociais, promovendo conexï¿½o com familiares e acesso a serviï¿½osï¿½essenciais.",
+    "title": "Uma iniciativa  está conectando os idosos ao mundo digital!",
+    "summary": "Projeto de inclusão digital ensina idosos a usar computadores e redes sociais, promovendo conexão com familiares e acesso a serviços essenciais.",
     "author": "Alfredo Torres",
-    "content": "Um projeto de inclusï¿½o digital estï¿½ ensinando aos mais velhos como usar o computador e as redes sociais, possibilitando que eles se comuniquem com seus amigos e familiares, alï¿½m de terem acesso a serviï¿½os importantes.\r\nOs participantes estï¿½o aprendendo desde o bï¿½sico, como ligar e desligar o computador, atï¿½ tarefas mais avanï¿½adas, como enviar e-mails e acessar sitesï¿½deï¿½notï¿½cias.",
+    "content": "Um projeto de inclusão digital está ensinando aos mais velhos como usar o computador e as redes sociais, possibilitando que eles se comuniquem com seus amigos e familiares, além de terem acesso a serviços importantes.\r\nOs participantes estão aprendendo desde o básico, como ligar e desligar o computador, até tarefas mais avançadas, como enviar e-mails e acessar sites de notícias.",
     "image": "articles/unnamed.jpg",
     "publication_date": "2025-11-05T13:54:41Z",
     "view_count": 0,
@@ -529,10 +845,10 @@
   "model": "feed.article",
   "pk": 2,
   "fields": {
-    "title": "Feira de Ciï¿½ncias reï¿½ne estudantes e inovaï¿½ï¿½es sustentï¿½veis",
-    "summary": "Feira Municipal de Ciï¿½ncias reï¿½ne alunos de mais de 30 escolas com projetos sustentï¿½veis, como energia solar e reciclagem, incentivando a inovaï¿½ï¿½o e a consciï¿½ncia ambiental entreï¿½osï¿½jovens.",
+    "title": "Feira de Ciências reúne estudantes e inovações sustentáveis",
+    "summary": "Feira Municipal de Ciências reúne alunos de mais de 30 escolas com projetos sustentáveis, como energia solar e reciclagem, incentivando a inovação e a consciência ambiental entre os jovens.",
     "author": "Alfredo Torres",
-    "content": "A Feira Municipal de Ciï¿½ncias abriu suas portas nesta sexta-feira no Centro de Convenï¿½ï¿½es, reunindo alunos de mais de 30 escolas pï¿½blicas e particulares. O evento apresenta projetos voltados ï¿½ sustentabilidade, com destaque para invenï¿½ï¿½es que utilizam energia solar, reaproveitamento de ï¿½gua e materiais reciclï¿½veis.\r\nDurante os trï¿½s dias de exposiï¿½ï¿½o, o pï¿½blico poderï¿½ conhecer de perto as criaï¿½ï¿½es dos estudantes e participar de oficinas sobre tecnologia verde e educaï¿½ï¿½o ambiental. Segundo os organizadores, a feira busca estimular a curiosidade cientï¿½fica e despertar o interesse dos jovens por soluï¿½ï¿½es inovadoras que contribuam para um futuro mais sustentï¿½vel.",
+    "content": "A Feira Municipal de Ciências abriu suas portas nesta sexta-feira no Centro de Convenções, reunindo alunos de mais de 30 escolas públicas e particulares. O evento apresenta projetos voltados à sustentabilidade, com destaque para invenções que utilizam energia solar, reaproveitamento de água e materiais recicláveis.\r\nDurante os três dias de exposição, o público poderá conhecer de perto as criações dos estudantes e participar de oficinas sobre tecnologia verde e educação ambiental. Segundo os organizadores, a feira busca estimular a curiosidade científica e despertar o interesse dos jovens por soluções inovadoras que contribuam para um futuro mais sustentável.",
     "image": "articles/70ed1761d249dc503c7f77cfc53818e6.jpg",
     "publication_date": "2025-11-05T14:11:20Z",
     "view_count": 0,
@@ -545,10 +861,10 @@
   "model": "feed.article",
   "pk": 3,
   "fields": {
-    "title": "Nova linha de ï¿½nibus melhora transporte entre bairros afastados",
-    "summary": "Nova linha de ï¿½nibus 503 vai ligar Jardim Aurora ï¿½ Vila das Palmeiras com mais conforto e menos tempoï¿½deï¿½viagem.",
+    "title": "Nova linha de ônibus melhora transporte entre bairros afastados",
+    "summary": "Nova linha de ônibus 503 vai ligar Jardim Aurora à Vila das Palmeiras com mais conforto e menos tempo de viagem.",
     "author": "Alfredo Torres",
-    "content": "A Prefeitura anunciou nesta segunda-feira a criaï¿½ï¿½o da linha 503, que vai conectar diretamente os bairros Jardim Aurora e Vila das Palmeiras. A nova rota tem o objetivo de reduzir o tempo de deslocamento dos moradores, que antes precisavam realizar duas conexï¿½es para chegar ao centro da cidade.\r\nSegundo a Secretaria de Transportes, os ï¿½nibus comeï¿½arï¿½o a circular ainda nesta semana, com intervalos de 20 minutos nos horï¿½rios de pico. Alï¿½m disso, todos os veï¿½culos da nova linha contam com ar-condicionado, Wi-Fi gratuito e acessibilidade para pessoas com deficiï¿½ncia. A expectativa ï¿½ de que cerca de 4 mil passageiros utilizem o serviï¿½o diariamente, aliviando o fluxo de outras linhas jï¿½ existentes.",
+    "content": "A Prefeitura anunciou nesta segunda-feira a criação da linha 503, que vai conectar diretamente os bairros Jardim Aurora e Vila das Palmeiras. A nova rota tem o objetivo de reduzir o tempo de deslocamento dos moradores, que antes precisavam realizar duas conexões para chegar ao centro da cidade.\r\nSegundo a Secretaria de Transportes, os ônibus começarão a circular ainda nesta semana, com intervalos de 20 minutos nos horários de pico. Além disso, todos os veículos da nova linha contam com ar-condicionado, Wi-Fi gratuito e acessibilidade para pessoas com deficiência. A expectativa é de que cerca de 4 mil passageiros utilizem o serviço diariamente, aliviando o fluxo de outras linhas já existentes.",
     "image": "articles/PSX_20200303_111806.jpg",
     "publication_date": "2025-11-05T14:12:38Z",
     "view_count": 0,
@@ -561,10 +877,10 @@
   "model": "feed.article",
   "pk": 4,
   "fields": {
-    "title": "Biblioteca municipal lanï¿½a acervo digital com mais de 5 mil livros gratuitos",
-    "summary": "Biblioteca Central lanï¿½a acervo digital com mais de 5 mil livros gratuitos para incentivarï¿½aï¿½leitura.",
+    "title": "Biblioteca municipal lança acervo digital com mais de 5 mil livros gratuitos",
+    "summary": "Biblioteca Central lança acervo digital com mais de 5 mil livros gratuitos para incentivar a leitura.",
     "author": "Alfredo Torres",
-    "content": "A Biblioteca Central da cidade anunciou nesta semana o lanï¿½amento de um novo acervo digital que reï¿½ne mais de 5 mil livros gratuitos. A plataforma, acessï¿½vel por meio de um aplicativo para celulares e computadores, oferece tï¿½tulos de diferentes gï¿½neros, incluindo literatura clï¿½ssica, obras contemporï¿½neas, quadrinhos e materiais acadï¿½micos.\r\nDe acordo com a administraï¿½ï¿½o municipal, o objetivo da iniciativa ï¿½ democratizar o acesso ï¿½ leitura e incentivar o hï¿½bito entre os jovens. A expectativa ï¿½ de que o nï¿½mero de usuï¿½rios cresï¿½a rapidamente nos prï¿½ximos meses, tornando a biblioteca um ponto de referï¿½ncia tambï¿½m no ambiente virtual. Alï¿½m dos livros, o aplicativo contarï¿½ com audiolivros e clubes de leitura online.",
+    "content": "A Biblioteca Central da cidade anunciou nesta semana o lançamento de um novo acervo digital que reúne mais de 5 mil livros gratuitos. A plataforma, acessível por meio de um aplicativo para celulares e computadores, oferece títulos de diferentes gêneros, incluindo literatura clássica, obras contemporâneas, quadrinhos e materiais acadêmicos.\r\nDe acordo com a administração municipal, o objetivo da iniciativa é democratizar o acesso à leitura e incentivar o hábito entre os jovens. A expectativa é de que o número de usuários cresça rapidamente nos próximos meses, tornando a biblioteca um ponto de referência também no ambiente virtual. Além dos livros, o aplicativo contará com audiolivros e clubes de leitura online.",
     "image": "articles/Biblioteca-Rio_de_Janeiro-Brasil.jpg",
     "publication_date": "2025-11-05T14:14:22Z",
     "view_count": 0,
@@ -577,10 +893,10 @@
   "model": "feed.article",
   "pk": 5,
   "fields": {
-    "title": "Nova praï¿½a ï¿½ inaugurada no centro da cidade",
-    "summary": "Prefeitura inaugura Praï¿½a das Flores no centro com ï¿½rea verde, parquinho e pista de caminhada, promovendo lazer e mais seguranï¿½a paraï¿½osï¿½moradores.",
+    "title": "Nova praça é inaugurada no centro da cidade",
+    "summary": "Prefeitura inaugura Praça das Flores no centro com área verde, parquinho e pista de caminhada, promovendo lazer e mais segurança para os moradores.",
     "author": "Alfredo Torres",
-    "content": "A Prefeitura inaugurou hoje a Praï¿½a das Flores, um novo espaï¿½o de lazer no centro da cidade. O local conta com ï¿½reas verdes, parquinho infantil e pista de caminhada.\r\nMoradores comemoraram a novidade, destacando que o espaï¿½o traz mais seguranï¿½a e convivï¿½ncia para a regiï¿½o. A praï¿½a estarï¿½ aberta todos os dias, das 6h ï¿½s 22h.",
+    "content": "A Prefeitura inaugurou hoje a Praça das Flores, um novo espaço de lazer no centro da cidade. O local conta com áreas verdes, parquinho infantil e pista de caminhada.\r\nMoradores comemoraram a novidade, destacando que o espaço traz mais segurança e convivência para a região. A praça estará aberta todos os dias, das 6h às 22h.",
     "image": "articles/Praca-da-Liberdade-em-Belo-Horizonte-Foto-Shutterstock-850x667.jpg",
     "publication_date": "2025-11-05T14:15:33Z",
     "view_count": 0,
@@ -593,16 +909,32 @@
   "model": "feed.article",
   "pk": 6,
   "fields": {
-    "title": "Nova iniciativa incentiva jovens a aprender programaï¿½ï¿½o nas escolas pï¿½blicas",
-    "summary": "ï¿½Cï¿½digo para o Futuroï¿½ leva cursos de programaï¿½ï¿½o e IA a escolas pï¿½blicas, preparando jovens para o mercadoï¿½digital.",
+    "title": "Nova iniciativa incentiva jovens a aprender programação nas escolas públicas",
+    "summary": "“Código para o Futuro” leva cursos de programação e IA a escolas públicas, preparando jovens para o mercado digital.",
     "author": "Alfredo Torres",
-    "content": "Uma nova iniciativa do Ministï¿½rio da Educaï¿½ï¿½o promete transformar o ensino tecnolï¿½gico nas escolas pï¿½blicas brasileiras. O projeto ï¿½Cï¿½digo para o Futuroï¿½ visa oferecer cursos gratuitos de programaï¿½ï¿½o, robï¿½tica e inteligï¿½ncia artificial para estudantes do ensino mï¿½dio, buscando preparï¿½-los para o mercado de trabalho digital em constante crescimento.\r\nA proposta jï¿½ comeï¿½ou a ser implementada em 200 escolas-piloto espalhadas pelo paï¿½s e deve atingir mais de 50 mil alunos atï¿½ o fim do prï¿½ximo ano. Especialistas acreditam que o projeto pode reduzir desigualdades de acesso ï¿½ tecnologia e abrir novas oportunidades para jovens de regiï¿½es com menos infraestrutura digital.",
+    "content": "Uma nova iniciativa do Ministério da Educação promete transformar o ensino tecnológico nas escolas públicas brasileiras. O projeto “Código para o Futuro” visa oferecer cursos gratuitos de programação, robótica e inteligência artificial para estudantes do ensino médio, buscando prepará-los para o mercado de trabalho digital em constante crescimento.\r\nA proposta já começou a ser implementada em 200 escolas-piloto espalhadas pelo país e deve atingir mais de 50 mil alunos até o fim do próximo ano. Especialistas acreditam que o projeto pode reduzir desigualdades de acesso à tecnologia e abrir novas oportunidades para jovens de regiões com menos infraestrutura digital.",
     "image": "articles/R_1.jpg",
     "publication_date": "2025-11-05T14:16:30Z",
     "view_count": 0,
     "slug": "nova-iniciativa-incentiva-jovens-a-aprender-programacao-nas-escolas-publicas",
     "category": null,
     "favorites": []
+  }
+},
+{
+  "model": "feed.articleviewlog",
+  "pk": 1,
+  "fields": {
+    "article": 6,
+    "timestamp": "2025-12-09T18:23:04.466Z"
+  }
+},
+{
+  "model": "feed.articleviewlog",
+  "pk": 2,
+  "fields": {
+    "article": 6,
+    "timestamp": "2025-12-09T18:23:04.481Z"
   }
 }
 ]
