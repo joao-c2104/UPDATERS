@@ -1,0 +1,128 @@
+{% extends "feed/base.html" %}
+
+{% block body_class %}page-flash-videos{% endblock %}
+{% block title %}Vídeos Flash - Jornal do Commercio{% endblock %}
+
+{% block content %}
+<div class="flash-videos-page">
+    <!-- Hero Header -->
+    <section class="flash-videos-hero">
+        <div class="flash-hero-pill">
+            <span class="flash-hero-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 5V19L19 12L8 5Z" fill="white" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </span>
+            <span class="flash-hero-text">VÍDEOS FLASH</span>
+        </div>
+        <p class="flash-hero-subtitle">
+            Clipes rápidos com os principais destaques do dia em formato de vídeo.
+        </p>
+    </section>
+
+    <!-- Two-column layout: Videos (left) + Trending (right) -->
+    <div class="flash-videos-layout">
+        <!-- LEFT: Flash videos feed -->
+        <section class="flash-videos-column">
+            {% if flash_videos %}
+                {% for video in flash_videos %}
+                    <article class="flash-video-card">
+                        <div class="flash-video-media">
+                            {% if video.video_file %}
+                                <video
+                                    src="{{ video.video_file.url }}"
+                                    controls
+                                    playsinline
+                                    preload="metadata"
+                                >
+                                    Seu navegador não suporta o elemento de vídeo.
+                                </video>
+                            {% elif video.video_url %}
+                                <iframe
+                                    src="{{ video.video_url }}"
+                                    title="{{ video.title }}"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    allowfullscreen
+                                    loading="lazy"
+                                ></iframe>
+                            {% elif video.thumbnail %}
+                                <img
+                                    src="{{ video.thumbnail.url }}"
+                                    alt="{{ video.title }}"
+                                >
+                            {% else %}
+                                <div class="flash-video-placeholder">
+                                    Prévia indisponível
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="flash-video-content">
+                            <span class="flash-video-tag">VÍDEO FLASH</span>
+                            <h2 class="flash-video-title">{{ video.title }}</h2>
+                            <p class="flash-video-description">
+                                {{ video.description|default:""|truncatewords:35 }}
+                            </p>
+                            <div class="flash-video-meta">
+                                <span class="flash-video-date">
+                                    Publicado em {{ video.created_at|date:"d/m/Y" }}
+                                </span>
+                                {% if video.is_active %}
+                                    <span class="flash-video-status flash-video-status--active">Ativo</span>
+                                {% else %}
+                                    <span class="flash-video-status flash-video-status--inactive">Oculto</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </article>
+                {% endfor %}
+
+                {% if is_paginated %}
+                    <div class="flash-videos-pagination">
+                        {% if page_obj.has_previous %}
+                            <a href="?page={{ page_obj.previous_page_number }}" class="pagination-btn">
+                                <span>←</span> Anterior
+                            </a>
+                        {% endif %}
+                        <span class="pagination-info">
+                            Página <strong>{{ page_obj.number }}</strong> de <strong>{{ page_obj.paginator.num_pages }}</strong>
+                        </span>
+                        {% if page_obj.has_next %}
+                            <a href="?page={{ page_obj.next_page_number }}" class="pagination-btn">
+                                Próxima <span>→</span>
+                            </a>
+                        {% endif %}
+                    </div>
+                {% endif %}
+            {% else %}
+                <div class="flash-videos-empty">
+                    <div class="flash-empty-icon">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 5V19L19 12L8 5Z" fill="currentColor" opacity="0.2"/>
+                        </svg>
+                    </div>
+                    <h2 class="flash-empty-title">Nenhum vídeo flash disponível</h2>
+                    <p class="flash-empty-text">Assim que novos vídeos forem publicados, eles aparecerão aqui.</p>
+                </div>
+            {% endif %}
+        </section>
+
+        <!-- RIGHT: Notícias em Alta widget -->
+        <aside class="trending-panel">
+            {% include "feed/partials/top_news.html" %}
+
+            <div class="widget">
+                <h4 class="widget_title_real">Categorias</h4>
+                <div class="widget_body">
+                    {% for category in all_categories %}
+                        <a href="{% url 'article-list' %}?category={{ category.id }}" class="widget_link">{{ category.name }}</a>
+                    {% empty %}
+                        <p class="widget_empty">Nenhuma categoria encontrada.</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </aside>
+    </div>
+</div>
+{% endblock %}

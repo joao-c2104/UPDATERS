@@ -16,9 +16,10 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+
 class Article(models.Model):
     title = models.CharField(max_length=200, verbose_name="Título")
-    
+
     summary = models.TextField(verbose_name="Resumo")
     author = models.CharField(max_length=100, verbose_name="Autor")
     content = models.TextField(verbose_name="Conteúdo Completo")
@@ -62,6 +63,7 @@ class Article(models.Model):
         verbose_name="Categoria"
     )
 
+
 class ArticleViewLog(models.Model):
     article = models.ForeignKey(
         Article, on_delete=models.CASCADE, related_name="view_logs")
@@ -69,6 +71,7 @@ class ArticleViewLog(models.Model):
 
     def __str__(self):
         return f"Visualização em '{self.article.title}' em {self.timestamp.strftime('%d/%m/%Y')}"
+
 
 class Comment(models.Model):
     article = models.ForeignKey(
@@ -98,3 +101,32 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comentário de {self.author.username} em '{self.article.title}'"
+
+
+class FlashVideo(models.Model):
+    title = models.CharField("Título", max_length=200)
+    description = models.TextField("Descrição")
+
+    thumbnail = models.ImageField(
+        "Thumbnail",
+        upload_to="flash_videos/thumbnails/"
+    )
+
+    video_file = models.FileField(
+        "Arquivo de Vídeo (.mp4)",
+        upload_to="flash_videos/videos/",
+        blank=True,
+        null=True
+    )
+
+    # CAMPOS QUE O ADMIN PRECISA
+    created_at = models.DateTimeField("Criado em", auto_now_add=True)
+    is_active = models.BooleanField("Ativo", default=True)
+
+    class Meta:
+        verbose_name = "Vídeo Flash"
+        verbose_name_plural = "Vídeos Flash"
+        ordering = ["-created_at"]
+
+    def __str__(self):
+        return self.title

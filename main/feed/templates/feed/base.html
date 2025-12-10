@@ -11,21 +11,40 @@
 
     <div id="sidebar-drawer" class="sidebar-drawer">
         <div class="drawer-header">
-            <span class="drawer-title">Menu</span>
+            <div>
+                <div class="drawer-title">Menu</div>
+                <div class="drawer-subtitle">Navegue pelo portal</div>
+            </div>
             <button id="drawer-close" class="drawer-close-btn">✕</button>
         </div>
         <nav class="drawer-nav">
-            <a href="{% url 'article-list' %}" class="drawer-link">
-                Feed de Notícias
+            <a href="{% url 'article-list' %}" class="drawer-nav-item {% if request.resolver_match.url_name == 'article-list' %}active{% endif %}">
+                <svg class="drawer-nav-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M3 9H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 21V9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="drawer-nav-text">Feed de Notícias</span>
             </a>
-            
-            <a href="{% url 'home' %}" class="drawer-link">
-                Página Inicial
+            <a href="{% url 'home' %}" class="drawer-nav-item {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+                <svg class="drawer-nav-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 22V12H15V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="drawer-nav-text">Página Inicial</span>
             </a>
-
-            <!-- NOVA OPÇÃO DE MENU: NOTÍCIAS SALVAS -->
-            <a href="{% url 'favorites_list' %}" class="drawer-link">
-                Notícias Salvas
+            <a href="{% url 'favorites_list' %}" class="drawer-nav-item {% if request.resolver_match.url_name == 'favorites_list' %}active{% endif %}">
+                <svg class="drawer-nav-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 3H17C17.5523 3 18 3.44772 18 4V20.382C18 20.8739 17.4702 21.173 17.0607 20.9L12 17.5L6.93934 20.9C6.52976 21.173 6 20.8739 6 20.382V4C6 3.44772 6.44772 3 7 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="drawer-nav-text">Notícias Salvas</span>
+            </a>
+            <a href="{% url 'flash_videos' %}" class="drawer-nav-item {% if request.resolver_match.url_name == 'flash_videos' %}active{% endif %}">
+                <svg class="drawer-nav-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23 7L16 12L23 17V7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 5H3C1.89543 5 1 5.89543 1 7V17C1 18.1046 1.89543 19 3 19H14C15.1046 19 16 18.1046 16 17V7C16 5.89543 15.1046 5 14 5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="drawer-nav-text">Vídeos Flash</span>
             </a>
         </nav>
     </div>
@@ -34,15 +53,14 @@
 
     <header class="header">
         <button id="drawer-toggle" class="menu-toggle-btn">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3 12H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M3 6H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M3 18H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 12H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M3 6H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M3 18H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
         </button>
 
         <div class="header__container">
-
             <div class="header_left">
                 <a href="{% url 'home' %}">
                     <img src="{% static 'feed/images/logo.svg' %}" alt="Logo" class="header_logo_img">
@@ -75,11 +93,13 @@
 
     <div class="page-container">
         <aside class="sidebar sidebar--left">
-            <div class="ad-box full-height">
-                <span class="ad-label" style="z-index: 10;">Publicidade</span>
-                <div class="ad-placeholder-content" style="flex-direction: column; height: 100%;">
-                    <span style="font-size: 1.5rem; margin-bottom: 10px;">📣</span>
-                    Espaço<br>Publicitário<br>Vertical<br><br>
+            <div class="ad-vertical-card">
+                <span class="ad-label">PUBLICIDADE</span>
+                <div class="ad-vertical-content">
+                    <span class="ad-emoji">📣</span>
+                    <p class="ad-text">
+                        Espaço<br>Publicitário<br>Vertical
+                    </p>
                 </div>
             </div>
         </aside>
@@ -87,18 +107,18 @@
         <main class="main-content">
             {% block content %}{% endblock %}
         </main>
-            
+
         <aside class="sidebar sidebar--right">
-            <div class="widget">
-                <h4 class="widget_title_real">Notícias em Alta</h4>
-                <div class="widget_body">
+            <div class="highlights-card">
+                <h2 class="highlights-title">NOTÍCIAS EM ALTA</h2>
+                <div class="highlights-list">
                     {% for article in trending_articles %}
-                        <div class="widget_list_item_numbered">
-                            <span class="widget_list_number">{{ forloop.counter }}.</span>
-                            <a href="{{ article.get_absolute_url }}" class="widget_link">{{ article.title }}</a>
-                        </div>
+                        <a href="{{ article.get_absolute_url }}" class="highlight-item {% if forloop.first %}highlight-item--first{% endif %}">
+                            <div class="highlight-number">{{ forloop.counter }}</div>
+                            <p class="highlight-text">{{ article.title|truncatewords:12 }}</p>
+                        </a>
                     {% empty %}
-                        <p class="widget_empty">Nenhuma notícia recente.</p>
+                        <p class="highlights-empty">Nenhuma notícia em alta no momento.</p>
                     {% endfor %}
                 </div>
             </div>
@@ -114,36 +134,30 @@
             </div>
         </aside>
     </div>
-    
+
     <footer class="footer">
         <div class="footer_container">
-            
             <div class="footer_column logo-column">
                 <img src="{% static 'feed/images/logo.svg' %}" alt="JC Logo" class="footer_logo_img">
-                
+
                 <h4 class="footer_heading" style="margin-top: 8px;">Nossas redes</h4>
-                
+
                 <div class="footer_socials">
                     <a href="https://www.facebook.com/jornaldocommercioPE/" target="_blank" title="Facebook">
                         <img src="{% static 'feed/images/facebook_icon.png' %}" alt="Facebook" class="footer_social-img">
                     </a>
-
                     <a href="https://www.instagram.com/jc_pe/#" target="_blank" title="Instagram">
                         <img src="{% static 'feed/images/instagram_icon.png' %}" alt="Instagram" class="footer_social-img">
                     </a>
-
                     <a href="https://x.com/jc_pe" target="_blank" title="X / Twitter">
                         <img src="{% static 'feed/images/twitter_icon.png' %}" alt="Twitter" class="footer_social-img">
                     </a>
-
                     <a href="https://www.linkedin.com/company/sistema-jornal-do-commercio/" target="_blank" title="LinkedIn">
                         <img src="{% static 'feed/images/linkedin_icon.png' %}" alt="LinkedIn" class="footer_social-img">
                     </a>
-
                     <a href="https://www.youtube.com/@JCPlayOficial" target="_blank" title="YouTube">
                         <img src="{% static 'feed/images/youtube_icon.png' %}" alt="YouTube" class="footer_social-img">
                     </a>
-
                     <a href="https://www.tiktok.com/@jc_pe" target="_blank" title="TikTok">
                         <img src="{% static 'feed/images/tiktok_icon.png' %}" alt="TikTok" class="footer_social-img">
                     </a>
@@ -178,7 +192,7 @@
                 <a href="#" class="footer_link">Anuncie Conosco</a>
             </div>
 
-             <div class="footer_column">
+            <div class="footer_column">
                 <div class="footer_heading">Aplicativos</div>
                 <a href="#" class="footer_link">Jornal do Commercio</a>
                 <a href="#" class="footer_link">Rádio Jornal</a>
@@ -186,13 +200,12 @@
         </div>
 
         <div class="footer_copyright_area">
-
             <div class="footer_copyright_text">
                 <p style="margin: 0; margin-bottom: 4px;">
                     Jornal @ 2025 - Uma empresa do grupo JCPM
                 </p>
                 <p style="margin: 0; font-size: 0.8rem;">
-                    PARA SOLICITAÇÃO DE LICENCIAMENTO, CONTACTAR 
+                    PARA SOLICITAÇÃO DE LICENCIAMENTO, CONTACTAR
                     <a href="mailto:EDITORES@NE10.COM.BR" class="footer_mail_link">EDITORES@NE10.COM.BR</a>
                 </p>
             </div>
@@ -200,80 +213,75 @@
             <div class="footer_jcpm_logo_wrapper">
                 <img src="{% static 'feed/images/logo_jcpm_footer.svg' %}" alt="Grupo JCPM" class="footer_jcpm_logo">
             </div>
-
         </div>
     </footer>
 
-<script>       
-    document.addEventListener('DOMContentLoaded', function() {
-        const drawerToggle = document.getElementById('drawer-toggle');
-        const drawerClose = document.getElementById('drawer-close');
-        const drawer = document.getElementById('sidebar-drawer');
-        const overlay = document.getElementById('sidebar-overlay');
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const drawerToggle = document.getElementById('drawer-toggle');
+            const drawerClose = document.getElementById('drawer-close');
+            const drawer = document.getElementById('sidebar-drawer');
+            const overlay = document.getElementById('sidebar-overlay');
 
-        function openDrawer() {
-            drawer.classList.add('open');
-            overlay.classList.add('open');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeDrawer() {
-            drawer.classList.remove('open');
-            overlay.classList.remove('open');
-            document.body.style.overflow = '';
-        }
-
-        if (drawerToggle) {
-            drawerToggle.addEventListener('click', openDrawer);
-        }
-
-        if (drawerClose) {
-            drawerClose.addEventListener('click', closeDrawer);
-        }
-
-        if (overlay) {
-            overlay.addEventListener('click', closeDrawer);
-        }
-
-        const toggleButton = document.getElementById('theme-toggle');
-        const body = document.body;
-
-        if (toggleButton) {
-            function applyTheme(isDark) {
-                if (isDark) {
-                    body.classList.add('dark-mode');
-                    toggleButton.textContent = '🌞';
-                    localStorage.setItem('theme', 'dark');
-                } else {
-                    body.classList.remove('dark-mode');
-                    toggleButton.textContent = '🌙';
-                    localStorage.setItem('theme', 'light');
-                }
+            function openDrawer() {
+                drawer.classList.add('open');
+                overlay.classList.add('open');
+                document.body.style.overflow = 'hidden';
             }
-            const savedTheme = localStorage.getItem('theme');
-            applyTheme(savedTheme === 'dark');
-            toggleButton.addEventListener('click', () => {
-                const isCurrentlyDark = body.classList.contains('dark-mode');
-                applyTheme(!isCurrentlyDark);
-            });
-        }
 
-        const profileIcon = document.getElementById('profile-icon');
-        const userMenu = document.getElementById('user-menu');
+            function closeDrawer() {
+                drawer.classList.remove('open');
+                overlay.classList.remove('open');
+                document.body.style.overflow = '';
+            }
 
-        if (profileIcon && userMenu) {
-            profileIcon.addEventListener('click', (event) => {
-                event.stopPropagation();
-                userMenu.classList.toggle('open');
-            });
-            document.addEventListener('click', (event) => {
-                if (userMenu.classList.contains('open') && !userMenu.contains(event.target) && event.target !== profileIcon) {
-                    userMenu.classList.remove('open');
+            if (drawerToggle) drawerToggle.addEventListener('click', openDrawer);
+            if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
+            if (overlay) overlay.addEventListener('click', closeDrawer);
+
+            const toggleButton = document.getElementById('theme-toggle');
+            const body = document.body;
+
+            if (toggleButton) {
+                function applyTheme(isDark) {
+                    if (isDark) {
+                        body.classList.add('dark-mode');
+                        toggleButton.textContent = '🌞';
+                        localStorage.setItem('theme', 'dark');
+                    } else {
+                        body.classList.remove('dark-mode');
+                        toggleButton.textContent = '🌙';
+                        localStorage.setItem('theme', 'light');
+                    }
                 }
-            });
-        }
-    });
-</script>
+
+                const savedTheme = localStorage.getItem('theme');
+                applyTheme(savedTheme === 'dark');
+
+                toggleButton.addEventListener('click', () => {
+                    const isCurrentlyDark = body.classList.contains('dark-mode');
+                    applyTheme(!isCurrentlyDark);
+                });
+            }
+
+            const profileIcon = document.getElementById('profile-icon');
+            const userMenu = document.getElementById('user-menu');
+
+            if (profileIcon && userMenu) {
+                profileIcon.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    userMenu.classList.toggle('open');
+                });
+                document.addEventListener('click', (event) => {
+                    if (userMenu.classList.contains('open') &&
+                        !userMenu.contains(event.target) &&
+                        event.target !== profileIcon) {
+                        userMenu.classList.remove('open');
+                    }
+                });
+            }
+        });
+    </script>
 
 </body>
 </html>
