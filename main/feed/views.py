@@ -1,12 +1,10 @@
 from django.views.generic import ListView, DetailView, TemplateView
-from .models import Article, ArticleViewLog, Comment
+from .models import Article, ArticleViewLog, Comment, FlashVideo
 from django.db.models import Q, F
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
-from django.views.decorators.csrf import csrf_exempt
-from django.urls import reverse
 import json
 
 class ArticleListView(ListView):
@@ -60,9 +58,7 @@ class ArticleDetailView(DetailView):
         article = self.get_object()
         is_favorited = False
         if self.request.user.is_authenticated:
-            is_favorited = article.favorites.filter(
-                id=self.request.user.id
-            ).exists()
+            is_favorited = article.favorites.filter(id=self.request.user.id).exists()
         context['is_favorited'] = is_favorited
         return context
 
@@ -71,9 +67,7 @@ class HomeView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        base_qs = Article.objects.select_related(
-            'category'
-        ).order_by('-publication_date')
+        base_qs = Article.objects.select_related('category').order_by('-publication_date')
 
         hero_article = base_qs.first()
 
@@ -87,6 +81,22 @@ class HomeView(TemplateView):
 
         return context
 
+
+class FlashVideoListView(ListView):
+   
+    model = FlashVideo
+    template_name = 'feed/flash_videos.html'
+    context_object_name = 'flash_videos'
+    paginate_by = 6
+
+    def get_queryset(self):
+        return FlashVideo.objects.filter(is_active=True).order_by('-created_at')
+
+
+@login_required
+def toggle_favorite_view(request, article_id):
+    article = get_object_or_404(Article, id=article_id)
+
 def toggle_save_article_view(request, article_id):
     article = get_object_or_404(Article, id=article_id)
 
@@ -99,6 +109,13 @@ def toggle_save_article_view(request, article_id):
         article.favorites.remove(request.user)
     else:
         article.favorites.add(request.user)
+
+    return redirect('article-detail', slug=article.slug)
+
+
+@login_required
+def favorites_list_view(request):
+    favorited_articles = request.user.favorite_articles.all()
     return redirect(request.META.get('HTTP_REFERER', 'article-list'))
 
 @login_required
@@ -108,8 +125,7 @@ def saved_articles_list_view(request):
     ).all()
 
     context = {
-        'articles': favorited_articles,
-        'total_saved': favorited_articles.count(),
+        'articles': favorited_articles
     }
     return render(request, 'feed/saved_articles.html', context)
 
@@ -118,9 +134,7 @@ def article_comments_api(request, article_id):
     article = get_object_or_404(Article, id=article_id)
 
     if request.method == "GET":
-        comments = Comment.objects.filter(
-            article=article
-        ).select_related('author')
+        comments = Comment.objects.filter(article=article).select_related('author')
         comments_data = [
             {
                 'id': comment.id,
@@ -138,26 +152,17 @@ def article_comments_api(request, article_id):
 
     elif request.method == "POST":
         if not request.user.is_authenticated:
-            return JsonResponse(
-                {'error': 'Você precisa estar logado para comentar.'},
-                status=401
-            )
+            return JsonResponse({'error': 'Você precisa estar logado para comentar.'}, status=401)
 
         try:
             data = json.loads(request.body)
             content = data.get('content', '').strip()
 
             if not content:
-                return JsonResponse(
-                    {'error': 'O comentário não pode estar vazio.'},
-                    status=400
-                )
+                return JsonResponse({'error': 'O comentário não pode estar vazio.'}, status=400)
 
             if len(content) > 300:
-                return JsonResponse(
-                    {'error': 'O comentário não pode ter mais de 300 caracteres.'},
-                    status=400
-                )
+                return JsonResponse({'error': 'O comentário não pode ter mais de 300 caracteres.'}, status=400)
 
             comment = Comment.objects.create(
                 article=article,

@@ -1,0 +1,19 @@
+<!-- Notícias em Alta Widget - Reusable Partial -->
+<div class="top-news-widget">
+    <div class="top-news-header">
+        <h4 class="top-news-title">NOTÍCIAS EM ALTA</h4>
+        <div class="top-news-accent"></div>
+    </div>
+    
+    <div class="top-news-list">
+        {% for article in trending_articles %}
+            <a href="{{ article.get_absolute_url }}" class="top-news-item {% if forloop.first %}top-news-item--featured{% endif %}">
+                <span class="top-news-badge">{{ forloop.counter }}</span>
+                <span class="top-news-text">{{ article.title }}</span>
+            </a>
+        {% empty %}
+            <p class="top-news-empty">Nenhuma notícia em alta no momento.</p>
+        {% endfor %}
+    </div>
+</div>
+

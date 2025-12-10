@@ -7,6 +7,9 @@ from .views import (
     HomeView,
     article_comments_api,
     article_comments_count_api,
+    FlashVideoListView,
+    favorites_list_view,
+    toggle_favorite_view,
 )
 
 urlpatterns = [
@@ -16,8 +19,11 @@ urlpatterns = [
     path('saved-articles/', saved_articles_list_view, name='saved_articles_list'),
     path('saved/toggle/<int:article_id>/', toggle_save_article_view, name='toggle_save_article'),
 
-    path('api/articles/<int:article_id>/comments/',
-         article_comments_api, name='article-comments-api'),
-    path('api/articles/<int:article_id>/comments/count/',
-         article_comments_count_api, name='article-comments-count-api'),
+    path('favorites/', favorites_list_view, name='favorites_list'),
+    path('favorite/toggle/<int:article_id>/', toggle_favorite_view, name='toggle_favorite'),
+
+    path('videos-flash/', FlashVideoListView.as_view(), name='flash_videos'),
+
+    path('api/articles/<int:article_id>/comments/', article_comments_api, name='article-comments-api'),
+    path('api/articles/<int:article_id>/comments/count/', article_comments_count_api, name='article-comments-count-api'),
 ]

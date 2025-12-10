@@ -1,19 +1,47 @@
 from django.contrib import admin
-from .models import Article, ArticleViewLog, Category, Comment
+from .models import (
+    Category,
+    Article,
+    ArticleViewLog,
+    Comment,
+    FlashVideo,
+)
 
 
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ("name",)
+    search_fields = ("name",)
+
+
+@admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author', 'category', 'publication_date')
-    search_fields = ('title', 'content', 'author')
-    list_filter = ('category', 'publication_date')
+    list_display = ("title", "author", "publication_date",
+                    "view_count", "category")
+    list_filter = ("category", "publication_date")
+    search_fields = ("title", "summary", "content", "author")
+    prepopulated_fields = {"slug": ("title",)}
+    date_hierarchy = "publication_date"
 
+
+@admin.register(ArticleViewLog)
+class ArticleViewLogAdmin(admin.ModelAdmin):
+    list_display = ("article", "timestamp")
+    list_filter = ("timestamp",)
+    date_hierarchy = "timestamp"
+
+
+@admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ('author', 'article', 'content', 'created_at')
-    search_fields = ('content', 'author__username', 'article__title')
-    list_filter = ('created_at',)
-    readonly_fields = ('created_at',)
+    list_display = ("author", "article", "created_at")
+    list_filter = ("created_at",)
+    search_fields = ("author__username", "content")
+    date_hierarchy = "created_at"
 
-admin.site.register(Article, ArticleAdmin)
-admin.site.register(ArticleViewLog)
-admin.site.register(Category)
-admin.site.register(Comment, CommentAdmin)
+
+@admin.register(FlashVideo)
+class FlashVideoAdmin(admin.ModelAdmin):
+    list_display = ("title", "is_active", "created_at")
+    list_filter = ("is_active", "created_at")
+    search_fields = ("title", "description")
+    readonly_fields = ("created_at",)
