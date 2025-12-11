@@ -1,7 +1,8 @@
 {% extends "login/auth_base.html" %}
 {% load static %}
-{% load socialaccount %}
+
 {% block title %}Crie sua conta{% endblock %}
+
 {% block content %}
 <div class="card auth-card mx-auto position-relative">
     
@@ -9,18 +10,6 @@
         <h2 class="auth-title">Crie sua conta</h2>
         <button id="theme-toggle" class="theme-toggle">🌙</button>
     </div>
-
-    <a href="{% provider_login_url 'google' process='signup' %}" class="btn btn-social btn-google">
-        <img src="{% static 'login/images/google_icon.png' %}" alt="Google">
-        Cadastrar com Google
-    </a>
-
-    <a href="{% provider_login_url 'facebook' process='signup' %}" class="btn btn-social btn-facebook">
-        <img src="{% static 'login/images/facebook_icon.png' %}" alt="Facebook">
-        Cadastrar com Facebook
-    </a>
-
-    <div class="auth-divider">ou</div>
 
     <form method="POST" action="">
         {% csrf_token %}
