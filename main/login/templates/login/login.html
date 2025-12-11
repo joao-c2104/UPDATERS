@@ -11,18 +11,6 @@
         <button id="theme-toggle" class="theme-toggle">🌙</button>
     </div>
 
-    <a href="{% provider_login_url 'google' %}" class="btn btn-social btn-google">
-        <img src="{% static 'login/images/google_icon.png' %}" alt="Google">
-        Entrar com Google
-    </a>
-
-    <a href="{% provider_login_url 'facebook' %}" class="btn btn-social btn-facebook">
-        <img src="{% static 'login/images/facebook_icon.png' %}" alt="Facebook">
-        Entrar com Facebook
-    </a>
-
-    <div class="auth-divider">ou</div>
-
     {% if messages %}
       {% for message in messages %}
         <div class="alert alert-danger">{{ message }}</div>
