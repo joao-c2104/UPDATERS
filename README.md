@@ -54,8 +54,6 @@ O guia inclui:
 ---
 
 
-*.  
-
 #### Para ter acesso as nossas histórias, [clique aqui](links/UPDATERS_HISTÓRIAS.pdf).
 ---
 
