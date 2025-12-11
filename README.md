@@ -36,13 +36,13 @@ Quer contribuir com o projeto? Leia nosso guia completo de contribuição:
 👉 **[Guia de Contribuição (CONTRIBUTING.md)](CONTRIBUTING.md)**
 
 O guia inclui:
-- 📋 Pré-requisitos e instalação
-- 🔧 Configuração do ambiente de desenvolvimento
-- 🚀 Como rodar o projeto
-- 📝 Padrões de código
-- 🧪 Como executar testes
-- 🔄 Processo de Pull Requests
-- 🔧 Solução de problemas
+- Pré-requisitos e instalação
+- Configuração do ambiente de desenvolvimento
+- Como rodar o projeto
+- Padrões de código
+- Como executar testes
+- Processo de Pull Requests
+- Solução de problemas
 
 ---
 ## Tecnologias
