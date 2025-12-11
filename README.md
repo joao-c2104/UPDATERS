@@ -53,17 +53,17 @@ O guia inclui:
 
 ---
 
-## Hitórias do usuário
+## 📄 Hitórias do usuário
 - #### Para ter acesso as nossas histórias, [clique aqui](links/historias.pdf).
 ---
 
 ## 👥 Relatório da Programação em Par
 
-- #### Para ter acesso ao nosso relatório, [clique aqui]().
+- #### Para ter acesso ao nosso relatório, [clique aqui](links/relatorio.pdf).
 
 ---
 
-# Screencast
+## 💻 Screencast
 
 Produzimos 3 screencast demonstrando as funcionalidades recém-implementadas, além de apresentar o fluxo de deploy, os testes realizados no Cypress e a integração com o CI/CD.
 
@@ -75,7 +75,7 @@ Produzimos 3 screencast demonstrando as funcionalidades recém-implementadas, al
 
 </p>
 
-# 🚀 Link do deploy
+## 🚀 Link do deploy
 - ### https://updaters.onrender.com
 
 <p align="center">
