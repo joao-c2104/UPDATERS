@@ -65,11 +65,17 @@ O guia inclui:
 
 ---
 
-## Link do Screencast do CI/CD com build e deployment automatizado
+# Screencast
 
-- ### https://www.youtube.com/watch?v=ON1nj7gcVkU
+Produzimos 3 screencast demonstrando as funcionalidades recém-implementadas, além de apresentar o fluxo de deploy, os testes realizados no Cypress e a integração com o CI/CD.
 
----
+<p align="center">
+  
+[![Deploy](https://img.shields.io/badge/DEPLOY-43B581?style=for-the-badge&logo=vercel&logoColor=white)](https://youtu.be/gllp9XW4J5c?si=lIVSqGM92NP5P8Ev)
+[![Cypress](https://img.shields.io/badge/CYPRESS-6A0DAD?style=for-the-badge&logo=cypress&logoColor=white)](https://youtu.be/E9vHIZK_LOU?si=OpgizLmFpIK-rz0s)
+[![CI/CD](https://img.shields.io/badge/CI%2FCD-007BFF?style=for-the-badge&logo=githubactions&logoColor=white)](https://youtu.be/ON1nj7gcVkU?si=_zp7RsQGA7obFovS)
+
+</p>
 
 # 🚀 Link do deploy
 - ### https://updaters.onrender.com
