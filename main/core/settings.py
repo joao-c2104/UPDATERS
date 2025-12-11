@@ -3,16 +3,14 @@ import os
 import dj_database_url
 from decouple import config
 
-# Configura o diretório base (onde está o manage.py)
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = config('SECRET_KEY')
 
-# Debug padrão é False em produção
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-# Permite o Render e localhost
-ALLOWED_HOSTS = ['*']  # Asterisco libera tudo para facilitar o deploy
+ALLOWED_HOSTS = ['*']
 
 RENDER_EXTERNAL_HOSTNAME = config('RENDER_EXTERNAL_HOSTNAME', default=None)
 if RENDER_EXTERNAL_HOSTNAME:
@@ -25,7 +23,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'whitenoise.runserver_nostatic', # Whitenoise deve estar aqui
+    'whitenoise.runserver_nostatic',
     'django.contrib.sites',
     'allauth',
     'allauth.account',
@@ -38,7 +36,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware', # Whitenoise logo após Security
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -70,7 +68,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
-# Configuração do Banco de Dados
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
         'default': dj_database_url.config(
@@ -98,14 +95,11 @@ TIME_ZONE = 'America/Recife'
 USE_I18N = True
 USE_TZ = True
 
-# --- Configuração de Arquivos Estáticos (CSS, JS) ---
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# --- Configuração de Arquivos de Mídia (Imagens) ---
 MEDIA_URL = '/media/'
-# Garante que o Django procure a pasta media na raiz do projeto (onde está o manage.py)
 MEDIA_ROOT = BASE_DIR / 'media'
 
 STATICFILES_DIRS = []

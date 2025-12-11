@@ -6,62 +6,7 @@
 
 {% block content %}
 
-<style>
-    .article-title-container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 16px;
-    }
-
-    .favorite-bookmark-form {
-        margin-left: auto;
-    }
-
-    .bookmark-button {
-        border: none;
-        background: transparent;
-        cursor: pointer;
-        padding: 6px 8px;
-        border-radius: 999px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        transition: background 0.2s ease, transform 0.1s ease, color 0.2s ease;
-        color: var(--color-text-secondary, #555);
-    }
-
-    .bookmark-button:hover {
-        background: rgba(0, 0, 0, 0.06);
-        transform: translateY(-1px);
-    }
-
-    .bookmark-button.is-favorited {
-        color: var(--color-primary, #0044cc);
-        background: rgba(0, 68, 204, 0.1);
-    }
-
-    .bookmark-icon {
-        width: 26px;
-        height: 26px;
-    }
-
-    .dark-mode .bookmark-button {
-        color: #ddd;
-    }
-
-    .dark-mode .bookmark-button:hover {
-        background: rgba(255, 255, 255, 0.06);
-    }
-
-    .dark-mode .bookmark-button.is-favorited {
-        color: #4da3ff;
-        background: rgba(77, 163, 255, 0.16);
-    }
-</style>
-
 <article class="card">
-
     {% if article.image %}
         <img class="card_image" src="{{ article.image.url }}" alt="{{ article.title }}">
     {% else %}
@@ -71,32 +16,37 @@
     {% endif %}
 
     <div class="card_body">
+        
         <div class="article-title-container">
             <h1 class="card_title" style="margin-bottom: 0;">{{ article.title }}</h1>
 
-            <form method="POST"
-                  action="{% url 'toggle_save_article' article.id %}"
-                  class="favorite-bookmark-form">
-                {% csrf_token %}
-                <button type="submit"
-                        class="bookmark-button {% if is_favorited %}is-favorited{% endif %}"
-                        title="{% if is_favorited %}Remover dos salvos{% else %}Salvar notícia{% endif %}"
-                        aria-label="{% if is_favorited %}Remover dos salvos{% else %}Salvar notícia{% endif %}">
-                    {% if is_favorited %}
-                        <svg class="bookmark-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M7 3C6.44772 3 6 3.44772 6 4V20.382C6 20.8739 6.52976 21.173 6.93934 20.9L12 17.5L17.0607 20.9C17.4702 21.173 18 20.8739 18 20.382V4C18 3.44772 17.5523 3 17 3H7Z"/>
-                        </svg>
-                    {% else %}
-                        <svg class="bookmark-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M7 3H17C17.5523 3 18 3.44772 18 4V20.382C18 20.8739 17.4702 21.173 17.0607 20.9L12 17.5L6.93934 20.9C6.52976 21.173 6 20.8739 6 20.382V4C6 3.44772 6.44772 3 7 3Z"
-                                  stroke="currentColor"
-                                  stroke-width="2"
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"/>
-                        </svg>
-                    {% endif %}
+            <div class="article-actions">
+                <button type="button" class="share-btn-square" id="share-button" title="Copiar link">
+                    <svg class="share-icon-svg" id="share-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="18" cy="5" r="3" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="6" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="18" cy="19" r="3" stroke="currentColor" stroke-width="2"/>
+                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" stroke="currentColor" stroke-width="2"/>
+                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    <svg class="share-icon-svg" id="check-icon" style="display: none;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
                 </button>
-            </form>
+
+                <form method="POST" action="{% url 'toggle_save_article' article.id %}" style="margin:0; display:flex;">
+                    {% csrf_token %}
+                    <button type="submit"
+                            class="bookmark-button-large {% if is_favorited %}is-favorited{% endif %}"
+                            title="{% if is_favorited %}Remover dos salvos{% else %}Salvar notícia{% endif %}">
+                        
+                        <svg class="bookmark-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 3H17C17.5523 3 18 3.44772 18 4V20.382C18 20.8739 17.4702 21.173 17.0607 20.9L12 17.5L6.93934 20.9C6.52976 21.173 6 20.8739 6 20.382V4C6 3.44772 6.44772 3 7 3Z" 
+                                  stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </form>
+            </div>
         </div>
 
         <p style="color: #666; font-size: 0.9rem; margin-bottom: 24px;">
@@ -113,11 +63,8 @@
                 <div class="comments-section-header">
                     <div class="comments-title-wrapper">
                         <h2 class="comments-title">
-                            <svg class="comments-title-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path d="M21 15C21 15.5304 20.7893 16.0391 20.4142 16.4142C20.0391 16.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z"
-                                      stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                      stroke-linejoin="round"/>
+                            <svg class="comments-title-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 15C21 15.5304 20.7893 16.0391 20.4142 16.4142C20.0391 16.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                             Comentários (<span id="comments-count">0</span>)
                         </h2>
@@ -136,25 +83,12 @@
                             </div>
                         </div>
                         <div class="comment-form-body">
-                            <textarea
-                                id="comment-input"
-                                class="comment-textarea-modern"
-                                placeholder="Escreva seu comentário (máximo 300 caracteres)..."
-                                maxlength="300"
-                                rows="3"
-                            ></textarea>
+                            <textarea id="comment-input" class="comment-textarea-modern" placeholder="Escreva seu comentário (máximo 300 caracteres)..." maxlength="300" rows="3"></textarea>
                             <div class="comment-form-footer">
                                 <div class="char-counter-wrapper">
                                     <span id="char-counter" class="char-counter-modern">0 / 300</span>
                                 </div>
                                 <button id="submit-comment" class="submit-comment-btn-modern" disabled>
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M22 2L11 13" stroke="currentColor" stroke-width="2"
-                                              stroke-linecap="round" stroke-linejoin="round"/>
-                                        <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor"
-                                              stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
                                     Publicar
                                 </button>
                             </div>
@@ -163,20 +97,9 @@
                     </div>
                 {% else %}
                     <div class="comment-login-prompt">
-                        <svg class="login-prompt-icon" width="48" height="48" viewBox="0 0 24 24" fill="none"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21"
-                                  stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                  stroke-linejoin="round"/>
-                            <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z"
-                                  stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                  stroke-linejoin="round"/>
-                        </svg>
                         <h3 class="login-prompt-title">Faça login para comentar</h3>
                         <p class="login-prompt-text">Você precisa estar autenticado para participar da discussão</p>
-                        <a href="{% url 'login_user' %}" class="login-prompt-button">
-                            Fazer Login
-                        </a>
+                        <a href="{% url 'login_user' %}" class="login-prompt-button">Fazer Login</a>
                     </div>
                 {% endif %}
 
@@ -188,12 +111,35 @@
                 </div>
             </div>
         </div>
-
-        <a href="{% url 'article-list' %}" class="card_button" style="margin-top: 32px;">Voltar</a>
     </div>
 </article>
 
 <script>
+    const shareBtn = document.getElementById('share-button');
+    const shareIcon = document.getElementById('share-icon');
+    const checkIcon = document.getElementById('check-icon');
+
+    if(shareBtn) {
+        shareBtn.addEventListener('click', () => {
+            const currentUrl = window.location.href;
+            
+            navigator.clipboard.writeText(currentUrl).then(() => {
+                shareBtn.classList.add('copied');
+                shareIcon.style.display = 'none';
+                checkIcon.style.display = 'block';
+
+                setTimeout(() => {
+                    shareBtn.classList.remove('copied');
+                    shareIcon.style.display = 'block';
+                    checkIcon.style.display = 'none';
+                }, 2000);
+            }).catch(err => {
+                console.error('Falha ao copiar:', err);
+                alert('Não foi possível copiar o link.');
+            });
+        });
+    }
+
     const articleId = {{ article.id }};
     const isAuthenticated = {{ user.is_authenticated|yesno:"true,false" }};
 
