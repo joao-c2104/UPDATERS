@@ -48,14 +48,6 @@ Reimaginamos serviços e criamos **soluções digitais** que combinam **excelên
 
 ---
 
-## Tecnologias
-- Figma: Usado para o design de interfaces e prototipação do layout do OtakuVerse, garantindo uma experiência de usuário moderna e intuitiva.
-
-- Framework Django: Framework backend em Python, responsável por gerenciar a lógica do sistema, banco de dados, autenticação e integração de funcionalidades.
-
-
----
-
 
 
 ## 🚀 Nossa Missão
@@ -82,6 +74,14 @@ O guia inclui:
 - 🔧 Solução de problemas
 
 ---
+## Tecnologias
+- Figma: Usado para o design de interfaces e prototipação do layout do OtakuVerse, garantindo uma experiência de usuário moderna e intuitiva.
+
+- Framework Django: Framework backend em Python, responsável por gerenciar a lógica do sistema, banco de dados, autenticação e integração de funcionalidades.
+
+
+---
+
 
 *.  
 
