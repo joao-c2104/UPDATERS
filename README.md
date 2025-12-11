@@ -45,10 +45,24 @@ O guia inclui:
 - Solução de problemas
 
 ---
-## Tecnologias
+## ⚙️ Tecnologias
 - Figma: Usado para o design de interfaces e prototipação do layout do OtakuVerse, garantindo uma experiência de usuário moderna e intuitiva.
 
 - Framework Django: Framework backend em Python, responsável por gerenciar a lógica do sistema, banco de dados, autenticação e integração de funcionalidades.
+
+- Canva: Usado para fazer o design de algumas notícias e pro sites
+
+- Render: Usado para fazer o deploy
+
+- Cypress: Usado para os testes E2E
+
+- Discord: Usado para comunicação do grupo
+
+- Notion: Usado para organização das histórias
+
+- Git: Usado para versionamento do código
+
+- Vs Code: Usado para codificar o software
 
 
 ---
