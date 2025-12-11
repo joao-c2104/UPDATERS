@@ -57,6 +57,23 @@ Reimaginamos serviços e criamos **soluções digitais** que combinam **excelên
 
 ---
 
+## 🤝 Como Contribuir
+
+Quer contribuir com o projeto? Leia nosso guia completo de contribuição:
+
+👉 **[Guia de Contribuição (CONTRIBUTING.md)](CONTRIBUTING.md)**
+
+O guia inclui:
+- 📋 Pré-requisitos e instalação
+- 🔧 Configuração do ambiente de desenvolvimento
+- 🚀 Como rodar o projeto
+- 📝 Padrões de código
+- 🧪 Como executar testes
+- 🔄 Processo de Pull Requests
+- 🔧 Solução de problemas
+
+---
+
 *.  
 
 #### Para ter acesso as nossas histórias, [clique aqui](links/UPDATERS_HISTÓRIAS.pdf).
