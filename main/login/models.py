@@ -45,13 +45,11 @@ class Profile(models.Model):
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
-    """Cria automaticamente um perfil quando um novo usuário é criado"""
     if created:
         Profile.objects.create(user=instance)
 
 
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
-    """Salva o perfil quando o usuário é salvo"""
     if hasattr(instance, 'profile'):
         instance.profile.save()

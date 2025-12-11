@@ -574,6 +574,7 @@ body.page-feed .page-container {
     text-decoration: none;
     color: inherit;
     overflow: hidden;
+    position: relative !important;
     transition: transform 0.2s, box-shadow 0.2s;
     min-height: 200px;
     margin-bottom: 24px;
@@ -1665,6 +1666,26 @@ body.dark-mode .footer {
     font-weight: 700;
     font-size: 0.9rem;
     letter-spacing: 0.5px;
+}
+
+.page-article-detail .article-content.font-small p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.page-article-detail .article-content.font-medium p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+}
+
+.page-article-detail .article-content.font-large p {
+    font-size: 1.4rem;
+    line-height: 1.6;
+}
+
+.page-article-detail .article-content.font-x-large p {
+    font-size: 1.7rem;
+    line-height: 1.5;
 }
 
 .comment-form-user-info {
@@ -3119,4 +3140,78 @@ body.page-flash-videos .page-container {
     .highlight-text {
         font-size: 15px;
     }
+}
+
+.preferred-spotlight {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    
+    color: #B00000;
+    background-color: rgba(255, 255, 255, 0.9);
+    
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(176, 0, 0, 0.2);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    
+    z-index: 10;
+    pointer-events: none;
+    
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+body.dark-mode .preferred-spotlight {
+    background-color: rgba(30, 30, 30, 0.9);
+    color: #ff4d4d;
+    border-color: rgba(255, 77, 77, 0.3);
+}
+
+@media (max-width: 768px) {
+    .preferred-spotlight {
+        bottom: auto;
+        top: 12px;
+        right: 12px;
+    }
+}
+
+.toast-notification {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+
+    background-color: #28a745;
+    color: #ffffff;
+    padding: 14px 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(50px);
+    
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.toast-notification.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast-notification.logout {
+    background-color: #B00000 !important;
 }

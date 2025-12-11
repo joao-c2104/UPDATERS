@@ -54,7 +54,7 @@
             Publicado em {{ article.publication_date|date:"d/m/Y \\à\\s H:i" }}
         </p>
 
-        <div class="article-content">
+        <div class="article-content {% if user.is_authenticated %}font-{{ user.profile.font_size }}{% endif %}">
             {{ article.content|linebreaks }}
         </div>
 
@@ -76,7 +76,11 @@
                     <div class="comment-form-wrapper">
                         <div class="comment-form-header">
                             <div class="comment-user-avatar">
-                                <span class="avatar-initials">{{ user.username|slice:":2"|upper }}</span>
+                                {% if user.profile.profile_picture %}
+                                    <img src="{{ user.profile.profile_picture.url }}" alt="{{ user.username }}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                                {% else %}
+                                    <span class="avatar-initials">{{ user.username|slice:":2"|upper }}</span>
+                                {% endif %}
                             </div>
                             <div class="comment-form-user-info">
                                 <span class="comment-form-username">{{ user.username }}</span>
@@ -109,6 +113,13 @@
                         <span>Carregando comentários...</span>
                     </div>
                 </div>
+
+                <div id="toast-notification" class="toast-notification">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 6L9 17L4 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Link copiado no clipboard
+                </div>
             </div>
         </div>
     </div>
@@ -118,12 +129,14 @@
     const shareBtn = document.getElementById('share-button');
     const shareIcon = document.getElementById('share-icon');
     const checkIcon = document.getElementById('check-icon');
+    const toast = document.getElementById('toast-notification');
 
     if(shareBtn) {
         shareBtn.addEventListener('click', () => {
             const currentUrl = window.location.href;
             
             navigator.clipboard.writeText(currentUrl).then(() => {
+                showToast("Link copiado no clipboard");
                 shareBtn.classList.add('copied');
                 shareIcon.style.display = 'none';
                 checkIcon.style.display = 'block';
@@ -256,10 +269,18 @@
                 commentsList.innerHTML = data.comments.map(comment => {
                     const initials = getInitials(comment.author);
                     const avatarColor = getAvatarColor(comment.author);
+
+                    let avatarHTML;
+                    if (comment.profile_picture_url) {
+                        avatarHTML = `<img src="${comment.profile_picture_url}" alt="${comment.author}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">`;
+                    } else {
+                        avatarHTML = `<span class="comment-avatar-initials">${initials}</span>`;
+                    }
+
                     return `
                         <div class="comment-card">
-                            <div class="comment-card-avatar" style="background-color: ${avatarColor};">
-                                <span class="comment-avatar-initials">${initials}</span>
+                            <div class="comment-card-avatar" style="background-color: ${comment.profile_picture_url ? 'transparent' : avatarColor};">
+                                ${avatarHTML}
                             </div>
                             <div class="comment-card-content">
                                 <div class="comment-card-header">

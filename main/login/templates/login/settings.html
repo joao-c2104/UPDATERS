@@ -19,7 +19,6 @@
         {% endfor %}
     {% endif %}
 
-    <!-- Profile Picture Section -->
     <div class="mb-4">
         <label class="form-label">Foto de Perfil</label>
         <div class="d-flex align-items-center gap-3 mb-3">
@@ -35,7 +34,6 @@
         </div>
     </div>
 
-    <!-- User Information Form -->
     <div class="settings-section mb-4">
         <h3 class="settings-section-title">Informações Pessoais</h3>
         <form method="POST" action="{% url 'user_settings' %}" enctype="multipart/form-data">
@@ -78,7 +76,6 @@
         </form>
     </div>
 
-    <!-- Profile Settings Form -->
     <div class="settings-section mb-4">
         <h3 class="settings-section-title">Preferências do Perfil</h3>
         <form method="POST" action="{% url 'user_settings' %}" enctype="multipart/form-data">
@@ -133,7 +130,6 @@
         </form>
     </div>
 
-    <!-- Password Change Form -->
     <div class="settings-section mb-4">
         <h3 class="settings-section-title">Alterar Senha</h3>
         <form method="POST" action="{% url 'user_settings' %}">
@@ -241,4 +237,3 @@ body.dark-mode .alert-danger {
 }
 </style>
 {% endblock %}
-

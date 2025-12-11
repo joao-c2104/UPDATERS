@@ -27,8 +27,20 @@
                 
                 <div class="horizontal-card-meta">
                     {{ article.publication_date|date:"d/m/Y" }}
+                    
+                    {% if article.category %}
+                        <span style="margin-left: 10px; color: var(--color-primary); font-weight: 600;">
+                            {{ article.category.name }}
+                        </span>
+                    {% endif %}
                 </div>
             </div>
+
+            {% if article.category and article.category.id in preferred_ids %}
+                <div class="preferred-spotlight">
+                    ★ RECOMENDADO PARA VOCÊ: {{ article.category.name|upper }}
+                </div>
+            {% endif %}
         </a>
 
     {% empty %}

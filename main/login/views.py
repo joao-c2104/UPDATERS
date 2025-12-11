@@ -29,6 +29,7 @@ def login_user(request):
         
         if user is not None:
             login(request, user)
+            messages.success(request, "Login realizado com sucesso!")
             next_url = request.GET.get('next', 'home')
             return redirect(next_url)
         else:
@@ -38,8 +39,8 @@ def login_user(request):
 
 def logout_user(request):
     logout(request)
-    messages.success(request, "Você saiu da sua conta.")
-    return redirect('login_user')
+    messages.success(request, "Você saiu da sua conta.", extra_tags='logout')
+    return redirect(request.META.get('HTTP_REFERER', 'home'))
 
 def register_user(request):
     if request.user.is_authenticated:
@@ -64,7 +65,19 @@ def register_user(request):
         user.first_name = full_name
         user.save()
 
-        messages.success(request, "Conta criada com sucesso! Faça login.")
+        user = authenticate(request, username=username, password=password)
+        
+        if user is not None:
+            login(request, user)
+            messages.success(request, "Cadastro realizado com sucesso! Bem-vindo(a)!")
+            
+            next_url = request.POST.get('next') or request.GET.get('next')
+            
+            if next_url:
+                return redirect(next_url)
+            
+            return redirect('home')
+
         return redirect('login_user')
 
     return render(request, 'login/register.html')
@@ -93,10 +106,8 @@ def submit_forgot_password(request):
 
 @login_required
 def user_settings(request):
-    """Página de configurações do usuário"""
     user = request.user
     
-    # Garantir que o perfil existe
     profile, created = Profile.objects.get_or_create(user=user)
     
     user_form = UserUpdateForm(instance=user)
@@ -118,13 +129,9 @@ def user_settings(request):
         elif form_type == 'profile_info':
             profile_form = ProfileUpdateForm(request.POST, request.FILES, instance=profile)
             if profile_form.is_valid():
-                # Handle preferred_categories - convert to list of IDs (as integers)
                 preferred_categories = profile_form.cleaned_data.get('preferred_categories', [])
-                # Convert string IDs from form to integers for JSONField
                 profile.preferred_categories = [int(cat_id) for cat_id in preferred_categories] if preferred_categories else []
-                # Save the profile instance directly to ensure preferred_categories is saved
                 profile.save()
-                # Also save the form to handle other fields like profile_picture and font_size
                 profile_form.save()
                 messages.success(request, "Perfil atualizado com sucesso!")
                 return redirect('user_settings')
@@ -140,7 +147,6 @@ def user_settings(request):
             else:
                 messages.error(request, "Por favor, corrija os erros no formulário.")
     
-    # Re-initialize forms to get updated data
     user_form = UserUpdateForm(instance=user)
     profile_form = ProfileUpdateForm(instance=profile)
     password_form = CustomPasswordChangeForm(user=user)

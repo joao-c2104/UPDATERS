@@ -33,7 +33,7 @@
                 </svg>
                 <span class="drawer-nav-text">Página Inicial</span>
             </a>
-            <a href="{% url 'favorites_list' %}" class="drawer-nav-item {% if request.resolver_match.url_name == 'favorites_list' %}active{% endif %}">
+            <a href="{% url 'saved_articles_list' %}" class="drawer-nav-item {% if request.resolver_match.url_name == 'saved_articles_list' %}active{% endif %}">
                 <svg class="drawer-nav-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7 3H17C17.5523 3 18 3.44772 18 4V20.382C18 20.8739 17.4702 21.173 17.0607 20.9L12 17.5L6.93934 20.9C6.52976 21.173 6 20.8739 6 20.382V4C6 3.44772 6.44772 3 7 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
@@ -74,10 +74,16 @@
             <div class="header_actions">
                 {% if user.is_authenticated %}
                     <div class="profile-menu-container">
-                        <img src="{% static 'feed/images/pfp.png' %}" id="profile-icon" class="header_profile-icon" alt="Perfil">
+                        
+                        {% if user.profile.profile_picture %}
+                            <img src="{{ user.profile.profile_picture.url }}" id="profile-icon" class="header_profile-icon" alt="Perfil" style="object-fit: cover;">
+                        {% else %}
+                            <img src="{% static 'feed/images/pfp.png' %}" id="profile-icon" class="header_profile-icon" alt="Perfil">
+                        {% endif %}
+
                         <div id="user-menu" class="user-menu-dropdown">
                             <div class="user-menu-header">Olá, {{ user.username }}</div>
-                            <a href="#">Configurações do usuário</a>
+                            <a href="{% url 'user_settings' %}">Configurações do usuário</a>
                             <a href="{% url 'saved_articles_list' %}">Notícias Salvas</a> 
                             <div class="user-menu-divider"></div>
                             <a href="{% url 'logout_user' %}" class="user-menu-logout">Sair</a>
@@ -280,6 +286,44 @@
                     }
                 });
             }
+        });
+    </script>
+
+    <div id="toast-notification" class="toast-notification">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 6L9 17L4 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span id="toast-text">Ação realizada com sucesso</span>
+    </div>
+
+    <script>
+        function showToast(message, tags = '') {
+            const toast = document.getElementById('toast-notification');
+            const toastText = document.getElementById('toast-text');
+            
+            if (toast && toastText) {
+                toastText.textContent = message;
+                
+                toast.className = 'toast-notification';
+                
+                if (tags.includes('logout')) {
+                    toast.classList.add('logout');
+                }
+
+                toast.classList.add('show');
+
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 3000);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            {% if messages %}
+                {% for message in messages %}
+                    showToast("{{ message }}", "{{ message.tags }}"); 
+                {% endfor %}
+            {% endif %}
         });
     </script>
 

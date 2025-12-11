@@ -5,6 +5,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
+from django.urls import reverse
 import json
 
 class ArticleListView(ListView):
@@ -33,6 +34,17 @@ class ArticleListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['search_query'] = self.request.GET.get('q', '')
+
+        preferred_ids = []
+        if self.request.user.is_authenticated and hasattr(self.request.user, 'profile'):
+            raw_cats = self.request.user.profile.preferred_categories
+            try:
+                preferred_ids = [int(x) for x in raw_cats]
+            except (ValueError, TypeError):
+                preferred_ids = []
+        
+        context['preferred_ids'] = preferred_ids
+
         return context
 
 class ArticleDetailView(DetailView):
@@ -81,7 +93,6 @@ class HomeView(TemplateView):
 
         return context
 
-
 class FlashVideoListView(ListView):
    
     model = FlashVideo
@@ -91,7 +102,6 @@ class FlashVideoListView(ListView):
 
     def get_queryset(self):
         return FlashVideo.objects.filter(is_active=True).order_by('-created_at')
-
 
 @login_required
 def toggle_favorite_view(request, article_id):
@@ -118,8 +128,12 @@ def favorites_list_view(request):
     favorited_articles = request.user.favorite_articles.all()
     return redirect(request.META.get('HTTP_REFERER', 'article-list'))
 
-@login_required
 def saved_articles_list_view(request):
+    if not request.user.is_authenticated:
+        login_url = reverse('login_user')
+        next_url = request.path
+        return redirect(f"{login_url}?next={next_url}")
+
     favorited_articles = request.user.favorite_articles.select_related(
         'category'
     ).all()
@@ -134,17 +148,23 @@ def article_comments_api(request, article_id):
     article = get_object_or_404(Article, id=article_id)
 
     if request.method == "GET":
-        comments = Comment.objects.filter(article=article).select_related('author')
-        comments_data = [
-            {
+        comments = Comment.objects.filter(article=article).select_related('author', 'author__profile')
+        
+        comments_data = []
+        for comment in comments:
+            pic_url = None
+            if hasattr(comment.author, 'profile') and comment.author.profile.profile_picture:
+                pic_url = comment.author.profile.profile_picture.url
+            
+            comments_data.append({
                 'id': comment.id,
                 'author': comment.author.username,
+                'profile_picture_url': pic_url,
                 'content': comment.content,
-                'created_at': comment.created_at.strftime('%d/%m/%Y às %H:%M'),
+                'created_at': comment.created_at.isoformat(),
                 'is_owner': request.user == comment.author
-            }
-            for comment in comments
-        ]
+            })
+
         return JsonResponse({
             'comments': comments_data,
             'count': len(comments_data)
@@ -170,11 +190,16 @@ def article_comments_api(request, article_id):
                 content=content
             )
 
+            current_pic_url = None
+            if hasattr(request.user, 'profile') and request.user.profile.profile_picture:
+                current_pic_url = request.user.profile.profile_picture.url
+
             return JsonResponse({
                 'success': True,
                 'comment': {
                     'id': comment.id,
                     'author': comment.author.username,
+                    'profile_picture_url': current_pic_url,
                     'content': comment.content,
                     'created_at': comment.created_at.isoformat(),
                 }
