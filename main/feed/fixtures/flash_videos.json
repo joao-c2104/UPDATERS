@@ -1,0 +1,201 @@
+[
+{
+    "model": "feed.article",
+    "pk": 1,
+    "fields": {
+        "title": "Tarcísio afirma que não quer deixar o Brasil na mão do PT em declaração pública",
+        "description": "O governador de São Paulo, Tarcísio de Freitas, comentou em evento recente que não pretende “deixar o Brasil na mão do PT”, referência ao posicionamento político diante do cenário nacional. A fala repercutiu entre aliados …",
+        "image": "flash_videos/thumbnails/imagem_1.webp",
+        "video": "flash_videos/videos/video_1.mp4"
+    }
+},
+
+{
+    "model": "feed.article",
+    "pk": 2,
+    "fields": {
+        "title": "Clash Royale: como calcular o tempo real do Coletor de Elixir",
+        "description": "O Coletor de Elixir é uma das cartas mais estratégicas do Clash Royale, e entender seu tempo de produção pode determinar a vitória em partidas decisivas. Neste vídeo, mostramos como funciona o cálculo da geração …",
+        "image": "flash_videos/thumbnails/imagem_2.webp",
+        "video": "flash_videos/videos/video_2.mp4"
+    }
+},
+
+{
+    "model": "feed.article",
+    "pk": 3,
+    "fields": {
+        "title": "Humorista viraliza ao cantar Em dezembro de 81 com a torcida do Flamengo na final da Libertadores",
+        "description": "Durante a final da Libertadores, um momento inusitado e cheio de energia tomou conta das arquibancadas: um humorista se juntou à torcida do Flamengo para cantar o clássico “Em dezembro de 81”. A cena gerou …",
+        "image": "flash_videos/thumbnails/imagem_3.webp",
+        "video": "flash_videos/videos/video_3.mp4"
+    }
+},
+
+{
+    "model": "feed.article",
+    "pk": 4,
+    "fields": {
+        "title": "A magia de Steph Curry: jogada brilhante termina em arremesso incrível de longa distância",
+        "description": "Em mais um momento que mostra por que Stephen Curry é considerado o maior arremessador da história, o astro protagonizou uma jogada rápida e inteligente que terminou em um arremesso espetacular de longa distância. Com …",
+        "image": "flash_videos/thumbnails/imagem_4.jpeg",
+        "video": "flash_videos/videos/video_4.mp4"
+    }
+},
+
+{
+    "model": "feed.article",
+    "pk": 5,
+    "fields": {
+        "title": "Prefeito do Recife inaugura nova faixa de pedestre em ação voltada à segurança viária",
+        "description": "O prefeito do Recife participou da inauguração de uma nova faixa de pedestre em área de grande circulação, reforçando políticas de mobilidade urbana e segurança no trânsito. A intervenção faz parte de um conjunto de …",
+        "image": "flash_videos/thumbnails/imagem_5.jpeg",
+        "video": "flash_videos/videos/video_5.mp4"
+    }
+},
+
+{
+    "model": "feed.article",
+    "pk": 6,
+    "fields": {
+        "title": "Cálculo Diferencial e Integral: a base matemática que explica o mundo",
+        "description": "O cálculo diferencial e integral é um dos pilares da matemática moderna e está presente em praticamente todas as áreas da ciência e tecnologia. Do movimento dos planetas ao funcionamento dos algoritmos de inteligência artificial, …",
+        "image": "flash_videos/thumbnails/imagem_6.jpeg",
+        "video": "flash_videos/videos/video_6.mp4"
+    }
+},
+
+{
+    "model": "feed.article",
+    "pk": 7,
+    "fields": {
+        "title": "5 Receitas Fit Rápidas e Deliciosas para o Seu Dia a Dia",
+        "description": "Em busca de refeições leves, práticas e nutritivas? Neste vídeo, apresentamos cinco receitas fit que combinam sabor, simplicidade e ingredientes acessíveis. São opções perfeitas para quem deseja manter uma rotina saudável sem abrir mão do …",
+        "image": "flash_videos/thumbnails/imagem_7.jpeg",
+        "video": "flash_videos/videos/video_7.mp4"
+    }
+},
+
+{
+    "model": "feed.article",
+    "pk": 8,
+    "fields": {
+        "title": "Curiosidades da Argentina que você provavelmente não sabia",
+        "description": "A Argentina é um país repleto de cultura, história e tradições únicas. Do tango às paisagens da Patagônia, passando por curiosidades gastronômicas, expressões populares e fatos pouco conhecidos, o vídeo apresenta detalhes surpreendentes sobre o …",
+        "image": "flash_videos/thumbnails/imagem_8.jpeg",
+        "video": "flash_videos/videos/video_8.mp4"
+    }
+},
+
+{
+    "model": "feed.article",
+    "pk": 9,
+    "fields": {
+        "title": "Detalhes da pré-temporada da FÓRMULA 1 em 2026",
+        "description": "A pré-temporada da Fórmula 1 em 2026 marca o início de uma nova era na categoria, com carros redesenhados, mudanças no regulamento técnico e a estreia dos novos conjuntos de motor híbrido. As equipes aproveitam …",
+        "image": "flash_videos/thumbnails/imagem_9.webp",
+        "video": "flash_videos/videos/video_9.mp4"
+    }
+},
+
+{
+    "model": "feed.article",
+    "pk": 10,
+    "fields": {
+        "title": "A dica que mudou tudo no seu arremesso de basquete",
+        "description": "Um simples ajuste no posicionamento do cotovelo, indicado pelo treinador, fez toda a diferença na hora de arremessar. O atleta conta como essa correção melhorou sua consistência, estabilidade e taxa de acerto dentro de quadra, …",
+        "image": "flash_videos/thumbnails/imagem_10.webp",
+        "video": "flash_videos/videos/video_10.mp4"
+    }
+},
+
+{
+    "model": "feed.article",
+    "pk": 11,
+    "fields": {
+        "title": "Anti-Universo: o universo espelho onde o tempo corre ao contrário",
+        "description": "Cientistas investigam uma hipótese intrigante: a existência de um anti-universo, uma realidade paralela que espelharia o nosso universo desde o Big Bang. Nele, a matéria seria invertida e o tempo seguiria em sentido oposto. Essa …",
+        "image": "flash_videos/thumbnails/imagem_11.webp",
+        "video": "flash_videos/videos/video_11.mp4"
+    }
+},
+
+{
+    "model": "feed.article",
+    "pk": 12,
+    "fields": {
+        "title": "Netflix pode adquirir a Warner Bros? Especialista discutem possível megafusão no entretenimento",
+        "description": "A possibilidade de uma fusão entre Netflix e Warner Bros. reacendeu debates no mercado global de mídia e streaming. Analistas avaliam como uma aquisição desse porte poderia transformar produções, plataformas e a disputa pelo público. …",
+        "image": "flash_videos/thumbnails/imagem_12.avif",
+        "video": "flash_videos/videos/video_12.mp4"
+    }
+},
+
+{
+    "model": "feed.article",
+    "pk": 13,
+    "fields": {
+        "title": "Criador viraliza ao fazer leitura labial de Vini Jr. e Yamal em momento polêmico",
+        "description": "Um vídeo nas redes sociais ganhou destaque ao mostrar um criador fazendo leitura labial de uma conversa entre Vinicius Jr. e Yamal durante a partida. A interpretação divertida, e não oficial, rapidamente viralizou, gerando debates, …",
+        "image": "flash_videos/thumbnails/imagem_13.webp",
+        "video": "flash_videos/videos/video_13.mp4"
+    }
+},
+
+{
+    "model": "feed.article",
+    "pk": 14,
+    "fields": {
+        "title": "A Sabedoria da Grécia Antiga e Como Ela Influencia o Mundo Moderno",
+        "description": "A Grécia Antiga deixou um legado intelectual que molda até hoje a política, a ciência e as artes. Especialistas explicam como ideias milenares continuam guiando o pensamento contemporâneo.",
+        "image": "flash_videos/thumbnails/imagem_14.jpg",
+        "video": "flash_videos/videos/video_14.mp4"
+    }
+},
+
+{
+    "model": "feed.article",
+    "pk": 15,
+    "fields": {
+        "title": "IA na Sala de Cirurgia: a revolução que está transformando procedimentos médicos",
+        "description": "A integração da inteligência artificial em cirurgias avançadas está remodelando o futuro da medicina. De sistemas que auxiliam no planejamento pré-operatório a robôs capazes de executar movimentos ultrafinos com precisão milimétrica, a tecnologia promete mais …",
+        "image": "flash_videos/thumbnails/imagem_15.webp",
+        "video": "flash_videos/videos/video_15.mp4"
+    }
+},
+
+{
+    "model": "feed.article",
+    "pk": 16,
+    "fields": {
+        "title": "O Segredo Menos Contado da Segunda Guerra Mundial",
+        "description": "Historiadores revelam um dos episódios mais surpreendentes e pouco comentados do maior conflito da história.",
+        "image": "flash_videos/thumbnails/imagem_16.jpg",
+        "video": "flash_videos/videos/video_16.mp4"
+    }
+},
+
+{
+    "model": "feed.article",
+    "pk": 17,
+    "fields": {
+        "title": "O Perigo Invisível do Açúcar no Dia a Dia",
+        "description": "Especialistas alertam: consumo excessivo de açúcar está ligado ao aumento de doenças crônicas e impactos silenciosos no organismo.",
+        "image": "flash_videos/thumbnails/imagem_17.jpg",
+        "video": "flash_videos/videos/video_17.mp4"
+    }
+},
+
+{
+    "model": "feed.article",
+    "pk": 18,
+    "fields": {
+        "title": "Grupo do Brasil na copa é traiçoeiro",
+        "description": "Sorteio aponta caminho que não permite vacilos, embora seleção seja favorita a passar em primeiro lugar.",
+        "image": "flash_videos/thumbnails/imagem_18.jpeg",
+        "video": "flash_videos/videos/video_18.mp4"
+    }
+}
+
+
+]
