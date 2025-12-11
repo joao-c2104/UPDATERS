@@ -94,8 +94,14 @@ O guia inclui:
 
 ---
 
+## Link do Screencast do CI/CD com build e deployment automatizado
+
+- ### https://www.youtube.com/watch?v=ON1nj7gcVkU
+
+---
+
 # 🚀 Link do deploy
-- https://updaters.onrender.com
+- ### https://updaters.onrender.com
 <p align="center">
 
 
