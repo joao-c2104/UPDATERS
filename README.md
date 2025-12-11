@@ -53,13 +53,13 @@ O guia inclui:
 
 ---
 
-
-#### Para ter acesso as nossas histórias, [clique aqui](links/UPDATERS_HISTÓRIAS.pdf).
+## Hitórias do usuário
+- #### Para ter acesso as nossas histórias, [clique aqui](links/historias.pdf).
 ---
 
 ## 👥 Relatório da Programação em Par
 
-- #### Link do relatório: https://docs.google.com/document/d/1QL3QRKqtUXxBwsad-W7LTl9irMdeMIhj2E9tqXod0rc/edit?usp=sharing
+- #### Para ter acesso ao nosso relatório, [clique aqui]().
 
 ---
 
@@ -77,6 +77,7 @@ Produzimos 3 screencast demonstrando as funcionalidades recém-implementadas, al
 
 # 🚀 Link do deploy
 - ### https://updaters.onrender.com
+
 <p align="center">
 
   <b>✨ Somos os UPDATERS. Transformamos desafios em soluções. ✨</b>
