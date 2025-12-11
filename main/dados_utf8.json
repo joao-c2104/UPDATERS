@@ -2,779 +2,456 @@
   {
     "model": "auth.permission",
     "pk": 1,
-    "fields": {
-      "name": "Can add log entry",
-      "content_type": 1,
-      "codename": "add_logentry"
-    }
+    "fields": { "name": "Can add log entry", "content_type": 1, "codename": "add_logentry" }
   },
   {
     "model": "auth.permission",
     "pk": 2,
-    "fields": {
-      "name": "Can change log entry",
-      "content_type": 1,
-      "codename": "change_logentry"
-    }
+    "fields": { "name": "Can change log entry", "content_type": 1, "codename": "change_logentry" }
   },
   {
     "model": "auth.permission",
     "pk": 3,
-    "fields": {
-      "name": "Can delete log entry",
-      "content_type": 1,
-      "codename": "delete_logentry"
-    }
+    "fields": { "name": "Can delete log entry", "content_type": 1, "codename": "delete_logentry" }
   },
   {
     "model": "auth.permission",
     "pk": 4,
-    "fields": {
-      "name": "Can view log entry",
-      "content_type": 1,
-      "codename": "view_logentry"
-    }
+    "fields": { "name": "Can view log entry", "content_type": 1, "codename": "view_logentry" }
   },
   {
     "model": "auth.permission",
     "pk": 5,
-    "fields": {
-      "name": "Can add permission",
-      "content_type": 2,
-      "codename": "add_permission"
-    }
+    "fields": { "name": "Can add permission", "content_type": 2, "codename": "add_permission" }
   },
   {
     "model": "auth.permission",
     "pk": 6,
-    "fields": {
-      "name": "Can change permission",
-      "content_type": 2,
-      "codename": "change_permission"
-    }
+    "fields": { "name": "Can change permission", "content_type": 2, "codename": "change_permission" }
   },
   {
     "model": "auth.permission",
     "pk": 7,
-    "fields": {
-      "name": "Can delete permission",
-      "content_type": 2,
-      "codename": "delete_permission"
-    }
+    "fields": { "name": "Can delete permission", "content_type": 2, "codename": "delete_permission" }
   },
   {
     "model": "auth.permission",
     "pk": 8,
-    "fields": {
-      "name": "Can view permission",
-      "content_type": 2,
-      "codename": "view_permission"
-    }
+    "fields": { "name": "Can view permission", "content_type": 2, "codename": "view_permission" }
   },
   {
     "model": "auth.permission",
     "pk": 9,
-    "fields": {
-      "name": "Can add group",
-      "content_type": 3,
-      "codename": "add_group"
-    }
+    "fields": { "name": "Can add group", "content_type": 3, "codename": "add_group" }
   },
   {
     "model": "auth.permission",
     "pk": 10,
-    "fields": {
-      "name": "Can change group",
-      "content_type": 3,
-      "codename": "change_group"
-    }
+    "fields": { "name": "Can change group", "content_type": 3, "codename": "change_group" }
   },
   {
     "model": "auth.permission",
     "pk": 11,
-    "fields": {
-      "name": "Can delete group",
-      "content_type": 3,
-      "codename": "delete_group"
-    }
+    "fields": { "name": "Can delete group", "content_type": 3, "codename": "delete_group" }
   },
   {
     "model": "auth.permission",
     "pk": 12,
-    "fields": {
-      "name": "Can view group",
-      "content_type": 3,
-      "codename": "view_group"
-    }
+    "fields": { "name": "Can view group", "content_type": 3, "codename": "view_group" }
   },
   {
     "model": "auth.permission",
     "pk": 13,
-    "fields": {
-      "name": "Can add user",
-      "content_type": 4,
-      "codename": "add_user"
-    }
+    "fields": { "name": "Can add user", "content_type": 4, "codename": "add_user" }
   },
   {
     "model": "auth.permission",
     "pk": 14,
-    "fields": {
-      "name": "Can change user",
-      "content_type": 4,
-      "codename": "change_user"
-    }
+    "fields": { "name": "Can change user", "content_type": 4, "codename": "change_user" }
   },
   {
     "model": "auth.permission",
     "pk": 15,
-    "fields": {
-      "name": "Can delete user",
-      "content_type": 4,
-      "codename": "delete_user"
-    }
+    "fields": { "name": "Can delete user", "content_type": 4, "codename": "delete_user" }
   },
   {
     "model": "auth.permission",
     "pk": 16,
-    "fields": {
-      "name": "Can view user",
-      "content_type": 4,
-      "codename": "view_user"
-    }
+    "fields": { "name": "Can view user", "content_type": 4, "codename": "view_user" }
   },
   {
     "model": "auth.permission",
     "pk": 17,
-    "fields": {
-      "name": "Can add content type",
-      "content_type": 5,
-      "codename": "add_contenttype"
-    }
+    "fields": { "name": "Can add content type", "content_type": 5, "codename": "add_contenttype" }
   },
   {
     "model": "auth.permission",
     "pk": 18,
-    "fields": {
-      "name": "Can change content type",
-      "content_type": 5,
-      "codename": "change_contenttype"
-    }
+    "fields": { "name": "Can change content type", "content_type": 5, "codename": "change_contenttype" }
   },
   {
     "model": "auth.permission",
     "pk": 19,
-    "fields": {
-      "name": "Can delete content type",
-      "content_type": 5,
-      "codename": "delete_contenttype"
-    }
+    "fields": { "name": "Can delete content type", "content_type": 5, "codename": "delete_contenttype" }
   },
   {
     "model": "auth.permission",
     "pk": 20,
-    "fields": {
-      "name": "Can view content type",
-      "content_type": 5,
-      "codename": "view_contenttype"
-    }
+    "fields": { "name": "Can view content type", "content_type": 5, "codename": "view_contenttype" }
   },
   {
     "model": "auth.permission",
     "pk": 21,
-    "fields": {
-      "name": "Can add session",
-      "content_type": 6,
-      "codename": "add_session"
-    }
+    "fields": { "name": "Can add session", "content_type": 6, "codename": "add_session" }
   },
   {
     "model": "auth.permission",
     "pk": 22,
-    "fields": {
-      "name": "Can change session",
-      "content_type": 6,
-      "codename": "change_session"
-    }
+    "fields": { "name": "Can change session", "content_type": 6, "codename": "change_session" }
   },
   {
     "model": "auth.permission",
     "pk": 23,
-    "fields": {
-      "name": "Can delete session",
-      "content_type": 6,
-      "codename": "delete_session"
-    }
+    "fields": { "name": "Can delete session", "content_type": 6, "codename": "delete_session" }
   },
   {
     "model": "auth.permission",
     "pk": 24,
-    "fields": {
-      "name": "Can view session",
-      "content_type": 6,
-      "codename": "view_session"
-    }
+    "fields": { "name": "Can view session", "content_type": 6, "codename": "view_session" }
   },
   {
     "model": "auth.permission",
     "pk": 25,
-    "fields": {
-      "name": "Can add article",
-      "content_type": 7,
-      "codename": "add_article"
-    }
+    "fields": { "name": "Can add article", "content_type": 7, "codename": "add_article" }
   },
   {
     "model": "auth.permission",
     "pk": 26,
-    "fields": {
-      "name": "Can change article",
-      "content_type": 7,
-      "codename": "change_article"
-    }
+    "fields": { "name": "Can change article", "content_type": 7, "codename": "change_article" }
   },
   {
     "model": "auth.permission",
     "pk": 27,
-    "fields": {
-      "name": "Can delete article",
-      "content_type": 7,
-      "codename": "delete_article"
-    }
+    "fields": { "name": "Can delete article", "content_type": 7, "codename": "delete_article" }
   },
   {
     "model": "auth.permission",
     "pk": 28,
-    "fields": {
-      "name": "Can view article",
-      "content_type": 7,
-      "codename": "view_article"
-    }
+    "fields": { "name": "Can view article", "content_type": 7, "codename": "view_article" }
   },
   {
     "model": "auth.permission",
     "pk": 29,
-    "fields": {
-      "name": "Can add article view log",
-      "content_type": 8,
-      "codename": "add_articleviewlog"
-    }
+    "fields": { "name": "Can add article view log", "content_type": 8, "codename": "add_articleviewlog" }
   },
   {
     "model": "auth.permission",
     "pk": 30,
-    "fields": {
-      "name": "Can change article view log",
-      "content_type": 8,
-      "codename": "change_articleviewlog"
-    }
+    "fields": { "name": "Can change article view log", "content_type": 8, "codename": "change_articleviewlog" }
   },
   {
     "model": "auth.permission",
     "pk": 31,
-    "fields": {
-      "name": "Can delete article view log",
-      "content_type": 8,
-      "codename": "delete_articleviewlog"
-    }
+    "fields": { "name": "Can delete article view log", "content_type": 8, "codename": "delete_articleviewlog" }
   },
   {
     "model": "auth.permission",
     "pk": 32,
-    "fields": {
-      "name": "Can view article view log",
-      "content_type": 8,
-      "codename": "view_articleviewlog"
-    }
+    "fields": { "name": "Can view article view log", "content_type": 8, "codename": "view_articleviewlog" }
   },
   {
     "model": "auth.permission",
     "pk": 33,
-    "fields": {
-      "name": "Can add Categoria",
-      "content_type": 9,
-      "codename": "add_category"
-    }
+    "fields": { "name": "Can add Categoria", "content_type": 9, "codename": "add_category" }
   },
   {
     "model": "auth.permission",
     "pk": 34,
-    "fields": {
-      "name": "Can change Categoria",
-      "content_type": 9,
-      "codename": "change_category"
-    }
+    "fields": { "name": "Can change Categoria", "content_type": 9, "codename": "change_category" }
   },
   {
     "model": "auth.permission",
     "pk": 35,
-    "fields": {
-      "name": "Can delete Categoria",
-      "content_type": 9,
-      "codename": "delete_category"
-    }
+    "fields": { "name": "Can delete Categoria", "content_type": 9, "codename": "delete_category" }
   },
   {
     "model": "auth.permission",
     "pk": 36,
-    "fields": {
-      "name": "Can view Categoria",
-      "content_type": 9,
-      "codename": "view_category"
-    }
+    "fields": { "name": "Can view Categoria", "content_type": 9, "codename": "view_category" }
   },
   {
     "model": "auth.permission",
     "pk": 37,
-    "fields": {
-      "name": "Can add Comentário",
-      "content_type": 10,
-      "codename": "add_comment"
-    }
+    "fields": { "name": "Can add Comentário", "content_type": 10, "codename": "add_comment" }
   },
   {
     "model": "auth.permission",
     "pk": 38,
-    "fields": {
-      "name": "Can change Comentário",
-      "content_type": 10,
-      "codename": "change_comment"
-    }
+    "fields": { "name": "Can change Comentário", "content_type": 10, "codename": "change_comment" }
   },
   {
     "model": "auth.permission",
     "pk": 39,
-    "fields": {
-      "name": "Can delete Comentário",
-      "content_type": 10,
-      "codename": "delete_comment"
-    }
+    "fields": { "name": "Can delete Comentário", "content_type": 10, "codename": "delete_comment" }
   },
   {
     "model": "auth.permission",
     "pk": 40,
-    "fields": {
-      "name": "Can view Comentário",
-      "content_type": 10,
-      "codename": "view_comment"
-    }
+    "fields": { "name": "Can view Comentário", "content_type": 10, "codename": "view_comment" }
   },
   {
     "model": "auth.permission",
     "pk": 41,
-    "fields": {
-      "name": "Can add site",
-      "content_type": 11,
-      "codename": "add_site"
-    }
+    "fields": { "name": "Can add site", "content_type": 11, "codename": "add_site" }
   },
   {
     "model": "auth.permission",
     "pk": 42,
-    "fields": {
-      "name": "Can change site",
-      "content_type": 11,
-      "codename": "change_site"
-    }
+    "fields": { "name": "Can change site", "content_type": 11, "codename": "change_site" }
   },
   {
     "model": "auth.permission",
     "pk": 43,
-    "fields": {
-      "name": "Can delete site",
-      "content_type": 11,
-      "codename": "delete_site"
-    }
+    "fields": { "name": "Can delete site", "content_type": 11, "codename": "delete_site" }
   },
   {
     "model": "auth.permission",
     "pk": 44,
-    "fields": {
-      "name": "Can view site",
-      "content_type": 11,
-      "codename": "view_site"
-    }
+    "fields": { "name": "Can view site", "content_type": 11, "codename": "view_site" }
   },
   {
     "model": "auth.permission",
     "pk": 45,
-    "fields": {
-      "name": "Can add email address",
-      "content_type": 12,
-      "codename": "add_emailaddress"
-    }
+    "fields": { "name": "Can add email address", "content_type": 12, "codename": "add_emailaddress" }
   },
   {
     "model": "auth.permission",
     "pk": 46,
-    "fields": {
-      "name": "Can change email address",
-      "content_type": 12,
-      "codename": "change_emailaddress"
-    }
+    "fields": { "name": "Can change email address", "content_type": 12, "codename": "change_emailaddress" }
   },
   {
     "model": "auth.permission",
     "pk": 47,
-    "fields": {
-      "name": "Can delete email address",
-      "content_type": 12,
-      "codename": "delete_emailaddress"
-    }
+    "fields": { "name": "Can delete email address", "content_type": 12, "codename": "delete_emailaddress" }
   },
   {
     "model": "auth.permission",
     "pk": 48,
-    "fields": {
-      "name": "Can view email address",
-      "content_type": 12,
-      "codename": "view_emailaddress"
-    }
+    "fields": { "name": "Can view email address", "content_type": 12, "codename": "view_emailaddress" }
   },
   {
     "model": "auth.permission",
     "pk": 49,
-    "fields": {
-      "name": "Can add email confirmation",
-      "content_type": 13,
-      "codename": "add_emailconfirmation"
-    }
+    "fields": { "name": "Can add email confirmation", "content_type": 13, "codename": "add_emailconfirmation" }
   },
   {
     "model": "auth.permission",
     "pk": 50,
-    "fields": {
-      "name": "Can change email confirmation",
-      "content_type": 13,
-      "codename": "change_emailconfirmation"
-    }
+    "fields": { "name": "Can change email confirmation", "content_type": 13, "codename": "change_emailconfirmation" }
   },
   {
     "model": "auth.permission",
     "pk": 51,
-    "fields": {
-      "name": "Can delete email confirmation",
-      "content_type": 13,
-      "codename": "delete_emailconfirmation"
-    }
+    "fields": { "name": "Can delete email confirmation", "content_type": 13, "codename": "delete_emailconfirmation" }
   },
   {
     "model": "auth.permission",
     "pk": 52,
-    "fields": {
-      "name": "Can view email confirmation",
-      "content_type": 13,
-      "codename": "view_emailconfirmation"
-    }
+    "fields": { "name": "Can view email confirmation", "content_type": 13, "codename": "view_emailconfirmation" }
   },
   {
     "model": "auth.permission",
     "pk": 53,
-    "fields": {
-      "name": "Can add social account",
-      "content_type": 14,
-      "codename": "add_socialaccount"
-    }
+    "fields": { "name": "Can add social account", "content_type": 14, "codename": "add_socialaccount" }
   },
   {
     "model": "auth.permission",
     "pk": 54,
-    "fields": {
-      "name": "Can change social account",
-      "content_type": 14,
-      "codename": "change_socialaccount"
-    }
+    "fields": { "name": "Can change social account", "content_type": 14, "codename": "change_socialaccount" }
   },
   {
     "model": "auth.permission",
     "pk": 55,
-    "fields": {
-      "name": "Can delete social account",
-      "content_type": 14,
-      "codename": "delete_socialaccount"
-    }
+    "fields": { "name": "Can delete social account", "content_type": 14, "codename": "delete_socialaccount" }
   },
   {
     "model": "auth.permission",
     "pk": 56,
-    "fields": {
-      "name": "Can view social account",
-      "content_type": 14,
-      "codename": "view_socialaccount"
-    }
+    "fields": { "name": "Can view social account", "content_type": 14, "codename": "view_socialaccount" }
   },
   {
     "model": "auth.permission",
     "pk": 57,
-    "fields": {
-      "name": "Can add social application",
-      "content_type": 15,
-      "codename": "add_socialapp"
-    }
+    "fields": { "name": "Can add social application", "content_type": 15, "codename": "add_socialapp" }
   },
   {
     "model": "auth.permission",
     "pk": 58,
-    "fields": {
-      "name": "Can change social application",
-      "content_type": 15,
-      "codename": "change_socialapp"
-    }
+    "fields": { "name": "Can change social application", "content_type": 15, "codename": "change_socialapp" }
   },
   {
     "model": "auth.permission",
     "pk": 59,
-    "fields": {
-      "name": "Can delete social application",
-      "content_type": 15,
-      "codename": "delete_socialapp"
-    }
+    "fields": { "name": "Can delete social application", "content_type": 15, "codename": "delete_socialapp" }
   },
   {
     "model": "auth.permission",
     "pk": 60,
-    "fields": {
-      "name": "Can view social application",
-      "content_type": 15,
-      "codename": "view_socialapp"
-    }
+    "fields": { "name": "Can view social application", "content_type": 15, "codename": "view_socialapp" }
   },
   {
     "model": "auth.permission",
     "pk": 61,
-    "fields": {
-      "name": "Can add social application token",
-      "content_type": 16,
-      "codename": "add_socialtoken"
-    }
+    "fields": { "name": "Can add social application token", "content_type": 16, "codename": "add_socialtoken" }
   },
   {
     "model": "auth.permission",
     "pk": 62,
-    "fields": {
-      "name": "Can change social application token",
-      "content_type": 16,
-      "codename": "change_socialtoken"
-    }
+    "fields": { "name": "Can change social application token", "content_type": 16, "codename": "change_socialtoken" }
   },
   {
     "model": "auth.permission",
     "pk": 63,
-    "fields": {
-      "name": "Can delete social application token",
-      "content_type": 16,
-      "codename": "delete_socialtoken"
-    }
+    "fields": { "name": "Can delete social application token", "content_type": 16, "codename": "delete_socialtoken" }
   },
   {
     "model": "auth.permission",
     "pk": 64,
-    "fields": {
-      "name": "Can view social application token",
-      "content_type": 16,
-      "codename": "view_socialtoken"
-    }
+    "fields": { "name": "Can view social application token", "content_type": 16, "codename": "view_socialtoken" }
   },
   {
     "model": "auth.permission",
     "pk": 65,
-    "fields": {
-      "name": "Can add Vídeo Flash",
-      "content_type": 17,
-      "codename": "add_flashvideo"
-    }
+    "fields": { "name": "Can add Vídeo Flash", "content_type": 17, "codename": "add_flashvideo" }
   },
   {
     "model": "auth.permission",
     "pk": 66,
-    "fields": {
-      "name": "Can change Vídeo Flash",
-      "content_type": 17,
-      "codename": "change_flashvideo"
-    }
+    "fields": { "name": "Can change Vídeo Flash", "content_type": 17, "codename": "change_flashvideo" }
   },
   {
     "model": "auth.permission",
     "pk": 67,
-    "fields": {
-      "name": "Can delete Vídeo Flash",
-      "content_type": 17,
-      "codename": "delete_flashvideo"
-    }
+    "fields": { "name": "Can delete Vídeo Flash", "content_type": 17, "codename": "delete_flashvideo" }
   },
   {
     "model": "auth.permission",
     "pk": 68,
-    "fields": {
-      "name": "Can view Vídeo Flash",
-      "content_type": 17,
-      "codename": "view_flashvideo"
-    }
+    "fields": { "name": "Can view Vídeo Flash", "content_type": 17, "codename": "view_flashvideo" }
   },
   {
     "model": "contenttypes.contenttype",
     "pk": 1,
-    "fields": {
-      "app_label": "admin",
-      "model": "logentry"
-    }
+    "fields": { "app_label": "admin", "model": "logentry" }
   },
   {
     "model": "contenttypes.contenttype",
     "pk": 2,
-    "fields": {
-      "app_label": "auth",
-      "model": "permission"
-    }
+    "fields": { "app_label": "auth", "model": "permission" }
   },
   {
     "model": "contenttypes.contenttype",
     "pk": 3,
-    "fields": {
-      "app_label": "auth",
-      "model": "group"
-    }
+    "fields": { "app_label": "auth", "model": "group" }
   },
   {
     "model": "contenttypes.contenttype",
     "pk": 4,
-    "fields": {
-      "app_label": "auth",
-      "model": "user"
-    }
+    "fields": { "app_label": "auth", "model": "user" }
   },
   {
     "model": "contenttypes.contenttype",
     "pk": 5,
-    "fields": {
-      "app_label": "contenttypes",
-      "model": "contenttype"
-    }
+    "fields": { "app_label": "contenttypes", "model": "contenttype" }
   },
   {
     "model": "contenttypes.contenttype",
     "pk": 6,
-    "fields": {
-      "app_label": "sessions",
-      "model": "session"
-    }
+    "fields": { "app_label": "sessions", "model": "session" }
   },
   {
     "model": "contenttypes.contenttype",
     "pk": 7,
-    "fields": {
-      "app_label": "feed",
-      "model": "article"
-    }
+    "fields": { "app_label": "feed", "model": "article" }
   },
   {
     "model": "contenttypes.contenttype",
     "pk": 8,
-    "fields": {
-      "app_label": "feed",
-      "model": "articleviewlog"
-    }
+    "fields": { "app_label": "feed", "model": "articleviewlog" }
   },
   {
     "model": "contenttypes.contenttype",
     "pk": 9,
-    "fields": {
-      "app_label": "feed",
-      "model": "category"
-    }
+    "fields": { "app_label": "feed", "model": "category" }
   },
   {
     "model": "contenttypes.contenttype",
     "pk": 10,
-    "fields": {
-      "app_label": "feed",
-      "model": "comment"
-    }
+    "fields": { "app_label": "feed", "model": "comment" }
   },
   {
     "model": "feed.category",
     "pk": 1,
-    "fields": {
-      "name": "Política"
-    }
+    "fields": { "name": "Política" }
   },
   {
     "model": "feed.category",
     "pk": 2,
-    "fields": {
-      "name": "Economia"
-    }
+    "fields": { "name": "Economia" }
   },
   {
     "model": "feed.category",
     "pk": 3,
-    "fields": {
-      "name": "Internacional"
-    }
+    "fields": { "name": "Internacional" }
   },
   {
     "model": "feed.category",
     "pk": 4,
-    "fields": {
-      "name": "Esportes"
-    }
+    "fields": { "name": "Esportes" }
   },
   {
     "model": "feed.category",
     "pk": 5,
-    "fields": {
-      "name": "Cultura"
-    }
+    "fields": { "name": "Cultura" }
   },
   {
     "model": "feed.category",
     "pk": 6,
-    "fields": {
-      "name": "Tecnologia"
-    }
+    "fields": { "name": "Tecnologia" }
   },
   {
     "model": "feed.category",
     "pk": 7,
-    "fields": {
-      "name": "Saúde"
-    }
+    "fields": { "name": "Saúde" }
   },
   {
     "model": "feed.category",
     "pk": 8,
-    "fields": {
-      "name": "Brasil"
-    }
+    "fields": { "name": "Brasil" }
   },
   {
     "model": "feed.category",
     "pk": 9,
-    "fields": {
-      "name": "Educação"
-    }
+    "fields": { "name": "Educação" }
   },
   {
     "model": "feed.category",
     "pk": 11,
-    "fields": {
-      "name": "Meio Ambiente"
-    }
+    "fields": { "name": "Meio Ambiente" }
   },
   {
     "model": "feed.article",
     "pk": 1,
     "fields": {
-      "title": "Uma iniciativa está conectando os idosos ao mundo digital!",
-      "summary": "Projeto de inclusão digital ensina idosos a usar computadores e redes sociais, promovendo conexão com familiares e acesso a serviços essenciais.",
+      "title": "Uma iniciativa  está conectando os idosos ao mundo digital!",
       "author": "Alfredo Torres",
+      "summary": "Projeto de inclusão digital ensina idosos a usar computadores e redes sociais, promovendo conexão com familiares e acesso a serviços essenciais.",
       "content": "Um projeto de inclusão digital está ensinando aos mais velhos como usar o computador e as redes sociais, possibilitando que eles se comuniquem com seus amigos e familiares, além de terem acesso a serviços importantes.\r\nOs participantes estão aprendendo desde o básico, como ligar e desligar o computador, até tarefas mais avançadas, como enviar e-mails e acessar sites de notícias.",
       "image": "articles/unnamed.jpg",
       "publication_date": "2025-11-05T13:54:41Z",
       "view_count": 0,
       "slug": "uma-iniciativa-esta-conectando-os-idosos-ao-mundo-digital",
-      "category": null,
-      "favorites": []
+      "category": 6
     }
   },
   {
@@ -782,15 +459,14 @@
     "pk": 2,
     "fields": {
       "title": "Feira de Ciências reúne estudantes e inovações sustentáveis",
-      "summary": "Feira Municipal de Ciências reúne alunos de mais de 30 escolas com projetos sustentáveis, como energia solar e reciclagem, incentivando a inovação e a consciência ambiental entre os jovens.",
       "author": "Alfredo Torres",
+      "summary": "Feira Municipal de Ciências reúne alunos de mais de 30 escolas com projetos sustentáveis, como energia solar e reciclagem, incentivando a inovação e a consciência ambiental entre os jovens.",
       "content": "A Feira Municipal de Ciências abriu suas portas nesta sexta-feira no Centro de Convenções, reunindo alunos de mais de 30 escolas públicas e particulares. O evento apresenta projetos voltados à sustentabilidade, com destaque para invenções que utilizam energia solar, reaproveitamento de água e materiais recicláveis.\r\nDurante os três dias de exposição, o público poderá conhecer de perto as criações dos estudantes e participar de oficinas sobre tecnologia verde e educação ambiental. Segundo os organizadores, a feira busca estimular a curiosidade científica e despertar o interesse dos jovens por soluções inovadoras que contribuam para um futuro mais sustentável.",
       "image": "articles/70ed1761d249dc503c7f77cfc53818e6.jpg",
       "publication_date": "2025-11-05T14:11:20Z",
       "view_count": 0,
       "slug": "feira-de-ciencias-reune-estudantes-e-inovacoes-sustentaveis",
-      "category": null,
-      "favorites": []
+      "category": 6
     }
   },
   {
@@ -798,15 +474,14 @@
     "pk": 3,
     "fields": {
       "title": "Nova linha de ônibus melhora transporte entre bairros afastados",
-      "summary": "Nova linha de ônibus 503 vai ligar Jardim Aurora à Vila das Palmeiras com mais conforto e menos tempo de viagem.",
       "author": "Alfredo Torres",
+      "summary": "Nova linha de ônibus 503 vai ligar Jardim Aurora à Vila das Palmeiras com mais conforto e menos tempo de viagem.",
       "content": "A Prefeitura anunciou nesta segunda-feira a criação da linha 503, que vai conectar diretamente os bairros Jardim Aurora e Vila das Palmeiras. A nova rota tem o objetivo de reduzir o tempo de deslocamento dos moradores, que antes precisavam realizar duas conexões para chegar ao centro da cidade.\r\nSegundo a Secretaria de Transportes, os ônibus começarão a circular ainda nesta semana, com intervalos de 20 minutos nos horários de pico. Além disso, todos os veículos da nova linha contam com ar-condicionado, Wi-Fi gratuito e acessibilidade para pessoas com deficiência. A expectativa é de que cerca de 4 mil passageiros utilizem o serviço diariamente, aliviando o fluxo de outras linhas já existentes.",
       "image": "articles/PSX_20200303_111806.jpg",
       "publication_date": "2025-11-05T14:12:38Z",
       "view_count": 0,
       "slug": "nova-linha-de-onibus-melhora-transporte-entre-bairros-afastados",
-      "category": null,
-      "favorites": []
+      "category": 8
     }
   },
   {
@@ -814,15 +489,14 @@
     "pk": 4,
     "fields": {
       "title": "Biblioteca municipal lança acervo digital com mais de 5 mil livros gratuitos",
-      "summary": "Biblioteca Central lança acervo digital com mais de 5 mil livros gratuitos para incentivar a leitura.",
       "author": "Alfredo Torres",
+      "summary": "Biblioteca Central lança acervo digital com mais de 5 mil livros gratuitos para incentivar a leitura.",
       "content": "A Biblioteca Central da cidade anunciou nesta semana o lançamento de um novo acervo digital que reúne mais de 5 mil livros gratuitos. A plataforma, acessível por meio de um aplicativo para celulares e computadores, oferece títulos de diferentes gêneros, incluindo literatura clássica, obras contemporâneas, quadrinhos e materiais acadêmicos.\r\nDe acordo com a administração municipal, o objetivo da iniciativa é democratizar o acesso à leitura e incentivar o hábito entre os jovens. A expectativa é de que o número de usuários cresça rapidamente nos próximos meses, tornando a biblioteca um ponto de referência também no ambiente virtual. Além dos livros, o aplicativo contará com audiolivros e clubes de leitura online.",
       "image": "articles/Biblioteca-Rio_de_Janeiro-Brasil.jpg",
       "publication_date": "2025-11-05T14:14:22Z",
       "view_count": 0,
       "slug": "biblioteca-municipal-lanca-acervo-digital-com-mais-de-5-mil-livros-gratuitos",
-      "category": null,
-      "favorites": []
+      "category": 6
     }
   },
   {
@@ -830,15 +504,14 @@
     "pk": 5,
     "fields": {
       "title": "Nova praça é inaugurada no centro da cidade",
-      "summary": "Prefeitura inaugura Praça das Flores no centro com área verde, parquinho e pista de caminhada, promovendo lazer e mais segurança para os moradores.",
       "author": "Alfredo Torres",
+      "summary": "Prefeitura inaugura Praça das Flores no centro com área verde, parquinho e pista de caminhada, promovendo lazer e mais segurança para os moradores.",
       "content": "A Prefeitura inaugurou hoje a Praça das Flores, um novo espaço de lazer no centro da cidade. O local conta com áreas verdes, parquinho infantil e pista de caminhada.\r\nMoradores comemoraram a novidade, destacando que o espaço traz mais segurança e convivência para a região. A praça estará aberta todos os dias, das 6h às 22h.",
       "image": "articles/Praca-da-Liberdade-em-Belo-Horizonte-Foto-Shutterstock-850x667.jpg",
       "publication_date": "2025-11-05T14:15:33Z",
       "view_count": 0,
       "slug": "nova-praca-e-inaugurada-no-centro-da-cidade",
-      "category": null,
-      "favorites": []
+      "category": 5
     }
   },
   {
@@ -846,15 +519,14 @@
     "pk": 6,
     "fields": {
       "title": "Nova iniciativa incentiva jovens a aprender programação nas escolas públicas",
-      "summary": "“Código para o Futuro” leva cursos de programação e IA a escolas públicas, preparando jovens para o mercado digital.",
       "author": "Alfredo Torres",
+      "summary": "“Código para o Futuro” leva cursos de programação e IA a escolas públicas, preparando jovens para o mercado digital.",
       "content": "Uma nova iniciativa do Ministério da Educação promete transformar o ensino tecnológico nas escolas públicas brasileiras. O projeto “Código para o Futuro” visa oferecer cursos gratuitos de programação, robótica e inteligência artificial para estudantes do ensino médio, buscando prepará-los para o mercado de trabalho digital em constante crescimento.\r\nA proposta já começou a ser implementada em 200 escolas-piloto espalhadas pelo país e deve atingir mais de 50 mil alunos até o fim do próximo ano. Especialistas acreditam que o projeto pode reduzir desigualdades de acesso à tecnologia e abrir novas oportunidades para jovens de regiões com menos infraestrutura digital.",
       "image": "articles/R_1.jpg",
       "publication_date": "2025-11-05T14:16:30Z",
       "view_count": 0,
       "slug": "nova-iniciativa-incentiva-jovens-a-aprender-programacao-nas-escolas-publicas",
-      "category": null,
-      "favorites": []
+      "category": 9
     }
   }
 ]
